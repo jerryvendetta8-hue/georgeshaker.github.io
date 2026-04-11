@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>د. جورج شاكر | استشاري المسالك البولية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8975A;
+    --gold-light: #D4B896;
+    --gold-pale: rgba(184,151,90,0.08);
+    --deep: #0C0F14;
+    --surface: #13181F;
+    --surface2: #1A2028;
+    --surface3: #202835;
+    --text: #EDE9E3;
+    --muted: #7A8490;
+    --soft: #B0BAC4;
+    --border: rgba(184,151,90,0.18);
+    --border-soft: rgba(255,255,255,0.06);
+    --radius: 6px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--deep);
+    color: var(--text);
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    overflow-x: hidden;
+    direction: rtl;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--deep); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+  nav {
+    position: fixed; top: 0; right: 0; left: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 4rem;
+    background: rgba(12,15,20,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a { color: var(--soft); text-decoration: none; font-size: 0.9rem; transition: color 0.25s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { padding: 0.45rem 1.2rem !important; border: 1px solid var(--gold) !important; border-radius: var(--radius) !important; color: var(--gold) !important; font-weight: 500 !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--deep) !important; }
+
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; gap: 5rem;
+    padding: 7rem 4rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; top: 20%; right: 55%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,151,90,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.75rem; letter-spacing: 0.1em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 1.25rem;
+  }
+  .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  h1.hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 300; line-height: 1.1; margin-bottom: 0.4rem; }
+  h1.hero-name span { color: var(--gold); }
+  .hero-tagline { font-size: 1.05rem; color: var(--soft); margin-bottom: 1.5rem; font-weight: 300; }
+  .hero-desc { font-size: 1rem; color: var(--text); max-width: 500px; margin-bottom: 2rem; opacity: 0.8; line-height: 1.9; }
+  .hero-specialties { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+  .spec-pill { padding: 0.3rem 0.9rem; border: 1px solid var(--border); border-radius: 30px; font-size: 0.8rem; color: var(--gold-light); background: var(--gold-pale); }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-gold { padding: 0.75rem 1.8rem; background: var(--gold); color: var(--deep); font-weight: 700; font-family: 'Tajawal', sans-serif; text-decoration: none; border-radius: var(--radius); font-size: 0.9rem; transition: opacity 0.2s; display: inline-block; }
+  .btn-gold:hover { opacity: 0.85; }
+  .btn-ghost { padding: 0.75rem 1.8rem; border: 1px solid var(--border); color: var(--soft); text-decoration: none; border-radius: var(--radius); font-size: 0.9rem; font-family: 'Tajawal', sans-serif; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
+  .photo-wrap { position: relative; width: 360px; height: 460px; }
+  .photo-border-accent { position: absolute; inset: 0; border: 1px solid var(--gold); border-radius: var(--radius); transform: translate(14px, -14px); opacity: 0.2; pointer-events: none; }
+  .photo-box { width: 100%; height: 100%; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border-soft); overflow: hidden; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .photo-box img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .photo-placeholder-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 2rem; text-align: center; }
+  .photo-avatar-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--surface2); display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(184,151,90,0.3); }
+  .photo-avatar-icon svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1.2; }
+  .photo-placeholder-label { font-size: 0.8rem; color: var(--muted); }
+  .photo-placeholder-code { font-family: monospace; font-size: 0.7rem; color: var(--gold); opacity: 0.6; }
+  .credential-strip { position: absolute; bottom: -1.25rem; right: 50%; transform: translateX(50%); display: flex; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; white-space: nowrap; }
+  .cred-item { padding: 0.55rem 1.1rem; text-align: center; }
+  .cred-item + .cred-item { border-right: 1px solid var(--border); }
+  .cred-num { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold); line-height: 1; display: block; }
+  .cred-lbl { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.06em; }
+
+  .divider { height: 1px; background: var(--border-soft); margin: 0 4rem; }
+
+  section { padding: 5.5rem 4rem; }
+  .sec-eyebrow { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
+  .sec-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  .sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 300; line-height: 1.2; margin-bottom: 0.75rem; }
+  .sec-sub { color: var(--muted); font-size: 0.95rem; max-width: 520px; }
+
+  #about { background: var(--surface); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-body { font-size: 0.97rem; color: var(--soft); line-height: 2; }
+  .about-body p + p { margin-top: 1rem; }
+  .about-quals { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.65rem; }
+  .qual-row { display: flex; align-items: center; gap: 0.9rem; padding: 0.8rem 1rem; background: var(--deep); border: 1px solid var(--border-soft); border-radius: var(--radius); }
+  .qual-icon { width: 32px; height: 32px; flex-shrink: 0; background: var(--gold-pale); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+  .qual-icon svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.8; }
+  .qual-text { font-size: 0.85rem; color: var(--text); }
+  .specialty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .spec-card { background: var(--deep); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 1.4rem; transition: border-color 0.25s; position: relative; overflow: hidden; }
+  .spec-card::after { content: ''; position: absolute; bottom: 0; right: 0; left: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.3s; }
+  .spec-card:hover { border-color: rgba(184,151,90,0.35); }
+  .spec-card:hover::after { transform: scaleX(1); }
+  .spec-card-icon { width: 40px; height: 40px; margin-bottom: 1rem; background: var(--gold-pale); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+  .spec-card-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .spec-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .spec-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+  #topics { background: var(--deep); }
+  .topics-header { margin-bottom: 3rem; }
+  .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.25rem; }
+  .topic-card { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 1.75rem; transition: border-color 0.25s, transform 0.25s; }
+  .topic-card:hover { border-color: rgba(184,151,90,0.3); transform: translateY(-3px); }
+  .topic-icon { width: 46px; height: 46px; margin-bottom: 1.2rem; background: var(--gold-pale); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+  .topic-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .topic-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .topic-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+  .topic-tag { display: inline-block; margin-top: 1rem; font-size: 0.7rem; color: var(--gold); border: 1px solid var(--border); border-radius: 20px; padding: 0.2rem 0.7rem; }
+
+  #guides { background: var(--surface); }
+  .guides-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+  .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+  .guide-card { background: var(--deep); border: 1px solid var(--border-soft); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s; }
+  .guide-card:hover { transform: translateY(-4px); }
+  .guide-img { height: 160px; background: var(--surface2); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .guide-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(184,151,90,0.06) 0%, transparent 100%); }
+  .guide-img-icon { width: 56px; height: 56px; background: var(--gold-pale); border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+  .guide-img-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .guide-badge { position: absolute; top: 0.9rem; left: 0.9rem; padding: 0.2rem 0.65rem; font-size: 0.68rem; border-radius: 3px; font-weight: 500; }
+  .badge-new { background: rgba(184,151,90,0.15); color: var(--gold); }
+  .badge-hot { background: var(--gold); color: var(--deep); }
+  .badge-soon { background: rgba(255,255,255,0.06); color: var(--muted); }
+  .guide-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+  .guide-lang { font-size: 0.68rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+  .guide-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .guide-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; flex: 1; }
+  .guide-footer { padding: 0.9rem 1.4rem; border-top: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: space-between; }
+  .guide-price { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--gold); }
+  .guide-price small { font-size: 0.8rem; color: var(--muted); font-family: 'Tajawal', sans-serif; }
+  .btn-small { padding: 0.45rem 1.1rem; background: var(--gold); color: var(--deep); border: none; border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: 'Tajawal', sans-serif; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+  .btn-small:hover { opacity: 0.85; }
+  .btn-small-ghost { padding: 0.45rem 1.1rem; background: var(--surface2); color: var(--muted); border: none; border-radius: 4px; font-size: 0.8rem; cursor: pointer; font-family: 'Tajawal', sans-serif; text-decoration: none; }
+
+  .newsletter { background: var(--surface2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3.5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .newsletter-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 300; margin-bottom: 0.4rem; }
+  .newsletter-text p { font-size: 0.9rem; color: var(--muted); }
+  .newsletter-form { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .newsletter-input { padding: 0.7rem 1.2rem; background: var(--deep); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.9rem; font-family: 'Tajawal', sans-serif; width: 260px; direction: rtl; }
+  .newsletter-input::placeholder { color: var(--muted); }
+  .newsletter-input:focus { outline: none; border-color: var(--gold); }
+
+  #follow { background: var(--deep); }
+  .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+  .social-card { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; text-decoration: none; color: var(--text); transition: border-color 0.25s, transform 0.25s; }
+  .social-card:hover { border-color: rgba(184,151,90,0.35); transform: translateY(-3px); }
+  .social-card-icon { width: 48px; height: 48px; background: var(--gold-pale); border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+  .social-card-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .social-card h4 { font-size: 1rem; font-weight: 700; }
+  .social-card p { font-size: 0.82rem; color: var(--muted); text-align: right; line-height: 1.6; }
+  .social-card-cta { font-size: 0.78rem; color: var(--gold); margin-top: auto; }
+
+  footer { background: var(--surface); border-top: 1px solid var(--border-soft); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); font-weight: 600; }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.75rem; color: var(--muted); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-text > * { animation: fadeUp 0.65s ease both; }
+  .hero-eyebrow { animation-delay: 0.05s; }
+  h1.hero-name { animation-delay: 0.15s; }
+  .hero-tagline { animation-delay: 0.22s; }
+  .hero-desc { animation-delay: 0.30s; }
+  .hero-specialties { animation-delay: 0.38s; }
+  .hero-btns { animation-delay: 0.46s; }
+  .hero-visual { animation: fadeUp 0.8s 0.25s ease both; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 5.5rem 1.5rem 3rem; gap: 3rem; }
+    .hero-visual { order: -1; }
+    .photo-wrap { width: 260px; height: 320px; }
+    section { padding: 4rem 1.5rem; }
+    #about { grid-template-columns: 1fr; gap: 2.5rem; }
+    .specialty-grid { grid-template-columns: 1fr 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+    .divider { margin: 0 1.5rem; }
+    .newsletter { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-end; }
+    .newsletter-input { width: 100%; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-end; }
+    .guides-header { flex-direction: column; align-items: flex-end; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul class="nav-links">
+    <li><a href="#follow" class="nav-cta">تابعني</a></li>
+    <li><a href="#guides">الأدلة</a></li>
+    <li><a href="#topics">المواضيع</a></li>
+    <li><a href="#about">عني</a></li>
+  </ul>
+  <div class="nav-logo">د. جورج شاكر</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      استشاري مسالك بولية · NHS · المملكة المتحدة
+    </div>
+    <h1 class="hero-name">د. جورج<br><span>شاكر</span></h1>
+    <p class="hero-tagline">استشاري المسالك البولية — خبرة ١٢ عامًا في NHS</p>
+    <p class="hero-desc">
+      أُبسّط أمراض المسالك البولية وأشرحها بلغة واضحة لكل إنسان عربي.
+      لأن الوعي الصحي حق للجميع — بدون تعقيد ولا مصطلحات صعبة.
+    </p>
+    <div class="hero-specialties">
+      <span class="spec-pill">طب الذكورة والأندرولوجيا</span>
+      <span class="spec-pill">أمراض المثانة</span>
+      <span class="spec-pill">أمراض البروستاتا</span>
+      <span class="spec-pill">FEBU كامل</span>
+      <span class="spec-pill">MRCS</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#topics" class="btn-gold">استكشف المواضيع</a>
+      <a href="#about" class="btn-ghost">اعرف أكثر عني</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="photo-wrap">
+      <div class="photo-border-accent"></div>
+      <!-- ضع صورتك هنا: استبدل هذا القسم بـ <img src="george.jpg" alt="د. جورج شاكر"> -->
+      <div class="photo-box">
+        <div class="photo-placeholder-inner">
+          <div class="photo-avatar-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <p class="photo-placeholder-label">ضع صورتك هنا</p>
+          <p class="photo-placeholder-code">&lt;img src="photo.jpg"&gt;</p>
+        </div>
+      </div>
+      <div class="credential-strip">
+        <div class="cred-item">
+          <span class="cred-num">١٢</span>
+          <span class="cred-lbl">عامًا خبرة</span>
+        </div>
+        <div class="cred-item">
+          <span class="cred-num">NHS</span>
+          <span class="cred-lbl">استشاري</span>
+        </div>
+        <div class="cred-item">
+          <span class="cred-num">FEBU</span>
+          <span class="cred-lbl">كامل</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div>
+    <div class="sec-eyebrow">من أنا</div>
+    <h2 class="sec-title">الطبيب الذي<br>يتحدث بلغتك</h2>
+    <div class="about-body">
+      <p>أنا الدكتور جورج شاكر، استشاري المسالك البولية في هيئة الخدمات الصحية الوطنية البريطانية (NHS)، بخبرة سريرية تمتد لأكثر من <strong>١٢ عامًا</strong> في مستشفيات NHS.</p>
+      <p>تخصصت في <strong>طب الذكورة والأندرولوجيا</strong>، وأمراض <strong>المثانة</strong>، وأمراض <strong>البروستاتا</strong> — وهي من أكثر المشاكل الصحية انتشارًا والتي يتحرج كثيرون من الحديث عنها.</p>
+      <p>أؤمن أن المريض المُدرك يتعافى أسرع. لذلك أُبسّط هذه المعلومات بالعربية عبر إنستغرام وتيك توك — ليصلها كل عربي في أي مكان في العالم.</p>
+    </div>
+    <div class="about-quals">
+      <div class="qual-row">
+        <div class="qual-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+        <span class="qual-text">FEBU كامل — الزمالة الأوروبية في جراحة المسالك البولية</span>
+      </div>
+      <div class="qual-row">
+        <div class="qual-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <span class="qual-text">MRCS — عضو الكلية الملكية للجراحين</span>
+      </div>
+      <div class="qual-row">
+        <div class="qual-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <span class="qual-text">الزمالة المصرية في جراحة المسالك البولية</span>
+      </div>
+      <div class="qual-row">
+        <div class="qual-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <span class="qual-text">عضو نشط في BAUS و EAU</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="specialty-grid">
+      <div class="spec-card">
+        <div class="spec-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4>طب الذكورة والأندرولوجيا</h4>
+        <p>الضعف الجنسي، تأخر الإنجاب، الهرمونات، وصحة الرجل</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <h4>أمراض المثانة</h4>
+        <p>المثانة المفرطة النشاط، سلس البول، التهابات متكررة</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
+        <h4>أمراض البروستاتا</h4>
+        <p>تضخم البروستاتا الحميد، سرطان البروستاتا، اضطرابات التبول</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h4>حصوات الكلى</h4>
+        <p>الوقاية، التشخيص، وخيارات العلاج بدون جراحة أو بالمنظار</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="topics">
+  <div class="topics-header">
+    <div class="sec-eyebrow">تثقيف صحي</div>
+    <h2 class="sec-title">مواضيع تهمك<br>ويهمك أن تعرفها</h2>
+    <p class="sec-sub">محتوى طبي موثوق بالعربية — مُبسَّط لكل إنسان، لا للأطباء فقط</p>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-card">
+      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
+      <h3>حصوات الكلى</h3>
+      <p>ما الأسباب الحقيقية؟ كيف تعرف أن عندك حصوة؟ متى تحتاج عملية ومتى لا؟ كل هذا بلغة بسيطة.</p>
+      <span class="topic-tag">أمراض الكلى</span>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
+      <h3>تضخم البروستاتا</h3>
+      <p>لماذا يتضخم البروستاتا؟ ما أعراضه؟ هل يتحول لسرطان؟ وما العلاج المناسب لكل حالة؟</p>
+      <span class="topic-tag">أمراض البروستاتا</span>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 12H8"/></svg></div>
+      <h3>المثانة المفرطة النشاط</h3>
+      <p>الرغبة الملحّة في التبول، الاستيقاظ ليلًا، سلس البول — مشكلة شائعة جدًا وعلاجها ميسور.</p>
+      <span class="topic-tag">أمراض المثانة</span>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg></div>
+      <h3>الدم في البول</h3>
+      <p>متى يكون خطيرًا ومتى لا؟ ما الفحوصات المطلوبة؟ دليل هادئ لا يثير الذعر بلا سبب.</p>
+      <span class="topic-tag">تشخيص ومتابعة</span>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+      <h3>سرطان البروستاتا</h3>
+      <p>الكشف المبكر ينقذ حياة. ما هو فحص PSA؟ من يحتاجه؟ وماذا يعني تشخيص الإصابة فعلًا؟</p>
+      <span class="topic-tag">السرطان والوقاية</span>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <h3>الضعف الجنسي عند الرجل</h3>
+      <p>الأسباب الطبية والنفسية، العلاجات المتاحة، وما الذي يخبرك به ضعف الانتصاب عن صحتك العامة.</p>
+      <span class="topic-tag">صحة الذكورة</span>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7"/></svg></div>
+      <h3>التهابات المسالك البولية</h3>
+      <p>لماذا تتكرر عند المرأة؟ كيف تُعالَج بشكل صحيح؟ ومتى تحتاج اختصاصيًا وليس مجرد مضاد حيوي؟</p>
+      <span class="topic-tag">التهابات متكررة</span>
+    </div>
+    <div class="topic-card">
+      <div class="topic-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+      <h3>أسئلة لا يجرؤون على طرحها</h3>
+      <p>مشاكل الإنجاب، ألم الخصية، والأسئلة المحرجة التي تستحق إجابة طبية حقيقية وصريحة.</p>
+      <span class="topic-tag">صحة الرجل</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="guides">
+  <div class="guides-header">
+    <div>
+      <div class="sec-eyebrow">أدلة المرضى</div>
+      <h2 class="sec-title">كتيّبات ومراجع<br>بالعربية</h2>
+    </div>
+    <p class="sec-sub" style="max-width: 320px;">موارد طبية موثوقة كتبها استشاري متخصص — للمريض ولعائلته</p>
+  </div>
+  <div class="guides-grid">
+    <div class="guide-card">
+      <div class="guide-img">
+        <div class="guide-img-overlay"></div>
+        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
+        <span class="guide-badge badge-hot">الأكثر طلبًا</span>
+      </div>
+      <div class="guide-body">
+        <div class="guide-lang">عربي</div>
+        <div class="guide-title">دليل حصوات الكلى الشامل</div>
+        <p class="guide-desc">الأسباب، الأعراض، التغذية الوقائية، والعلاج — كل ما تحتاج معرفته في دليل واحد مُبسَّط</p>
+      </div>
+      <div class="guide-footer">
+        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
+        <a href="#" class="btn-small">تحميل</a>
+      </div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-img">
+        <div class="guide-img-overlay"></div>
+        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <span class="guide-badge badge-new">جديد</span>
+      </div>
+      <div class="guide-body">
+        <div class="guide-lang">عربي</div>
+        <div class="guide-title">المثانة المفرطة النشاط — دليل المريض</div>
+        <p class="guide-desc">تمارين المثانة، تعديلات نمط الحياة، وخيارات العلاج — لاسترداد سيطرتك على حياتك اليومية</p>
+      </div>
+      <div class="guide-footer">
+        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
+        <a href="#" class="btn-small">تحميل</a>
+      </div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-img">
+        <div class="guide-img-overlay"></div>
+        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <span class="guide-badge badge-new">جديد</span>
+      </div>
+      <div class="guide-body">
+        <div class="guide-lang">عربي</div>
+        <div class="guide-title">صحة البروستاتا — دليل الرجل العربي</div>
+        <p class="guide-desc">تضخم البروستاتا، PSA، سرطان البروستاتا — للرجل فوق ٤٠ وللعائلة المحيطة به</p>
+      </div>
+      <div class="guide-footer">
+        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
+        <a href="#" class="btn-small">تحميل</a>
+      </div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-img">
+        <div class="guide-img-overlay"></div>
+        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <span class="guide-badge badge-hot">باقة مميزة</span>
+      </div>
+      <div class="guide-body">
+        <div class="guide-lang">عربي</div>
+        <div class="guide-title">الباقة الشاملة — ٥ أدلة عربية</div>
+        <p class="guide-desc">جميع الأدلة الخمسة في باقة واحدة: حصوات الكلى، المثانة، البروستاتا، الالتهابات، والدم في البول</p>
+      </div>
+      <div class="guide-footer">
+        <div class="guide-price">£18 <small>/ الباقة</small></div>
+        <a href="#" class="btn-small">احصل على الباقة</a>
+      </div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-img">
+        <div class="guide-img-overlay"></div>
+        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 12H8"/></svg></div>
+        <span class="guide-badge badge-new">جديد</span>
+      </div>
+      <div class="guide-body">
+        <div class="guide-lang">عربي — للنساء خاصةً</div>
+        <div class="guide-title">الوقاية من التهابات المسالك</div>
+        <p class="guide-desc">عادات يومية، نظافة صحيحة، ومتى تحتاجين طبيبًا — لأن الالتهابات المتكررة لها حل حقيقي</p>
+      </div>
+      <div class="guide-footer">
+        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
+        <a href="#" class="btn-small">تحميل</a>
+      </div>
+    </div>
+    <div class="guide-card" style="opacity: 0.65;">
+      <div class="guide-img" style="border:1px dashed rgba(184,151,90,0.15);">
+        <div class="guide-img-overlay"></div>
+        <div class="guide-img-icon" style="border-style:dashed;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
+        <span class="guide-badge badge-soon">قريبًا</span>
+      </div>
+      <div class="guide-body">
+        <div class="guide-lang" style="color:var(--muted)">عربي</div>
+        <div class="guide-title" style="color:var(--muted)">الضعف الجنسي — دليل الرجل</div>
+        <p class="guide-desc">دليل شامل لصحة الرجل الجنسية — يُكتب الآن وسيصدر قريبًا</p>
+      </div>
+      <div class="guide-footer">
+        <div class="guide-price" style="color:var(--muted)">قريبًا</div>
+        <a href="#" class="btn-small-ghost">أبلغني عند الصدور</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="newsletter">
+  <div class="newsletter-text">
+    <h3>تحديثات طبية أسبوعية بالعربية</h3>
+    <p>محتوى موثوق مباشرة إلى بريدك — بدون ضجيج، بدون تعقيد</p>
+  </div>
+  <div class="newsletter-form">
+    <input type="email" class="newsletter-input" placeholder="بريدك الإلكتروني">
+    <a href="#" class="btn-gold">اشترك مجانًا</a>
+  </div>
+</div>
+
+<section id="follow">
+  <div class="sec-eyebrow">تواصل معي</div>
+  <h2 class="sec-title">تابعني على<br>منصاتك المفضلة</h2>
+  <p class="sec-sub">محتوى يومي بالعربية — علم وتوعية وصراحة طبية بدون رتوش</p>
+  <div class="social-grid">
+    <a href="#" class="social-card">
+      <div class="social-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="var(--gold)" stroke="none"/></svg></div>
+      <h4>إنستغرام</h4>
+      <p>فيديوهات قصيرة وإنفوغرافيك بالعربية عن أمراض المسالك البولية — لكل الناس</p>
+      <span class="social-card-cta">تابع ←</span>
+    </a>
+    <a href="#" class="social-card">
+      <div class="social-card-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-5-5z"/><path d="M9 3v5h10M12 12v5M9.5 14.5l2.5-2.5 2.5 2.5"/></svg></div>
+      <h4>تيك توك</h4>
+      <p>فيديوهات توعوية مباشرة وصريحة عن أكثر مواضيع المسالك البولية شيوعًا</p>
+      <span class="social-card-cta">تابع ←</span>
+    </a>
+    <a href="#" class="social-card">
+      <div class="social-card-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+      <h4>لينكدإن</h4>
+      <p>محتوى مهني للأطباء والمتخصصين — تجارب سريرية في NHS</p>
+      <span class="social-card-cta">تواصل ←</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© ٢٠٢٦ د. جورج شاكر — جميع الحقوق محفوظة</div>
+  <ul class="footer-links">
+    <li><a href="#topics">المواضيع</a></li>
+    <li><a href="#guides">الأدلة</a></li>
+    <li><a href="#about">عني</a></li>
+    <li><a href="mailto:hello@georgeshaker.com">تواصل</a></li>
+  </ul>
+  <div class="footer-logo">د. جورج شاكر</div>
+</footer>
+
+</body>
+</html>
