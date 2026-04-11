@@ -170,7 +170,7 @@
   .newsletter-input:focus { outline: none; border-color: var(--gold); }
 
   #follow { background: var(--deep); }
-  .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+  .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
   .social-card { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; text-decoration: none; color: var(--text); transition: border-color 0.25s, transform 0.25s; }
   .social-card:hover { border-color: rgba(184,151,90,0.35); transform: translateY(-3px); }
   .social-card-icon { width: 48px; height: 48px; background: var(--gold-pale); border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
@@ -542,6 +542,12 @@
       <h4>لينكدإن</h4>
       <p>محتوى مهني للأطباء والمتخصصين — تجارب سريرية في NHS</p>
       <span class="social-card-cta">تواصل ←</span>
+    </a>
+    <a href="https://wa.me/447414951508" class="social-card">
+      <div class="social-card-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a6.963 6.963 0 0 0-7.145 7.192c.004 1.264.324 2.494.94 3.562L1.05 23.489l3.898-1.324c1.003.554 2.156.848 3.322.852h.003c3.933 0 7.145-3.211 7.145-7.145 0-1.908-.768-3.701-2.163-5.051-.594-.594-1.37-.913-2.195-1.03z" fill="var(--gold)"/></svg></div>
+      <h4>واتس آب</h4>
+      <p>تواصل معي مباشرة عبر الواتس — استشارات سريعة واستفسارات طبية</p>
+      <span class="social-card-cta">راسل ←</span>
     </a>
   </div>
 </section>
