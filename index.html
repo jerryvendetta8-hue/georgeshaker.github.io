@@ -142,8 +142,8 @@
   .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
   .guide-card { background: var(--deep); border: 1px solid var(--border-soft); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s; }
   .guide-card:hover { transform: translateY(-4px); }
-  .guide-img { height: 160px; background: var(--surface2); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  .guide-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(184,151,90,0.06) 0%, transparent 100%); }
+  .guide-img { height: 160px; background: var(--surface2); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-size: cover; background-position: center; }
+  .guide-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,15,28,0.5) 0%, rgba(10,15,28,0.7) 100%); }
   .guide-img-icon { width: 56px; height: 56px; background: var(--gold-pale); border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
   .guide-img-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
   .guide-badge { position: absolute; top: 0.9rem; left: 0.9rem; padding: 0.2rem 0.65rem; font-size: 0.68rem; border-radius: 3px; font-weight: 500; }
@@ -405,7 +405,7 @@
   </div>
   <div class="guides-grid">
     <div class="guide-card">
-      <div class="guide-img">
+      <div class="guide-img" style="background-image: url('images/guide-kidney-stones.jpg');">
         <div class="guide-img-overlay"></div>
         <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
         <span class="guide-badge badge-hot">الأكثر طلبًا</span>
@@ -421,7 +421,7 @@
       </div>
     </div>
     <div class="guide-card">
-      <div class="guide-img">
+      <div class="guide-img" style="background-image: url('images/guide-bladder.jpg');">
         <div class="guide-img-overlay"></div>
         <div class="guide-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
         <span class="guide-badge badge-new">جديد</span>
@@ -437,7 +437,7 @@
       </div>
     </div>
     <div class="guide-card">
-      <div class="guide-img">
+      <div class="guide-img" style="background-image: url('images/guide-prostate.jpg');">
         <div class="guide-img-overlay"></div>
         <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <span class="guide-badge badge-new">جديد</span>
@@ -453,7 +453,7 @@
       </div>
     </div>
     <div class="guide-card">
-      <div class="guide-img">
+      <div class="guide-img" style="background-image: url('images/guide-bundle.jpg');">
         <div class="guide-img-overlay"></div>
         <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
         <span class="guide-badge badge-hot">باقة مميزة</span>
@@ -469,7 +469,7 @@
       </div>
     </div>
     <div class="guide-card">
-      <div class="guide-img">
+      <div class="guide-img" style="background-image: url('images/guide-uti.jpg');">
         <div class="guide-img-overlay"></div>
         <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 12H8"/></svg></div>
         <span class="guide-badge badge-new">جديد</span>
