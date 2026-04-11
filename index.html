@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>د. جورج شاكر | استشاري المسالك البولية</title>
+<meta name="description" content="د. جورج شاكر — استشاري المسالك البولية في NHS بالمملكة المتحدة. خبرة ١٢ عامًا في طب الذكورة والأندرولوجيا، أمراض المثانة والبروستاتا. محتوى طبي موثوق بالعربية.">
+<meta name="keywords" content="جورج شاكر, استشاري مسالك بولية, طب الذكورة, أمراض البروستاتا, أمراض المثانة, NHS, طبيب عربي">
+<meta property="og:title" content="د. جورج شاكر | استشاري المسالك البولية">
+<meta property="og:description" content="استشاري المسالك البولية في NHS — خبرة ١٢ عامًا. محتوى طبي موثوق بالعربية.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
@@ -88,11 +94,6 @@
   .photo-border-accent { position: absolute; inset: 0; border: 1px solid var(--gold); border-radius: var(--radius); transform: translate(14px, -14px); opacity: 0.2; pointer-events: none; }
   .photo-box { width: 100%; height: 100%; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border-soft); overflow: hidden; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .photo-box img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-  .photo-placeholder-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 2rem; text-align: center; }
-  .photo-avatar-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--surface2); display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(184,151,90,0.3); }
-  .photo-avatar-icon svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1.2; }
-  .photo-placeholder-label { font-size: 0.8rem; color: var(--muted); }
-  .photo-placeholder-code { font-family: monospace; font-size: 0.7rem; color: var(--gold); opacity: 0.6; }
   .credential-strip { position: absolute; bottom: -1.25rem; right: 50%; transform: translateX(50%); display: flex; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; white-space: nowrap; }
   .cred-item { padding: 0.55rem 1.1rem; text-align: center; }
   .cred-item + .cred-item { border-right: 1px solid var(--border); }
@@ -211,6 +212,12 @@
     footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-end; }
     .guides-header { flex-direction: column; align-items: flex-end; }
   }
+
+  @media (max-width: 600px) {
+    .specialty-grid { grid-template-columns: 1fr; }
+    .credential-strip { flex-direction: column; }
+    .cred-item + .cred-item { border-right: none; border-top: 1px solid var(--border); }
+  }
 </style>
 </head>
 <body>
@@ -254,15 +261,8 @@
   <div class="hero-visual">
     <div class="photo-wrap">
       <div class="photo-border-accent"></div>
-      <!-- ضع صورتك هنا: استبدل هذا القسم بـ <img src="george.jpg" alt="د. جورج شاكر"> -->
       <div class="photo-box">
-        <div class="photo-placeholder-inner">
-          <div class="photo-avatar-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          </div>
-          <p class="photo-placeholder-label">ضع صورتك هنا</p>
-          <p class="photo-placeholder-code">&lt;img src="photo.jpg"&gt;</p>
-        </div>
+        <img src="20230413_175709-01.jpeg" alt="د. جورج شاكر — استشاري المسالك البولية">
       </div>
       <div class="credential-strip">
         <div class="cred-item">
