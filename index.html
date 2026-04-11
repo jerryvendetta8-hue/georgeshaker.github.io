@@ -48,10 +48,11 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 1rem 4rem;
     background: rgba(12,15,20,0.92);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
   }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--gold); }
+  .nav-logo { display: flex; align-items: center; gap: 0.75rem; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--gold); }
+  .nav-logo img { height: 36px; width: 36px; display: block; object-fit: contain; }
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { color: var(--soft); text-decoration: none; font-size: 0.9rem; transition: color 0.25s; }
   .nav-links a:hover { color: var(--gold); }
@@ -180,7 +181,8 @@
   .social-card-cta { font-size: 0.78rem; color: var(--gold); margin-top: auto; }
 
   footer { background: var(--surface); border-top: 1px solid var(--border-soft); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); font-weight: 600; }
+  .footer-logo { display: flex; align-items: center; gap: 0.75rem; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); font-weight: 600; }
+  .footer-logo img { height: 32px; width: 32px; display: block; object-fit: contain; }
   .footer-links { display: flex; gap: 1.5rem; list-style: none; }
   .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
@@ -229,7 +231,10 @@
     <li><a href="#topics">المواضيع</a></li>
     <li><a href="#about">عني</a></li>
   </ul>
-  <div class="nav-logo">د. جورج شاكر</div>
+  <div class="nav-logo">
+    <img src="images/logo.jpg" alt="Dr. George Shaker Logo">
+    <span>د. جورج شاكر</span>
+  </div>
 </nav>
 
 <section class="hero">
@@ -554,7 +559,10 @@
     <li><a href="#about">عني</a></li>
     <li><a href="mailto:hello@georgeshaker.com">تواصل</a></li>
   </ul>
-  <div class="footer-logo">د. جورج شاكر</div>
+  <div class="footer-logo">
+    <img src="images/logo.jpg" alt="Dr. George Shaker Logo">
+    <span>د. جورج شاكر</span>
+  </div>
 </footer>
 
 </body>
