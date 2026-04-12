@@ -104,9 +104,13 @@
     </div>
     <h1>شكرًا لك</h1>
     <p>تمت عملية الدفع بنجاح. دليلك جاهز للتحميل الآن.</p>
-    <a href="guides/kidney_stones_guide.pdf" download="دليل_حصوات_الكلى_الشامل_د_جورج_شاكر.pdf" class="btn-download">
+    <a href="guides/kidney_stones_guide.pdf" download="دليل_حصوات_الكلى_الشامل_د_جورج_شاكر.pdf" class="btn-download" id="download-kidney">
       <svg viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-      تحميل الدليل
+      تحميل دليل حصوات الكلى
+    </a>
+    <a href="guides/overactive_bladder_guide.pdf" download="دليل_المثانة_المفرطة_النشاط_د_جورج_شاكر.pdf" class="btn-download" id="download-bladder">
+      <svg viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+      تحميل دليل المثانة المفرطة النشاط
     </a>
     <hr class="divider">
     <p class="note">إذا لم يبدأ التحميل تلقائيًا، انقر على الزر أعلاه.</p>
@@ -114,11 +118,19 @@
   </div>
 
   <script>
-    // Auto-trigger download on page load
+    // Auto-trigger download based on URL parameter
     window.addEventListener('load', function () {
       setTimeout(function () {
-        var link = document.querySelector('.btn-download');
-        if (link) link.click();
+        var params = new URLSearchParams(window.location.search);
+        var guide = params.get('guide') || 'kidney'; // default to kidney
+        var downloadBtn = document.getElementById('download-' + guide);
+        
+        if (downloadBtn) {
+          downloadBtn.click();
+        } else {
+          // If no specific guide, download the first one
+          document.getElementById('download-kidney').click();
+        }
       }, 1200);
     });
   </script>
