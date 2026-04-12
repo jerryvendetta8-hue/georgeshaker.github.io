@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحميل الدليل — د. جورج شاكر</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #b8975a;
+      --gold-light: #d4af72;
+      --deep: #0a0f1c;
+      --surface: #111827;
+      --surface2: #1a2235;
+      --light: #f0ead8;
+      --muted: #8a9ab5;
+      --border: rgba(184,151,90,0.2);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--deep);
+      color: var(--light);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 3rem 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+    .icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, rgba(184,151,90,0.2), rgba(184,151,90,0.05));
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .icon svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--deep);
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.9rem 2rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+    .btn-download:hover { background: var(--gold-light); }
+    .btn-download svg { width: 18px; height: 18px; stroke: var(--deep); fill: none; stroke-width: 2; }
+    .back-link {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--gold); }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+    .note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </div>
+    <h1>شكرًا لك</h1>
+    <p>تمت عملية الدفع بنجاح. دليلك جاهز للتحميل الآن.</p>
+    <a href="guides/kidney_stones_guide.pdf" download="دليل_حصوات_الكلى_الشامل_د_جورج_شاكر.pdf" class="btn-download">
+      <svg viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+      تحميل الدليل
+    </a>
+    <hr class="divider">
+    <p class="note">إذا لم يبدأ التحميل تلقائيًا، انقر على الزر أعلاه.</p>
+    <a href="index.html" class="back-link">← العودة إلى الموقع</a>
+  </div>
+
+  <script>
+    // Auto-trigger download on page load
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var link = document.querySelector('.btn-download');
+        if (link) link.click();
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
