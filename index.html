@@ -220,6 +220,26 @@
     .credential-strip { flex-direction: column; }
     .cred-item + .cred-item { border-right: none; border-top: 1px solid var(--border); }
   }
+
+  /* Article Modal */
+  .article-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10,15,28,0.95); backdrop-filter: blur(12px); overflow-y: auto; padding: 2rem; }
+  .article-modal.active { display: flex; justify-content: center; align-items: flex-start; animation: fadeIn 0.3s ease; }
+  .article-content { background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem; max-width: 800px; width: 100%; margin: 2rem auto; padding: 3rem; position: relative; }
+  .article-close { position: absolute; top: 1.5rem; left: 1.5rem; background: var(--surface2); border: 1px solid var(--border); color: var(--gold); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+  .article-close:hover { background: var(--gold); color: var(--deep); }
+  .article-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .article-title { font-family: 'Tajawal', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem; }
+  .article-subtitle { color: var(--muted); font-size: 0.95rem; }
+  .article-body h3 { font-family: 'Tajawal', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--light); margin: 1.5rem 0 0.75rem; padding-right: 1rem; border-right: 3px solid var(--gold); }
+  .article-body p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+  .article-body ul { list-style: none; padding: 0; margin: 1rem 0; }
+  .article-body li { color: var(--muted); line-height: 1.8; padding-right: 1.5rem; position: relative; margin-bottom: 0.5rem; }
+  .article-body li::before { content: ''; position: absolute; right: 0; top: 0.6rem; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+  .article-tip { background: linear-gradient(135deg, rgba(184,151,90,0.1) 0%, rgba(184,151,90,0.05) 100%); border: 1px solid rgba(184,151,90,0.3); border-radius: 1rem; padding: 1.5rem; margin-top: 2rem; }
+  .article-tip-title { font-family: 'Tajawal', sans-serif; font-weight: 600; color: var(--gold); margin-bottom: 0.5rem; }
+  .topic-card.clickable { cursor: pointer; }
+  .topic-card.clickable:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 </head>
 <body>
@@ -347,7 +367,7 @@
     <p class="sec-sub">محتوى طبي علمي من أخصائي متخصص — مُقدَّم بأناقة ووضوح للمريض والطبيب على حد سواء</p>
   </div>
   <div class="topics-grid">
-    <div class="topic-card">
+    <div class="topic-card clickable" onclick="openArticle('kidney-stones')">
       <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
       <h3>حصوات الكلى</h3>
       <p>الأسباب الحقيقية والعوامل الخطرة — كيف تعرف أن لديك حصوة؟ متى تحتاج عملية ومتى لا — شرح طبي دقيق.</p>
@@ -565,5 +585,80 @@
   </div>
 </footer>
 
+<!-- Article Modal -->
+<div id="kidney-stones-modal" class="article-modal">
+  <div class="article-content">
+    <button class="article-close" onclick="closeArticle()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="article-header">
+      <h2 class="article-title">حصوات الكلى: الأسباب والعوامل الخطرة وكيفية التعامل معها</h2>
+      <p class="article-subtitle">دليل شامل من أخصائي جراحة المسالك البولية</p>
+    </div>
+    <div class="article-body">
+      <p>تُعدّ حصوات الكلى من أكثر المشاكل الشائعة في الجهاز البولي، وتحدث عندما تتجمع بعض المواد مثل الكالسيوم أو الأملاح داخل الكلى لتكوّن كتلاً صغيرة تشبه الحصى. هذه الحصوات قد تكون صغيرة تمرّ دون ألم، أو كبيرة تسدّ مجرى البول وتسبب ألمًا شديدًا.</p>
+      
+      <h3>الأسباب الحقيقية</h3>
+      <ul>
+        <li><strong>قلة شرب الماء:</strong> الجفاف يجعل البول أكثر تركيزًا، مما يزيد احتمال تكوّن الحصوات.</li>
+        <li><strong>نظام غذائي غني بالأملاح والبروتينات:</strong> كثرة تناول اللحوم والمأكولات المالحة ترفع نسبة الكالسيوم والأوكسالات في البول.</li>
+        <li><strong>العوامل الوراثية:</strong> بعض الأشخاص لديهم استعداد طبيعي لتكوين الحصوات.</li>
+        <li><strong>أمراض معينة:</strong> مثل فرط نشاط الغدة الجار درقية أو التهابات المسالك البولية المتكررة.</li>
+      </ul>
+      
+      <h3>العوامل الخطرة</h3>
+      <ul>
+        <li>ارتفاع حرارة الجو مع قلة شرب الماء (شائع في مناطق الخليج).</li>
+        <li>السمنة وأمراض السكر والضغط.</li>
+        <li>تناول مكملات الكالسيوم أو فيتامين (د) بدون استشارة الطبيب.</li>
+      </ul>
+      
+      <h3>كيف تعرف أنك مصاب بحصوة؟</h3>
+      <ul>
+        <li>ألم شديد في أحد جانبي البطن أو الظهر يمتد أحيانًا إلى الفخذ أو الأعضاء التناسلية.</li>
+        <li>غثيان أو قيء مع ألم مستمر.</li>
+        <li>تغير لون البول إلى أحمر أو بني نتيجة وجود دم.</li>
+        <li>الحاجة المتكررة للتبول مع إحساس بالحرقان.</li>
+      </ul>
+      <p>عند ظهور هذه الأعراض، يجب مراجعة الطبيب لإجراء فحص بالموجات فوق الصوتية أو الأشعة المقطعية لتحديد مكان وحجم الحصوة.</p>
+      
+      <h3>متى تحتاج عملية ومتى لا؟</h3>
+      <ul>
+        <li><strong>الحصوات الصغيرة (أقل من 5 مم):</strong> غالبًا تمرّ تلقائيًا مع شرب الماء والمسكنات وموسعات الحالب.</li>
+        <li><strong>الحصوات المتوسطة أو الكبيرة:</strong> قد تحتاج إلى تفتيت بالموجات الصوتية أو إزالة بالمنظار، خاصة إذا سببت انسدادًا أو التهابًا شديدًا.</li>
+        <li><strong>في حالات نادرة جدًا:</strong> تتطلب الجراحة المفتوحة إذا كانت الحصوة كبيرة جدًا أو في موقع يصعب الوصول إليه بالمنظار.</li>
+      </ul>
+      
+      <div class="article-tip">
+        <div class="article-tip-title">نصيحة الطبيب</div>
+        <p style="margin-bottom: 0.5rem;">لمنع تكون الحصوات من جديد:</p>
+        <ul style="margin-top: 0;">
+          <li>اشرب كميات كافية من الماء يوميًا (2 إلى 3 لترات).</li>
+          <li>قلّل تناول الأملاح واللحوم الحمراء.</li>
+          <li>حافظ على وزن صحي، وراجع الطبيب بانتظام إذا سبق أن أصبت بحصوة.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openArticle(id) {
+  document.getElementById(id + '-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeArticle() {
+  document.querySelectorAll('.article-modal').forEach(m => m.classList.remove('active'));
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.article-modal').forEach(modal => {
+  modal.addEventListener('click', function(e) {
+    if (e.target === this) closeArticle();
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeArticle();
+});
+</script>
 </body>
 </html>
