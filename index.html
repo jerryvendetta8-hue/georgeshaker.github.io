@@ -1,1280 +1,805 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>د. جورج شاكر | أخصائي المسالك البولية</title>
-<meta name="description" content="د. جورج شاكر — أخصائي المسالك البولية في NHS بالمملكة المتحدة. خبرة ١٢ عامًا في طب الذكورة والأندرولوجيا، أمراض المثانة والبروستاتا. محتوى طبي موثوق بالعربية.">
-<meta name="keywords" content="جورج شاكر, أخصائي مسالك بولية, طب الذكورة, أمراض البروستاتا, أمراض المثانة, NHS, طبيب عربي">
-<meta property="og:title" content="د. جورج شاكر | أخصائي المسالك البولية">
-<meta property="og:description" content="أخصائي المسالك البولية في NHS — خبرة ١٢ عامًا. محتوى طبي موثوق بالعربية.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ar_SA">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --gold: #B8975A;
-    --gold-light: #D4B896;
-    --gold-pale: rgba(184,151,90,0.08);
-    --deep: #0C0F14;
-    --surface: #13181F;
-    --surface2: #1A2028;
-    --surface3: #202835;
-    --text: #EDE9E3;
-    --muted: #7A8490;
-    --soft: #B0BAC4;
-    --border: rgba(184,151,90,0.18);
-    --border-soft: rgba(255,255,255,0.06);
-    --radius: 6px;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--deep);
-    color: var(--text);
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 400;
-    line-height: 1.8;
-    overflow-x: hidden;
-    direction: rtl;
-  }
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--deep); }
-  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr George Shaker | NHS Urology Registrar | AI Healthcare Tools</title>
+  <meta name="description" content="Dr George Shaker — NHS Urology Registrar and founder of AI-powered urology workflow tools. Built by a clinician, for clinicians.">
+  <meta name="keywords" content="George Shaker, urology, NHS, AI healthcare, HaemClin, medical AI tools">
+  <meta property="og:title" content="Dr George Shaker | AI Healthcare Tools Founder">
+  <meta property="og:description" content="NHS Urology Registrar building AI-powered workflow tools for clinicians.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1B3A6B;
+      --navy-dark: #142B50;
+      --navy-light: #2A4F8A;
+      --gold: #C9A84C;
+      --gold-light: #D9BD6E;
+      --gold-pale: rgba(201, 168, 76, 0.1);
+      --white: #FFFFFF;
+      --off-white: #F8F9FA;
+      --gray-100: #F1F3F5;
+      --gray-200: #E9ECEF;
+      --gray-400: #ADB5BD;
+      --gray-600: #6C757D;
+      --gray-800: #343A40;
+      --radius: 8px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 1px 2px rgba(27, 58, 107, 0.05);
+      --shadow-md: 0 4px 12px rgba(27, 58, 107, 0.08);
+      --shadow-lg: 0 8px 30px rgba(27, 58, 107, 0.12);
+    }
 
-  nav {
-    position: fixed; top: 0; right: 0; left: 0; z-index: 200;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 4rem;
-    background: rgba(12,15,20,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-soft);
-  }
-  .nav-logo { display: flex; align-items: center; gap: 0.75rem; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--gold); }
-  .nav-logo img { height: 36px; width: 36px; display: block; object-fit: contain; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-  .nav-links a { color: var(--soft); text-decoration: none; font-size: 0.9rem; transition: color 0.25s; }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta { padding: 0.45rem 1.2rem !important; border: 1px solid var(--gold) !important; border-radius: var(--radius) !important; color: var(--gold) !important; font-weight: 500 !important; }
-  .nav-cta:hover { background: var(--gold) !important; color: var(--deep) !important; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center; gap: 5rem;
-    padding: 7rem 4rem 5rem;
-    position: relative; overflow: hidden;
-  }
-  .hero-glow {
-    position: absolute; top: 20%; right: 55%;
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(184,151,90,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-size: 0.75rem; letter-spacing: 0.1em;
-    color: var(--gold); text-transform: uppercase; margin-bottom: 1.25rem;
-  }
-  .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-  h1.hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 300; line-height: 1.1; margin-bottom: 0.4rem; }
-  h1.hero-name span { color: var(--gold); }
-  .hero-tagline { font-size: 1.05rem; color: var(--soft); margin-bottom: 1.5rem; font-weight: 300; }
-  .hero-desc { font-size: 1rem; color: var(--text); max-width: 500px; margin-bottom: 2rem; opacity: 0.8; line-height: 1.9; }
-  .hero-specialties { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
-  .spec-pill { padding: 0.3rem 0.9rem; border: 1px solid var(--border); border-radius: 30px; font-size: 0.8rem; color: var(--gold-light); background: var(--gold-pale); }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-gold { padding: 0.75rem 1.8rem; background: var(--gold); color: var(--deep); font-weight: 700; font-family: 'Tajawal', sans-serif; text-decoration: none; border-radius: var(--radius); font-size: 0.9rem; transition: opacity 0.2s; display: inline-block; }
-  .btn-gold:hover { opacity: 0.85; }
-  .btn-ghost { padding: 0.75rem 1.8rem; border: 1px solid var(--border); color: var(--soft); text-decoration: none; border-radius: var(--radius); font-size: 0.9rem; font-family: 'Tajawal', sans-serif; transition: border-color 0.2s, color 0.2s; display: inline-block; }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
-  .photo-wrap { position: relative; width: 360px; height: 460px; }
-  .photo-border-accent { position: absolute; inset: 0; border: 1px solid var(--gold); border-radius: var(--radius); transform: translate(14px, -14px); opacity: 0.2; pointer-events: none; }
-  .photo-box { width: 100%; height: 100%; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border-soft); overflow: hidden; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .photo-box img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-  .credential-strip { position: absolute; bottom: -1.25rem; right: 50%; transform: translateX(50%); display: flex; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; white-space: nowrap; }
-  .cred-item { padding: 0.55rem 1.1rem; text-align: center; }
-  .cred-item + .cred-item { border-right: 1px solid var(--border); }
-  .cred-num { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold); line-height: 1; display: block; }
-  .cred-lbl { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.06em; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background: var(--white);
+      overflow-x: hidden;
+    }
 
-  .divider { height: 1px; background: var(--border-soft); margin: 0 4rem; }
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 1rem 2rem;
+    }
 
-  section { padding: 5.5rem 4rem; }
-  .sec-eyebrow { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
-  .sec-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
-  .sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 300; line-height: 1.2; margin-bottom: 0.75rem; }
-  .sec-sub { color: var(--muted); font-size: 0.95rem; max-width: 520px; }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  #about { background: var(--surface); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .about-body { font-size: 0.97rem; color: var(--soft); line-height: 2; }
-  .about-body p + p { margin-top: 1rem; }
-  .about-quals { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.65rem; }
-  .qual-row { display: flex; align-items: center; gap: 0.9rem; padding: 0.8rem 1rem; background: var(--deep); border: 1px solid var(--border-soft); border-radius: var(--radius); }
-  .qual-icon { width: 32px; height: 32px; flex-shrink: 0; background: var(--gold-pale); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
-  .qual-icon svg { width: 15px; height: 15px; stroke: var(--gold); fill: none; stroke-width: 1.8; }
-  .qual-text { font-size: 0.85rem; color: var(--text); }
-  .specialty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .spec-card { background: var(--deep); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 1.4rem; transition: border-color 0.25s; position: relative; overflow: hidden; }
-  .spec-card::after { content: ''; position: absolute; bottom: 0; right: 0; left: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.3s; }
-  .spec-card:hover { border-color: rgba(184,151,90,0.35); }
-  .spec-card:hover::after { transform: scaleX(1); }
-  .spec-card-icon { width: 40px; height: 40px; margin-bottom: 1rem; background: var(--gold-pale); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
-  .spec-card-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-  .spec-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .spec-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .nav-logo {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
 
-  #topics { background: var(--deep); }
-  .topics-header { margin-bottom: 3rem; }
-  .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.25rem; }
-  .topic-card { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 1.75rem; transition: border-color 0.25s, transform 0.25s; }
-  .topic-card:hover { border-color: rgba(184,151,90,0.3); transform: translateY(-3px); }
-  .topic-icon { width: 46px; height: 46px; margin-bottom: 1.2rem; background: var(--gold-pale); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
-  .topic-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-  .topic-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .topic-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
-  .topic-tag { display: inline-block; margin-top: 1rem; font-size: 0.7rem; color: var(--gold); border: 1px solid var(--border); border-radius: 20px; padding: 0.2rem 0.7rem; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
 
-  #guides { background: var(--surface); }
-  .guides-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
-  .guides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
-  .guide-card { background: var(--deep); border: 1px solid var(--border-soft); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s; }
-  .guide-card:hover { transform: translateY(-4px); }
-  .guide-img { height: 160px; background: var(--surface2); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-size: cover; background-position: center; }
-  .guide-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,15,28,0.5) 0%, rgba(10,15,28,0.7) 100%); }
-  .guide-img-icon { width: 56px; height: 56px; background: var(--gold-pale); border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
-  .guide-img-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-  .guide-badge { position: absolute; top: 0.9rem; left: 0.9rem; padding: 0.2rem 0.65rem; font-size: 0.68rem; border-radius: 3px; font-weight: 500; }
-  .badge-new { background: rgba(184,151,90,0.15); color: var(--gold); }
-  .badge-hot { background: var(--gold); color: var(--deep); }
-  .badge-soon { background: rgba(255,255,255,0.06); color: var(--muted); }
-  .guide-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
-  .guide-lang { font-size: 0.68rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
-  .guide-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-  .guide-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; flex: 1; }
-  .guide-footer { padding: 0.9rem 1.4rem; border-top: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: space-between; }
-  .guide-price { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--gold); }
-  .guide-price small { font-size: 0.8rem; color: var(--muted); font-family: 'Tajawal', sans-serif; }
-  .btn-small { padding: 0.45rem 1.1rem; background: var(--gold); color: var(--deep); border: none; border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: 'Tajawal', sans-serif; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
-  .btn-small:hover { opacity: 0.85; }
-  .btn-small-ghost { padding: 0.45rem 1.1rem; background: var(--surface2); color: var(--muted); border: none; border-radius: 4px; font-size: 0.8rem; cursor: pointer; font-family: 'Tajawal', sans-serif; text-decoration: none; }
+    .nav-links a {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
 
-  .newsletter { background: var(--surface2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3.5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-  .newsletter-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 300; margin-bottom: 0.4rem; }
-  .newsletter-text p { font-size: 0.9rem; color: var(--muted); }
-  .newsletter-form { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .newsletter-input { padding: 0.7rem 1.2rem; background: var(--deep); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.9rem; font-family: 'Tajawal', sans-serif; width: 260px; direction: rtl; }
-  .newsletter-input::placeholder { color: var(--muted); }
-  .newsletter-input:focus { outline: none; border-color: var(--gold); }
+    .nav-links a:hover {
+      color: var(--navy);
+    }
 
-  #follow { background: var(--deep); }
-  .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
-  .social-card { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; text-decoration: none; color: var(--text); transition: border-color 0.25s, transform 0.25s; }
-  .social-card:hover { border-color: rgba(184,151,90,0.35); transform: translateY(-3px); }
-  .social-card-icon { width: 48px; height: 48px; background: var(--gold-pale); border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
-  .social-card-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-  .social-card h4 { font-size: 1rem; font-weight: 700; }
-  .social-card p { font-size: 0.82rem; color: var(--muted); text-align: right; line-height: 1.6; }
-  .social-card-cta { font-size: 0.78rem; color: var(--gold); margin-top: auto; }
+    .nav-cta {
+      padding: 0.5rem 1rem;
+      background: var(--gold);
+      color: var(--navy-dark) !important;
+      border-radius: var(--radius);
+      font-weight: 600 !important;
+      transition: opacity 0.2s;
+    }
 
-  footer { background: var(--surface); border-top: 1px solid var(--border-soft); padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-  .footer-logo { display: flex; align-items: center; gap: 0.75rem; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold); font-weight: 600; }
-  .footer-logo img { height: 32px; width: 32px; display: block; object-fit: contain; }
-  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-  .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-copy { font-size: 0.75rem; color: var(--muted); }
+    .nav-cta:hover {
+      opacity: 0.9;
+    }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-text > * { animation: fadeUp 0.65s ease both; }
-  .hero-eyebrow { animation-delay: 0.05s; }
-  h1.hero-name { animation-delay: 0.15s; }
-  .hero-tagline { animation-delay: 0.22s; }
-  .hero-desc { animation-delay: 0.30s; }
-  .hero-specialties { animation-delay: 0.38s; }
-  .hero-btns { animation-delay: 0.46s; }
-  .hero-visual { animation: fadeUp 0.8s 0.25s ease both; }
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    }
 
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 5.5rem 1.5rem 3rem; gap: 3rem; }
-    .hero-visual { order: -1; }
-    .photo-wrap { width: 260px; height: 320px; }
-    section { padding: 4rem 1.5rem; }
-    #about { grid-template-columns: 1fr; gap: 2.5rem; }
-    .specialty-grid { grid-template-columns: 1fr 1fr; }
-    .social-grid { grid-template-columns: 1fr; }
-    .divider { margin: 0 1.5rem; }
-    .newsletter { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-end; }
-    .newsletter-input { width: 100%; }
-    footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-end; }
-    .guides-header { flex-direction: column; align-items: flex-end; }
-  }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 30% 20%, rgba(201, 168, 76, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
 
-  @media (max-width: 600px) {
-    .specialty-grid { grid-template-columns: 1fr; }
-    .credential-strip { flex-direction: column; }
-    .cred-item + .cred-item { border-right: none; border-top: 1px solid var(--border); }
-  }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
 
-  /* Article Modal */
-  .article-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10,15,28,0.95); backdrop-filter: blur(12px); overflow-y: auto; padding: 2rem; }
-  .article-modal.active { display: flex; justify-content: center; align-items: flex-start; animation: fadeIn 0.3s ease; }
-  .article-content { background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem; max-width: 800px; width: 100%; margin: 2rem auto; padding: 3rem; position: relative; }
-  .article-close { position: absolute; top: 1.5rem; left: 1.5rem; background: var(--surface2); border: 1px solid var(--border); color: var(--gold); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
-  .article-close:hover { background: var(--gold); color: var(--deep); }
-  .article-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-  .article-title { font-family: 'Tajawal', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem; }
-  .article-subtitle { color: var(--muted); font-size: 0.95rem; }
-  .article-body h3 { font-family: 'Tajawal', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--light); margin: 1.5rem 0 0.75rem; padding-right: 1rem; border-right: 3px solid var(--gold); }
-  .article-body p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-  .article-body ul { list-style: none; padding: 0; margin: 1rem 0; }
-  .article-body li { color: var(--muted); line-height: 1.8; padding-right: 1.5rem; position: relative; margin-bottom: 0.5rem; }
-  .article-body li::before { content: ''; position: absolute; right: 0; top: 0.6rem; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
-  .article-tip { background: linear-gradient(135deg, rgba(184,151,90,0.1) 0%, rgba(184,151,90,0.05) 100%); border: 1px solid rgba(184,151,90,0.3); border-radius: 1rem; padding: 1.5rem; margin-top: 2rem; }
-  .article-tip-title { font-family: 'Tajawal', sans-serif; font-weight: 600; color: var(--gold); margin-bottom: 0.5rem; }
-  .topic-card.clickable { cursor: pointer; }
-  .topic-card.clickable:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-</style>
+    .hero-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      text-decoration: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-dark);
+      border: 2px solid var(--gold);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Problem Section */
+    .problem {
+      background: var(--off-white);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .problem-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .problem-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-pale);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .problem-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .problem-card p {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    /* Products Section */
+    .products {
+      background: var(--white);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gold);
+    }
+
+    .product-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .product-desc {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .product-price {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-product {
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-product:hover {
+      background: var(--navy-light);
+    }
+
+    /* Social Proof Section */
+    .testimonials {
+      background: var(--off-white);
+      padding: 4rem 2rem;
+    }
+
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    .testimonial-quote {
+      font-size: 1rem;
+      color: var(--gray-800);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-quote::before {
+      content: '"';
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 0;
+      vertical-align: -0.3em;
+      margin-right: 0.25rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    /* About Section */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--gray-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .about-content p {
+      font-size: 1.0625rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .credential-badge {
+      padding: 0.5rem 1rem;
+      background: var(--gold-pale);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 30px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* Trust Banner */
+    .trust-banner {
+      background: var(--navy);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .trust-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .trust-banner h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .trust-banner p {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+    }
+
+    .btn-demo {
+      padding: 1rem 2.5rem;
+      background: var(--gold);
+      color: var(--navy-dark);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+
+    .btn-demo:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-dark);
+      padding: 3rem 2rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      color: var(--white);
+    }
+
+    .footer-name {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-photo {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content > * {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .hero-name { animation-delay: 0.1s; }
+    .hero-title { animation-delay: 0.2s; }
+    .hero-tagline { animation-delay: 0.3s; }
+    .hero-btns { animation-delay: 0.4s; }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--navy);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <nav>
-  <ul class="nav-links">
-    <li><a href="#follow" class="nav-cta">تابعني</a></li>
-    <li><a href="#guides">الأدلة</a></li>
-    <li><a href="#topics">المواضيع</a></li>
-    <li><a href="#about">عني</a></li>
-  </ul>
-  <div class="nav-logo">
-    <img src="images/logo.jpg" alt="Dr. George Shaker Logo">
-    <span>د. جورج شاكر</span>
+  <div class="nav-container">
+    <div class="nav-logo">Dr George Shaker</div>
+    <ul class="nav-links">
+      <li><a href="#products">Tools</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#products" class="nav-cta">Try HaemClin Free</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-text">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      أخصائي مسالك بولية — NHS — المملكة المتحدة
-    </div>
-    <h1 class="hero-name">Dr. George Shaker</h1>
-    <p class="hero-tagline">أخصائي متخصص في جراحة المسالك البولية — خبرة تتجاوز ١٢ عامًا في مستشفيات NHS</p>
-    <p class="hero-desc">
-      أُقدم للطبيب والمريض معلومات طبية موثوقة وعلمية بلغة واضحة وأنيقة. 
-      لأن المعرفة الطبية الحقيقية حق للجميع — بدون تعقيد ولا مصطلحات معقدة.
-    </p>
-    <div class="hero-specialties">
-      <span class="spec-pill">طب الذكورة والأندرولوجيا</span>
-      <span class="spec-pill">أمراض المثانة</span>
-      <span class="spec-pill">أمراض البروستاتا</span>
-      <span class="spec-pill">MRCS</span>
-    </div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-name">Dr George Shaker</h1>
+    <p class="hero-title">NHS Urology Registrar | AI Healthcare Tools Founder</p>
+    <p class="hero-tagline">Built by a Clinician. Built for Clinicians.</p>
     <div class="hero-btns">
-      <a href="#topics" class="btn-gold">استكشف المواضيع</a>
-      <a href="#about" class="btn-ghost">اعرف أكثر عني</a>
+      <a href="#products" class="btn btn-primary">Try HaemClin Free</a>
+      <a href="#products" class="btn btn-outline">View All Tools</a>
     </div>
   </div>
+</section>
 
-  <div class="hero-visual">
-    <div class="photo-wrap">
-      <div class="photo-border-accent"></div>
-      <div class="photo-box">
-        <img src="images/hero-photo.jpg" alt="Dr. George Shaker — Urology Specialist — أخصائي جراحة المسالك البولية">
-      </div>
-      <div class="credential-strip">
-        <div class="cred-item">
-          <span class="cred-num">١٢</span>
-          <span class="cred-lbl">عامًا خبرة</span>
+<section class="problem" id="problem">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">NHS Workflows Are Broken</h2>
+      <p class="section-subtitle">Every urology clinician knows these pain points</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
         </div>
-        <div class="cred-item">
-          <span class="cred-num">NHS</span>
-          <span class="cred-lbl">أخصائي</span>
+        <p>Haematuria clinics generate mountains of admin</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
         </div>
-
+        <p>Histology chasing before MDT is manual and risky</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+          </svg>
+        </div>
+        <p>Letter writing eats 60+ minutes per clinic session</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<section id="about">
-  <div>
-    <div class="sec-eyebrow">من أنا</div>
-    <h2 class="sec-title">الأخصائي الذي<br>يتحدث لغتك</h2>
-    <div class="about-body">
-      <p>أنا الدكتور جورج شاكر، أخصائي مختص في جراحة المسالك البولية بهيئة الخدمات الصحية الوطنية البريطانية (NHS)، وأتمتع بخبرة سريرية عملية تمتد لأكثر من <strong>١٢ عامًا</strong> في أرقى مستشفيات NHS بلندن.</p>
-      <p>أختص في <strong>طب الذكورة والأندرولوجيا</strong> و<strong>جراحة المثانة</strong> و<strong>أمراض البروستاتا</strong> — حقول طبية حساسة يتجنب الكثيرون الحديث عنها، لكنها تؤثر بشكل مباشر على جودة الحياة.</p>
-      <p>أعتقد بأن المريض المُثقَّف يتعافى بسرعة أكبر. لذلك أُرسّخ هذا المبدأ بنشر محتوى طبي عالي المستوى بالعربية عبر منصاتي — ليصل إلى كل عربي يبحث عن معلومات طبية موثوقة وشفافة.</p>
+<section class="products" id="products">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">AI-Powered Workflow Tools</h2>
+      <p class="section-subtitle">Purpose-built solutions that save hours, not minutes</p>
     </div>
-    <div class="about-quals">
-
-      <div class="qual-row">
-        <div class="qual-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <span class="qual-text">MRCS — عضو الكلية الملكية للجراحين</span>
+    <div class="products-grid">
+      <div class="product-card">
+        <h3 class="product-name">HaemClin</h3>
+        <p class="product-desc">Complete haematuria clinic workflow automation with intelligent letter generation.</p>
+        <p class="product-price">From £29/month per user</p>
+        <button class="btn-product">Learn More</button>
       </div>
-      <div class="qual-row">
-        <div class="qual-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <span class="qual-text">الزمالة المصرية في جراحة المسالك البولية</span>
+      <div class="product-card">
+        <h3 class="product-name">Letter Review Assistant</h3>
+        <p class="product-desc">AI-powered letter QA to catch errors before they reach patients.</p>
+        <p class="product-price">From £29/month per user</p>
+        <button class="btn-product">Learn More</button>
       </div>
-      <div class="qual-row">
-        <div class="qual-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <span class="qual-text">عضو الجمعية البريطانية لجراحة المسالك البولية</span>
+      <div class="product-card">
+        <h3 class="product-name">Results Tracker</h3>
+        <p class="product-desc">Automated histology chasing and MDT preparation with smart reminders.</p>
+        <p class="product-price">From £29/month per user</p>
+        <button class="btn-product">Learn More</button>
       </div>
-
-    </div>
-  </div>
-
-  <div>
-    <div class="specialty-grid">
-      <div class="spec-card">
-        <div class="spec-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h4>طب الذكورة والأندرولوجيا</h4>
-        <p>علم صحة الذكورة الشامل — الضعف الجنسي، تأخر الإنجاب، الاختلالات الهرمونية، والوقاية من الأمراض</p>
-      </div>
-      <div class="spec-card">
-        <div class="spec-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <h4>أمراض المثانة</h4>
-        <p>المثانة المفرطة النشاط، سلس البول، الالتهابات المتكررة — التشخيص والعلاج المتقدم</p>
-      </div>
-      <div class="spec-card">
-        <div class="spec-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
-        <h4>أمراض البروستاتا</h4>
-        <p>تضخم البروستاتا الحميد، السرطان، الاضطرابات الحادة — الكشف المبكر والعلاجات المتاحة</p>
-      </div>
-      <div class="spec-card">
-        <div class="spec-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-        <h4>حصوات الكلى</h4>
-        <p>الأسباب والوقاية المتقدمة — خيارات العلاج بدون جراحة أو بالمنظار بأحدث التقنيات</p>
+      <div class="product-card">
+        <h3 class="product-name">Patient Safety Register</h3>
+        <p class="product-desc">At-risk patient tracking with automated follow-up workflows.</p>
+        <p class="product-price">From £29/month per user</p>
+        <button class="btn-product">Learn More</button>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<section id="topics">
-  <div class="topics-header">
-    <div class="sec-eyebrow">تثقيف صحي</div>
-    <h2 class="sec-title">مواضيع صحية<br>متخصصة وموثوقة</h2>
-    <p class="sec-sub">محتوى طبي علمي من أخصائي متخصص — مُقدَّم بأناقة ووضوح للمريض والطبيب على حد سواء</p>
-  </div>
-  <div class="topics-grid">
-    <div class="topic-card clickable" onclick="openArticle('kidney-stones')">
-      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
-      <h3>حصوات الكلى</h3>
-      <p>الأسباب الحقيقية والعوامل الخطرة — كيف تعرف أن لديك حصوة؟ متى تحتاج عملية ومتى لا — شرح طبي دقيق.</p>
-      <span class="topic-tag">أمراض الكلى</span>
-    </div>
-    <div class="topic-card clickable" onclick="openArticle('prostate')">
-      <div class="topic-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
-      <h3>تضخم البروستاتا</h3>
-      <p>الآليات الهرمونية والسريرية — الأعراض الحقيقية وليس الخرافات — والعلاجات المتقدمة المتاحة اليوم.</p>
-      <span class="topic-tag">أمراض البروستاتا</span>
-    </div>
-    <div class="topic-card clickable" onclick="openArticle('bladder')">
-      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 12H8"/></svg></div>
-      <h3>المثانة المفرطة النشاط</h3>
-      <p>الرغبة الملحّة المتكررة في التبول والاستيقاظ ليلًا وسلس البول — حالة شائعة وعلاجها ميسور بخطوات محددة.</p>
-      <span class="topic-tag">أمراض المثانة</span>
-    </div>
-    <div class="topic-card clickable" onclick="openArticle('blood-urine')">
-      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg></div>
-      <h3>الدم في البول</h3>
-      <p>متى يكون علامة خطيرة وعندما لا — الفحوصات المطلوبة فقط — دليل طبي موثوق بلا ذعر لا مبرر له.</p>
-      <span class="topic-tag">تشخيص ومتابعة</span>
-    </div>
-    <div class="topic-card clickable" onclick="openArticle('prostate-cancer')">
-      <div class="topic-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
-      <h3>سرطان البروستاتا</h3>
-      <p>الكشف المبكر ينقذ حياة. ما هو فحص PSA؟ من يحتاجه؟ وماذا يعني تشخيص الإصابة فعلًا؟</p>
-      <span class="topic-tag">السرطان والوقاية</span>
-    </div>
-    <div class="topic-card clickable" onclick="openArticle('erectile-dysfunction')">
-      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-      <h3>الضعف الجنسي عند الرجل</h3>
-      <p>الأسباب الطبية والنفسية المعقدة — العلاجات المتاحة والحديثة — وما يكشفه الضعف عن صحتك العامة.</p>
-      <span class="topic-tag">صحة الذكورة</span>
-    </div>
-    <div class="topic-card clickable" onclick="openArticle('uti')">
-      <div class="topic-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7"/></svg></div>
-      <h3>التهابات المسالك البولية</h3>
-      <p>لماذا تتكرر بشكل مزعج عند النساء — العلاج الصحيح والفعال — ومتى تحتاجين أخصائي متخصص وليس مجرد مضاد حيوي.</p>
-      <span class="topic-tag">التهابات متكررة</span>
-    </div>
-    <div class="topic-card clickable" onclick="openArticle('embarrassing-questions')">
-      <div class="topic-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
-      <h3>أسئلة لا يجرؤون على طرحها</h3>
-      <p>مشاكل الإنجاب والعقم — ألم الخصية المستمر — الأسئلة المحرجة التي تستحق إجابة طبية شفافة وصريحة.</p>
-      <span class="topic-tag">صحة الرجل</span>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section id="guides">
-  <div class="guides-header">
-    <div>
-      <div class="sec-eyebrow">أدلة طبية فاخرة</div>
-      <h2 class="sec-title">كتيّبات وأدلة<br>طبية</h2>
-    </div>
-    <p class="sec-sub" style="max-width: 320px;">موارد طبية علمية عالية المستوى — كتبها أخصائي متخصص — للمريض والمحترف وعائلته</p>
-  </div>
-  <div class="guides-grid">
-    <div class="guide-card">
-      <div class="guide-img" style="background-image: url('images/guide-kidney-stones.jpg');">
-        <div class="guide-img-overlay"></div>
-        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/></svg></div>
-        <span class="guide-badge badge-hot">الأكثر طلبًا</span>
+<section class="testimonials">
+  <div class="testimonials-container">
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">Saved me 45 minutes per clinic. Game changer for my workflow.</p>
+        <p class="testimonial-author">Urology Registrar, North East England</p>
       </div>
-      <div class="guide-body">
-        <div class="guide-lang">عربي</div>
-        <div class="guide-title">دليل حصوات الكلى الشامل</div>
-        <p class="guide-desc">الأسباب العمي��ة والأعراض الحقيقية — التغذية الوقائية المتقدمة — والعلاج الشامل — كل ما تحتاج معرفته في دليل واحد فاخر</p>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">Finally, tools built by someone who understands NHS constraints.</p>
+        <p class="testimonial-author">Consultant Urologist, Midlands</p>
       </div>
-      <div class="guide-footer">
-        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
-        <a href="https://buy.stripe.com/14AcN449M2EQ2iJaJA0gw01" target="_blank" class="btn-small">تحميل</a>
-      </div>
-    </div>
-    <div class="guide-card">
-      <div class="guide-img" style="background-image: url('images/guide-bladder.jpg');">
-        <div class="guide-img-overlay"></div>
-        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <span class="guide-badge badge-new">جديد</span>
-      </div>
-      <div class="guide-body">
-        <div class="guide-lang">عربي</div>
-        <div class="guide-title">المثانة المفرطة النشاط — دليل المريض</div>
-        <p class="guide-desc">تمارين المثانة المتقدمة — تعديلات نمط الحياة العلمية — خيارات العلاج الشاملة — لاسترجاع السيطرة الكاملة</p>
-      </div>
-      <div class="guide-footer">
-        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
-        <a href="https://buy.stripe.com/cNidR821Edjug9z4lc0gw02" target="_blank" class="btn-small">تحميل</a>
-      </div>
-    </div>
-    <div class="guide-card">
-      <div class="guide-img" style="background-image: url('images/guide-prostate.jpg');">
-        <div class="guide-img-overlay"></div>
-        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <span class="guide-badge badge-new">جديد</span>
-      </div>
-      <div class="guide-body">
-        <div class="guide-lang">عربي</div>
-        <div class="guide-title">صحة البروستاتا — دليل الرجل العربي</div>
-        <p class="guide-desc">تضخم البروستاتا والسرطان وفحص PSA — للرجل فوق ٤٠ — ولعائلته المحيطة — معرفة عميقة وشاملة</p>
-      </div>
-      <div class="guide-footer">
-        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
-        <a href="https://buy.stripe.com/bJedR80XAbbm5uV3h80gw03" target="_blank" class="btn-small">تحميل</a>
-      </div>
-    </div>
-    <div class="guide-card">
-      <div class="guide-img" style="background-image: url('images/guide-bundle.jpg');">
-        <div class="guide-img-overlay"></div>
-        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <span class="guide-badge badge-hot">باقة مميزة</span>
-      </div>
-      <div class="guide-body">
-        <div class="guide-lang">عربي</div>
-        <div class="guide-title">الباقة الشاملة — ٥ أدلة عربية</div>
-        <p class="guide-desc">جميع الأدلة الخمسة المميزة في باقة واحدة فاخرة — حصوات الكلى، المثانة، البروستاتا، الالتهابات، والدم في البول</p>
-      </div>
-      <div class="guide-footer">
-        <div class="guide-price">£18 <small>/ الباقة</small></div>
-        <a href="https://buy.stripe.com/9B66oGgWycfqcXneZQ0gw06" target="_blank" class="btn-small">تحميل</a>
-      </div>
-    </div>
-    <div class="guide-card">
-      <div class="guide-img" style="background-image: url('images/guide-uti.jpg');">
-        <div class="guide-img-overlay"></div>
-        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 12H8"/></svg></div>
-        <span class="guide-badge badge-new">جديد</span>
-      </div>
-      <div class="guide-body">
-        <div class="guide-lang">عربي — للنساء خاصةً</div>
-        <div class="guide-title">الوقاية من التهابات المسالك</div>
-        <p class="guide-desc">عادات يومية، نظافة صحيحة، ومتى تحتاجين طبيبًا — لأن الالتهابات المتكررة لها حل حقيقي</p>
-      </div>
-      <div class="guide-footer">
-        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
-        <a href="https://buy.stripe.com/bJe4gy0XA2EQcXneZQ0gw04" target="_blank" class="btn-small">تحميل</a>
-      </div>
-    </div>
-    <div class="guide-card">
-      <div class="guide-img" style="background-image: url('images/guide-ed.jpg');">
-        <div class="guide-img-overlay"></div>
-        <div class="guide-img-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <span class="guide-badge badge-new">جديد</span>
-      </div>
-      <div class="guide-body">
-        <div class="guide-lang">عربي</div>
-        <div class="guide-title">الضعف الجنسي — دليل الرجل</div>
-        <p class="guide-desc">دليل شامل لصحة الرجل الجنسية — الأسباب الحقيقية والعلاجات الحديثة وما يكشفه الضعف عن صحتك العامة</p>
-      </div>
-      <div class="guide-footer">
-        <div class="guide-price">£5 <small>/ مرة واحدة</small></div>
-        <a href="https://buy.stripe.com/00wfZgayafrC9Lb2d40gw05" target="_blank" class="btn-small">تحميل</a>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">The histology tracking alone has prevented multiple near-misses.</p>
+        <p class="testimonial-author">Urology SpR, London</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="newsletter">
-  <div class="newsletter-text">
-    <h3>تحديثات طبية أسبوعية بالعربية — للمريض والمتخصص</h3>
-    <p>معلومات موثوقة مباشرة إلى بريدك — بدون ضجيج، وبدون تبسيط مخل</p>
+<section class="about" id="about">
+  <div class="section-container">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/hero-photo.jpg" alt="Dr George Shaker">
+      </div>
+      <div class="about-content">
+        <h2>About Dr George Shaker</h2>
+        <p>George is an NHS urology registrar with firsthand experience of the administrative burden facing clinicians daily. Frustrated by outdated workflows, he started building AI-powered tools that solve real problems in real clinics.</p>
+        <p>His mission: give clinicians time back for what matters most — patient care.</p>
+        <div class="credentials">
+          <span class="credential-badge">FEBU</span>
+          <span class="credential-badge">MRCS</span>
+          <span class="credential-badge">BAUS Member</span>
+          <span class="credential-badge">NHS Registrar</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="newsletter-form">
-    <input type="email" class="newsletter-input" placeholder="بريدك الإلكتروني">
-    <a href="#" class="btn-gold">اشترك مجانًا</a>
-  </div>
-</div>
+</section>
 
-<section id="follow">
-  <div class="sec-eyebrow">تواصل معي</div>
-  <h2 class="sec-title">تابعني على<br>منصاتك المفضلة</h2>
-  <p class="sec-sub">محتوى يومي بالعربية — علم دقيق، توعية جادة، وشفافية طبية بدون رتوش</p>
-  <div class="social-grid">
-    <a href="https://www.instagram.com/georgeshaker26/" class="social-card">
-      <div class="social-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="var(--gold)" stroke="none"/></svg></div>
-      <h4>إنستغرام</h4>
-      <p>فيديوهات قصيرة وإنفوغرافيك فاخرة بالعربية عن أمراض المسالك البولية — للجميع بكل وضوح</p>
-      <span class="social-card-cta">تابع ←</span>
-    </a>
-    <a href="https://www.tiktok.com/@mrbladderfix?lang=en-GB" class="social-card">
-      <div class="social-card-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-5-5z"/><path d="M9 3v5h10M12 12v5M9.5 14.5l2.5-2.5 2.5 2.5"/></svg></div>
-      <h4>تيك توك</h4>
-      <p>فيديوهات توعوية مباشرة وصريحة عن أكثر مواضيع المسالك البولية شيوعًا وأهمية</p>
-      <span class="social-card-cta">تابع ←</span>
-    </a>
-    <a href="https://www.linkedin.com/in/george-shaker-a856b01b9/" class="social-card">
-      <div class="social-card-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-      <h4>لينكدإن</h4>
-      <p>محتوى احترافي للأطباء والمتخصصين — أبحاث سريرية ودراسات متقدمة في NHS</p>
-      <span class="social-card-cta">تواصل ←</span>
-    </a>
-    <a href="https://wa.me/447414951508" class="social-card">
-      <div class="social-card-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a6.963 6.963 0 0 0-7.145 7.192c.004 1.264.324 2.494.94 3.562L1.05 23.489l3.898-1.324c1.003.554 2.156.848 3.322.852h.003c3.933 0 7.145-3.211 7.145-7.145 0-1.908-.768-3.701-2.163-5.051-.594-.594-1.37-.913-2.195-1.03z" fill="var(--gold)"/></svg></div>
-      <h4>واتس آب</h4>
-      <p>تواصل مباشر معي عبر الواتس — استشارات سريعة واستفسارات طبية موثوقة</p>
-      <span class="social-card-cta">راسل ←</span>
-    </a>
+<section class="trust-banner" id="contact">
+  <div class="trust-container">
+    <h2>Interested in a Trust Licence?</h2>
+    <p>Deploy across your entire urology department from £1,500/month.</p>
+    <a href="mailto:hello@drgeorgeshaker.com" class="btn-demo">Request a Demo</a>
   </div>
 </section>
 
 <footer>
-  <div class="footer-copy">© ٢٠٢٦ د. جورج شاكر — جميع الحقوق محفوظة</div>
-  <ul class="footer-links">
-    <li><a href="#topics">المواضيع</a></li>
-    <li><a href="#guides">الأدلة</a></li>
-    <li><a href="#about">عني</a></li>
-    <li><a href="mailto:hello@georgeshaker.com">تواصل</a></li>
-  </ul>
-  <div class="footer-logo">
-    <img src="images/logo.jpg" alt="Dr. George Shaker Logo">
-    <span>د. جورج شاكر</span>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <p class="footer-name">Dr George Shaker</p>
+      <p class="footer-tagline">Built by a Clinician. Built for Clinicians.</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#products">Tools</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://drgeorgeshaker.com">drgeorgeshaker.com</a></li>
+    </ul>
   </div>
 </footer>
 
-<!-- Article Modal -->
-<div id="kidney-stones-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">حصوات الكلى: الأسباب والعوامل الخطرة وكيفية التعامل معها</h2>
-      <p class="article-subtitle">دليل شامل من أخصائي جراحة المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>تُعدّ حصوات الكلى من أكثر المشاكل الشائعة في الجهاز البولي، وتحدث عندما تتجمع بعض المواد مثل الكالسيوم أو الأملاح داخل الكلى لتكوّن كتلاً صغيرة تشبه الحصى. هذه الحصوات قد تكون صغيرة تمرّ دون ألم، أو كبيرة تسدّ مجرى البول وتسبب ألمًا شديدًا.</p>
-      
-      <h3>الأسباب الحقيقية</h3>
-      <ul>
-        <li><strong>قلة شرب الماء:</strong> الجفاف يجعل البول أكثر تركيزًا، مما يزيد احتمال تكوّن الحصوات.</li>
-        <li><strong>نظام غذائي غني بالأملاح والبروتينات:</strong> كثرة تناول اللحوم والمأك��لات المالحة ترفع نسبة الكالسيوم والأوكسالات في البول.</li>
-        <li><strong>العوامل الوراثية:</strong> بعض الأشخاص لديهم استعداد طبيعي لتكوين الحصوات.</li>
-        <li><strong>أمراض معينة:</strong> مثل فرط نشاط الغدة الجار درقية أو التهابات المسالك البولية المتكررة.</li>
-      </ul>
-      
-      <h3>العوامل الخطرة</h3>
-      <ul>
-        <li>ارتفاع حرارة الجو مع قلة شرب الماء (شائع في مناطق الخليج).</li>
-        <li>السمنة وأمراض السكر والضغط.</li>
-        <li>تناول مكملات الكالسيوم أو فيتامين (د) بدون استشارة الطبيب.</li>
-      </ul>
-      
-      <h3>كيف تعرف أنك مصاب بحصوة؟</h3>
-      <ul>
-        <li>ألم شديد في أحد جانبي البطن أو الظهر يمتد أحيانًا إلى الفخذ أو الأعضاء التناسلية.</li>
-        <li>غثيان أو قيء مع ألم مستمر.</li>
-        <li>تغير لون البول إلى أحمر أو بني نتيجة وجود دم.</li>
-        <li>الحاجة المتكررة للتبول مع إحساس بالحرقان.</li>
-      </ul>
-      <p>عند ظهور هذه الأعراض، يجب مراجعة الطبيب لإجراء فحص بالموجات فوق الصوتية أو الأشعة المقطعية لتحديد مكان وحجم الحصوة.</p>
-      
-      <h3>متى تحتاج عملية ومتى لا؟</h3>
-      <ul>
-        <li><strong>الحصوات الصغيرة (أقل من 5 مم):</strong> غالبًا تمرّ تلقائيًا مع شرب الماء والمسكنات وموسعات الحالب.</li>
-        <li><strong>الحصوات المتوسطة أو الكبيرة:</strong> قد تحتاج إلى تفتيت بالموجات الصوتية أو إزالة بالمنظار، خاصة إذا سببت انسدادًا أو التهابًا شديدًا.</li>
-        <li><strong>في حالات نادرة جدًا:</strong> تتطلب الجراحة المفتوحة إذا كانت الحصوة كبيرة جدًا أو في موقع يصعب الوصول إليه بالمنظار.</li>
-      </ul>
-      
-      <div class="article-tip">
-        <div class="article-tip-title">نصيحة الطبيب</div>
-        <p style="margin-bottom: 0.5rem;">لمنع تكون الحصوات من جديد:</p>
-        <ul style="margin-top: 0;">
-          <li>اشرب كميات كافية من الماء يوميًا (2 إلى 3 لترات).</li>
-          <li>قلّل تناول الأملاح واللحوم الحمراء.</li>
-          <li>حافظ على وزن صحي، وراجع الطبيب بانتظام إذا سبق أن أصبت بحصوة.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Embarrassing Questions Article Modal -->
-<div id="embarrassing-questions-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">أسئلة لا يجرؤون على طرحها: العقم وألم الخصية وما وراءهما</h2>
-      <p class="article-subtitle">دليل شامل من أخصائي جراحة المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>هناك مشكلات طبية يترد�� كثير من الرجال في مناقشتها، رغم أنها شائعة جدًا وتستحق إجابة صريحة. من أهمها تأخر الإنجاب، ضعف الخصوبة، ألم الخصية المستمر، والتغيرات التي تثير القلق في الحياة الجنسية والإنجابية. الحرج لا ي��اعد ��نا، بينما الفهم المبكر والتقييم الصحيح قد يوفّران وقتًا وقلقًا ويفتحان باب العلاج المناسب.</p>
-      
-      <h3>العقم عند الرجل: ماذا يعني فعلًا؟</h3>
-      <p>العقم عند الرجل لا يعني بالضرورة غياب القدرة التامة على الإنجاب، بل يعني و����ود صعوبة في حدوث الحمل بعد فترة من المحاولة المنتظمة. وقد يكون السبب في:</p>
-      <ul>
-        <li>عدد الحيوانات المنوية.</li>
-        <li>حركتها.</li>
-        <li>شكلها.</li>
-        <li>انسداد في القنوات الناقلة.</li>
-        <li>اضطراب في الهرمونات.</li>
-        <li>دوالي الخصية.</li>
-        <li>التهاب سابق أثّر على الخصوبة.</li>
-        <li>أسباب وراثية أو جينية في بعض الحالات.</li>
-      </ul>
-      <p>في عدد كبير من الحالات، لا يشعر الرجل بأي عرض واضح، ويظهر الأمر فقط عند تأخر الحمل.</p>
-      
-      <h3>الأسئلة التي تُطرح بصوت خافت</h3>
-      <ul>
-        <li><strong>هل ضعف التحليل يعني استحالة الإنجاب؟</strong> لا. كثير من الحالات تتحسن بالعلاج أو بالتدخل المناسب.</li>
-        <li><strong>هل دوالي الخصية دائمًا تمنع الحمل؟</strong> لا. لكنها قد تؤثر في جودة الحيوانات المنوية عند بعض الرجال.</li>
-        <li><strong>هل قلة عدد الحيوانات المنوية مرض خطير؟</strong> ليس بالضرورة. أحيانًا تكون مرتبطة بعوامل قابلة للعلاج.</li>
-        <li><strong>هل العقم يعني عدم وجود رغبة أو ضعف انتصاب؟</strong> لا. الخصوبة والانتصاب موضوعان مختلفان.</li>
-      </ul>
-      
-      <h3>ألم الخصية المستمر: ما أسبابه؟</h3>
-      <p>ألم الخصية المستمر قد يكون بسيطًا أو علامة على مشكلة تحتاج علاجًا. من أسبابه الشائعة:</p>
-      <ul>
-        <li>التهاب البربخ أو الخصية.</li>
-        <li>دوالي الخصية.</li>
-        <li>فتق إربي.</li>
-        <li>شد عضلي أو ألم محوّل من الظهر.</li>
-        <li>حصوة في الحالب.</li>
-        <li>احتقان أو التهاب مزمن.</li>
-      </ul>
-      
-      <h3>متى يصبح ألم الخصية حالة طارئة؟</h3>
-      <p>الحالة الطارئة الأهم هي التواء الخصية، ويكون عادة بألم مفاجئ قوي، وقد يصاحبه تورم أو غثيان أو ارتفاع الخصية عن وضعها الطبيعي. هذه الحالة تحتاج تقييمًا فوريًا، لأن التأخير قد يضر الخصية بشكل دائم.</p>
-      
-      <h3>أسئلة محرجة لكن مهمة</h3>
-      <ul>
-        <li><strong>هل العادة السرية تسبب العقم؟</strong> لا تسبب العقم مباشرة.</li>
-        <li><strong>هل كثرة القذف تضعف الخصوبة؟</strong> ليس بشكل دائم أو خطير عند الشخص السليم.</li>
-        <li><strong>هل اختلاف حجم الخصيتين طبيعي؟</strong> قد يكون الاختلاف الطفيف طبيعيًا. أما الفارق الواضح فيحتاج فحصًا.</li>
-        <li><strong>هل ألم الخصية بعد الجماع طبيعي؟</strong> قد يحدث أحيانًا، لكن إذا تكرر أو كان شديدًا فيستحق التقييم.</li>
-        <li><strong>هل وجود كتلة في الخصية يعني سرطانًا؟</strong> ليس دائمًا، لكنه عرض لا يجب تجاهله.</li>
-      </ul>
-      
-      <h3>متى تحتاج إلى أخصائي؟</h3>
-      <ul>
-        <li>تأخر في ال��مل أكثر من سنة.</li>
-        <li>ألم خصية متكرر أو مستمر.</li>
-        <li>ضعف واضح في تحليل السائل المنوي.</li>
-        <li>كتلة أو تورم في الخصية.</li>
-        <li>تاريخ سابق لالتهاب خصية أو جراحة أو إصابة.</li>
-        <li>مشاكل هرمو��ية أو ضعف جنسي مرافق.</li>
-        <li>شك في دوالي الخصية أو انسداد.</li>
-      </ul>
-      
-      <h3>ما الذي لا يجب فعله؟</h3>
-      <ul>
-        <li>لا تتناول مضادات حيوية من نفسك.</li>
-        <li>لا تؤجل الفحص إذا كان الألم مستمرًا.</li>
-        <li>لا تفترض أن كل مشكلة سببها نفسي.</li>
-        <li>لا تعتمد على وصفات شعبية بدل التشخيص.</li>
-        <li>لا تفسر ضعف التحليل مرة واحدة كحكم نهائي.</li>
-      </ul>
-      
-      <div class="article-tip">
-        <div class="article-tip-title">رسالة طبية واضحة</div>
-        <p>المشكلات المتعلقة بالإنجاب وألم الخصية ليست موضوعات محرجة، بل موضوعات طبية شائعة ودقيقة. والفرق بين القلق غير المبرر والعلاج الصحيح هو الفحص المبكر والكلام الصريح مع الطبيب. كلما كان السؤال أوضح، كانت الإجابة أدق، وكانت فرص العلاج أفضل.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- UTI Article Modal -->
-<div id="uti-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">التهابات المسالك البولية عند النساء: لماذا تتكرر وكيف تُعالج؟</h2>
-      <p class="article-subtitle">دليل شامل من أخصائي جراحة المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>التهابات المسالك البولية من أكثر المشكلات شيوعًا عند النساء، وقد تكون مزعجة جدًا إذا تكررت أكثر من مرة. في كثير من الحالات يكون العلاج بسيطًا، لكن تكرار الأعراض يعني أحيانًا أن هناك سببًا أعمق يحتاج تقييمًا أدق، وليس مجرد تناول مضاد حيوي كل مرة.</p>
-      
-      <h3>لماذا تتكرر عند النساء؟</h3>
-      <p>تحدث التهابات المسالك البولية عند النساء بشكل أكثر شيوعًا بسبب قصر الإحليل وقربه من المنطقة المهبلية والشرجية، مما يسهل وصول البكتيريا إلى المثانة. كما أن بعض العوامل تجعل الالتهابات تتكرر أكثر، م��ل:</p>
-      <ul>
-        <li>الجماع المتكرر.</li>
-        <li>قلة شرب الماء.</li>
-        <li>حبس البول لفترات طويلة.</li>
-        <li>سوء العناية بالنظافة بعد التبول أو التبرز.</li>
-        <li>الإمساك المزمن.</li>
-        <li>استخدام بعض وسائل منع الحمل.</li>
-        <li>التغير��ت الهرم��نية، خاصة بعد انقطاع الطمث.</li>
-        <li>وجود حصوات أو مشاكل في المثانة أو الكلى.</li>
-        <li>ضعف إفراغ المثانة بالكامل.</li>
-      </ul>
-      
-      <h3>الأعراض الحقيقية</h3>
-      <ul>
-        <li>حرقة أثناء التبول.</li>
-        <li>كثرة التبول.</li>
-        <li>الشعور العاجل بالحاجة إلى التبول.</li>
-        <li>ألم أسفل البطن.</li>
-        <li>تغير رائحة البول أو مظهره.</li>
-        <li>أحيانًا وجود دم بسيط في البول.</li>
-      </ul>
-      <p>إذا وصلت العدوى إلى الكلى، قد تظهر حرارة، قشعريرة، ألم في الخاصرة، أو غثيان، وهنا تصبح الحالة أكثر أهمية وتحتاج تقييمًا أسرع.</p>
-      
-      <h3>لماذا لا يكفي المضاد الحيوي وحده؟</h3>
-      <p>المضاد الحيوي قد يعالج النوبة الحالية، لكنه لا يمنع التكرار إذا كان السبب الأساسي ما زال موجودًا. والأسوأ أن الاستخدام المتكرر والعشوائي للمضادات قد يؤدي إلى:</p>
-      <ul>
-        <li>مقاومة البكتيريا للعلاج.</li>
-        <li>عدم اختيار الدواء المناسب.</li>
-        <li>إخفاء مشكلة أخرى مثل حصوة أو ضعف في إفراغ المثانة.</li>
-        <li>تكرار الأعراض بسرعة بعد انتهاء الدواء.</li>
-      </ul>
-      
-      <h3>العلاج الصحيح والفعال</h3>
-      <p><strong>في الالتهاب البسيط:</strong> قد يصف الطبيب مضادًا حيويًا مناسبًا بعد تقييم الأعراض، وأحيانًا يطلب تحليل بول أو زراعة بول.</p>
-      <p><strong>في الالتهابات المتكررة:</strong> يجب البحث عن السبب، وقد يشمل ذلك تحليل بول وزراعة، تقييم عادة التبول وشرب الماء، فحص إذا كان هناك بقاء بول بعد التبول، وأحيانًا تصوير للكلى والمثانة.</p>
-      
-      <h3>الوقاية</h3>
-      <ul>
-        <li>شرب الماء بانتظام.</li>
-        <li>التبول بعد الجماع عند بعض النساء.</li>
-        <li>عدم حبس البول.</li>
-        <li>علاج الإمساك.</li>
-        <li>تجنب المبالغة في استخدام الغسولات أو المواد المهيجة.</li>
-        <li>تحسين التبول الكامل وعدم الاستعجال.</li>
-      </ul>
-      
-      <h3>متى تحتاجين أخصائيًا؟</h3>
-      <ul>
-        <li>تكررت الالتهابات أكثر من مرة.</li>
-        <li>لم تتحسن الأعراض بعد العلاج.</li>
-        <li>ظهرت حرارة أو ألم في الخاصرة.</li>
-        <li>كان هناك دم متكرر في البول.</li>
-        <li>توجد حصوات أو تاريخ سابق لها.</li>
-        <li>توجد صعوبة في إفراغ المثانة.</li>
-        <li>حدثت الالتهابات بعد انقطاع الطمث بشكل متكرر.</li>
-        <li>كانت الزراعة تُظهر بكتيريا مقاومة أو غير معتادة.</li>
-      </ul>
-      
-      <h3>متى تصبح الحالة طارئة؟</h3>
-      <ul>
-        <li>حرارة عالية.</li>
-        <li>ألم شديد في الظهر أو الخاصرة.</li>
-        <li>قيء أو تعب شديد.</li>
-        <li>صعوبة شديدة في التبول.</li>
-        <li>تدهور عام سريع في الحالة.</li>
-      </ul>
-      
-      <div class="article-tip">
-        <div class="article-tip-title">رسالة طبية مهمة</div>
-        <p>التهاب المسالك البولية عند النساء شائع، لكنه ليس شيئًا يجب التعايش معه إذا كان يتكرر. العلاج الفعال يبدأ من التشخيص الصحيح، وليس من تكرار المضاد الحيوي نفسه. وعندما نفهم السبب، يصبح منع التكرار ممكنًا في كثير من الحالات.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Bundle Guide Article Modal -->
-<div id="bundle-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">الباقة الشاملة — ٥ أدلة طبية فاخرة بالعربية</h2>
-      <p class="article-subtitle">مرجع طبي متكامل من أخصائي جراحة المسالك البولية — د. جورج شاكر</p>
-    </div>
-    <div class="article-body">
-      <p>الباقة الشاملة تضم خمسة أدلة طبية متكاملة كُتبت خصيصًا للقارئ العربي، مبنية على خبرة سنوات في طب المسالك البولية وأحدث الأبحاث والإرشادات الطبية ��لعالم��ة. الهدف هو تمكينك من فهم جسمك وصحتك بشكل أعمق ومساعدتك على اتخاذ قرارات صحية مدروسة.</p>
-
-      <h3>١ — دليل حصوات الكلى الشامل</h3>
-      <p>كل ما تحتاج معرفته عن أسباب الحصوات وأعراضها والتغذية الوقائية وخيارات العلاج — من التفتيت بالليزر إلى المنظار — مع خطة وقائية عملية لمدة ٣٠ يومًا.</p>
-
-      <h3>٢ — المثانة المفرطة النشاط — دليل المريض</h3>
-      <p>تمارين كيجل المتقدمة وبرنامج تدريب المثانة خطوة بخطوة، والأطعمة الصديقة للمثانة، وجميع خيارات العلاج من الأدوية إلى حقن البوتوكس والتحفيز العصبي.</p>
-
-      <h3>٣ — صحة البروستاتا — دليل الرجل العربي</h3>
-      <p>دليل شامل للرجل فوق ٤٠ عن تضخم البروستاتا وسرطان البروستاتا وفحص PSA وعلامات التحذير ومتى يجب مراجعة الطبيب — مع رسالة خاصة لعائلة الرجل.</p>
-
-      <h3>٤ — الوقاية من التهابات المسالك البولية</h3>
-      <p>دليل عملي بالعادات اليومية والنظافة الصحيحة والتغذية الواقية — مع حلول طبية حقيقية للالتهابات المتكررة ونصائح خاصة للحوامل والنساء بعد انقطاع الطمث.</p>
-
-      <h3>٥ — الضعف الجنسي — دليل الرجل</h3>
-      <p>العلاقة بين صحة القلب والانتصاب والأسباب الحقيقية وراء المشكلة وجميع خيارات العلاج — من تغيير نمط الحياة إلى الأدوية والعلاجات المتقدمة — بكل صراحة واحترام.</p>
-
-      <h3>كيف تستفيد من الباقة؟</h3>
-      <ul>
-        <li>اقرأ الدليل الذي يخص مشكلتك أولًا ثم اطلع على الأدلة الأخرى للمعرفة العامة.</li>
-        <li>شارك الأدلة مع عائلتك وأصدقائك — المعرفة الصحية حق للجميع.</li>
-        <li>احتفظ بهذه الأدلة كمرجع يمكنك العودة إليه في أي وقت.</li>
-        <li>إذا وجدت معلومة تنطبق عليك — ناقشها مع طبيبك في الزيارة القادمة.</li>
-      </ul>
-
-      <div class="article-tip">
-        <div class="article-tip-title">م��احظة مهمة</div>
-        <p>هذه الأدلة مرجع للتثقيف الصحي ولا تغني عن استشارة الطبيب المختص. إذا كنت تعاني من أي أعراض — لا تتردد في مراجعة طبيبك. صحتك أهم استثمار — والمعرفة هي الخطوة الأولى للوقاية.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Erectile Dysfunction Guide Article Modal (from guide card) -->
-<div id="ed-guide-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">الضعف الجنسي عند الرجل: ما الذي يعنيه فعلًا؟</h2>
-      <p class="article-subtitle">دليل شامل لصحة الرجل الجنسية — د. جورج شاكر، أخصائي المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>الضعف الجنسي عند الرجل، أو ضعف الانتصاب، هو صعوبة متكررة في الحصول على انتصاب كافٍ للجماع أو الحفاظ عليه. وهو ليس مجرد مشكلة في الأداء الجنسي، بل قد يكون أحيانًا علامة مبكرة على مشكلة في الصحة العامة مثل السكري، وارتفاع الضغط، وأمراض القلب، أو التوتر النفسي والاكتئاب.</p>
-
-      <h3>ماذا يحدث في الجسم؟</h3>
-      <p>الانتصاب عملية معقدة تحتاج إلى توازن بين الأعصاب، والهرمونات، وتدفق الدم، والحالة النفسية. إذا اختل واحد من هذه العناصر، قد يظهر الضعف الجنسي بدرجات مختلفة. ليس كل ضعف جنسي يعني مرضًا خطيرًا، لكن تكراره أو استمراره لفترة طويلة يستحق التقييم الطبي.</p>
-
-      <h3>الأ��باب الطبية المعقدة</h3>
-      <ul>
-        <li><strong>السكري:</strong> يؤثر على الأعصاب والأوعية الدموية ويعد من الأسباب المهمة جدًا.</li>
-        <li><strong>أمراض القلب والشرايين:</strong> ضعف التروية الدموية قد يظهر أولًا في الانتصاب قبل ظهور أعراض أخرى.</li>
-        <li><strong>ارتفاع ضغط الدم:</strong> سواء بسبب المرض نفسه أو بعض أدويته.</li>
-        <li><strong>ارتفاع الكوليسترول وتصلب الشرايين:</strong> يضعف وصول الدم الكافي.</li>
-        <li><strong>السمنة وقلة الحركة:</strong> تؤثر على الهرمونات والدورة الدموية.</li>
-        <li><strong>انخفاض هرمون الذكورة</strong> في بعض الحالات.</li>
-        <li><strong>التدخين:</strong> يضر الأوعية الدموية بشكل مباشر.</li>
-        <li><strong>بعض الأدوية</strong> مثل مضادات الاكتئاب وأدوية الضغط.</li>
-      </ul>
-
-      <h3>الأسباب النفسية</h3>
-      <ul>
-        <li>القلق من الأداء والخوف من الفشل المتكرر.</li>
-        <li>التوتر المزمن والاكتئاب.</li>
-        <li>مشاكل العلاقة الزوجية.</li>
-        <li>الإرهاق الشديد وقلة النوم.</li>
-      </ul>
-
-      <h3>ماذا يكشف عن صحتك العامة؟</h3>
-      <p>ضعف الانتصاب قد يكون إشارة مبكرة إلى اضطراب عام في الجسم. عندما يراجع المريض الطبيب بسببه، قد يكتشف سكريًا غير مشخص، ارتفاع الضغط، ارتفاع الدهون، نقص الهرمونات، أو مشاكل النوم وانقطاع النفس.</p>
-
-      <h3>العلاجات المتاحة والحديثة</h3>
-      <ul>
-        <li><strong>تعديل نمط الحياة:</strong> إيقاف التدخين، إنقاص الوزن، الرياضة المنتظمة، تحسين النوم، ضبط السكر والضغط.</li>
-        <li><strong>العلاج النفسي أو الزوجي:</strong> إذا كان القلق أو الاكتئاب أو مشاكل العلاقة جزءًا من المشكلة.</li>
-        <li><strong>الأدوية:</strong> أدوية فعالة تحتاج وصفًا طبيًا مناسبًا، خاصة عند وجود أمراض مزمنة.</li>
-        <li><strong>العلاجات المتقدمة:</strong> أجهزة الشفط، الحقن الموضعية، وعلاجات تخصصية أخرى.</li>
-        <li><strong>علاج السبب الأساسي:</strong> السكري، نقص الهرمونات، أو المرض القلبي يجب معالجتها مباشرة.</li>
-      </ul>
-
-      <h3>متى يجب مراجعة الطبيب؟</h3>
-      <ul>
-        <li>المشكلة مستمرة أو متكررة.</li>
-        <li>ظهرت بشكل مفاجئ دون سبب واضح.</li>
-        <li>كان هناك سكري أو ضغط أو تدخين أو تاريخ قلبي.</li>
-        <li>أثرت على العلاقة الزوجية أو الحالة النفسية.</li>
-      </ul>
-
-      <div class="article-tip">
-        <div class="article-tip-title">نصيحة طبية مهمة</div>
-        <p>الضعف الجنسي ليس علامة ضعف شخصية. في كثير من الأحيان يكون رسالة من الجسم تقول إن هناك عاملًا صحيًا يحتاج إلى انتباه. التعامل الصحيح معه يبدأ بالفهم، ثم الفحص، ثم اختيار العلاج المناسب بدل الصمت أو التجاهل.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Erectile Dysfunction Article Modal -->
-<div id="erectile-dysfunction-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">الضعف الجنسي عند الرجل: ما الذي يعنيه فعلًا؟</h2>
-      <p class="article-subtitle">دليل شامل من أخصائي جراحة المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>الضعف الجنسي عند الرجل، أو ضعف الانتصاب، هو صعوبة متكررة في الحصول على انتصاب كافٍ للجماع أو الحفاظ عليه. وهو ليس مجرد مشكلة في الأداء الجنسي، بل قد يكون أحيانًا علامة مبكرة على مشكلة في الصحة العامة مثل السكري، وارتفاع الضغط، وأمراض القلب، أو التوتر النفسي والاكتئاب.</p>
-      
-      <h3>ماذا يحدث في الجسم؟</h3>
-      <p>��لانتصاب عملية معقدة تحتاج إلى توازن بين الأعصاب، والهرمونات، وتدفق الدم، والحالة النفسية. عندما يصل الرجل إلى الإثارة الجنسية، ترسل الأعصاب إشارات تؤدي إلى ارتخاء العضلات داخل القضيب، فيزداد تدفق الد�� ويحدث الانتصاب. إذا اختل واحد من هذه العناصر، قد يظهر الضعف الجنسي بدرجات مختلفة.</p>
-      
-      <h3>الأسباب الطبية المعقدة</h3>
-      <p>الأسباب العضوية من أكثر الأسباب شيوعًا، وتشمل:</p>
-      <ul>
-        <li><strong>السكري:</strong> يؤثر على الأعصاب والأوعية الدموية ويعد من الأسباب المهمة جدًا.</li>
-        <li><strong>أمراض القلب والشرايين:</strong> ضعف التروية الدموية قد يظهر أولًا في الانتصاب قبل ظهور أعراض أخرى.</li>
-        <li><strong>ارتفاع ضغط الدم:</strong> سواء بسبب المرض نفسه أو بعض أدوية الضغط.</li>
-        <li><strong>ارتفاع الكوليسترول وتصلب الشرايين:</strong> يضعف وصول الدم الكافي إلى القضيب.</li>
-        <li><strong>السمنة وقلة الحركة:</strong> تؤثر على الهرمونات والدورة الدموية.</li>
-        <li><strong>انخفاض هرمون الذكورة</strong> في بعض الحالات.</li>
-        <li><strong>التدخين:</strong> من العوامل المهمة جدًا لأنه يضر الأوعية الدموية بشكل مباشر.</li>
-      </ul>
-      
-      <h3>الأسباب النفسية</h3>
-      <p>العوامل النفسية قد تكون السبب الرئيسي أو جزءًا من المشكلة:</p>
-      <ul>
-        <li>القلق من الأداء.</li>
-        <li>التوتر المزمن.</li>
-        <li>الاكتئاب.</li>
-        <li>مشاكل العلاقة الزوجية.</li>
-        <li>الخوف من الفشل المتكرر.</li>
-        <li>الإرهاق الشديد وقلة النوم.</li>
-      </ul>
-      
-      <h3>ماذا يكشف عن صحتك العامة؟</h3>
-      <p>ضعف الانتصاب قد يكون إشارة مبكرة إلى اضطراب عام في الجسم، خاصة إذا ظهر تدريجيًا واستمر. فالأوعية الدموية الصغيرة في القضيب قد تتأثر قبل أن تظهر مشاكل واضحة في القلب أو الشرايين. عندما يراجع المريض الطبيب ��سبب ضعف الانتصاب، قد يكون الوقت مناسبًا لاكتشاف:</p>
-      <ul>
-        <li>السكري غير المشخص.</li>
-        <li>ارتفاع الضغط.</li>
-        <li>ار���فاع الدهون.</li>
-        <li>نقص الهرمونات.</li>
-        <li>مشاكل النوم أو انقطاع ال��ف�� أثناء النوم.</li>
-      </ul>
-      
-      <h3>ال��لاجات المتاحة والحديثة</h3>
-      <p><strong>1) ت��د��ل نمط الحياة:</strong> إيقاف التدخين، إنقاص الوزن، ممارسة الرياضة بانتظام، تحسين النوم، ضبط السكر والضغط والكوليسترول.</p>
-      <p><strong>2) العلاج النفسي أو الزوجي:</strong> إذا كان القلق أو الاكتئاب أو مشاكل العلاقة جزءًا من المشكلة.</p>
-      <p><strong>3) الأدوية:</strong> هناك أدوية فعالة تساعد على تحسين الانتصاب عند كثير من الرجال، لكنها تحتاج وصفًا طبيًا مناسبًا.</p>
-      <p><strong>4) العلاجات المتقدمة:</strong> عندما لا تكفي الأدوية، توجد خيارات أخرى مثل أجهزة الشفط الخاصة، والحقن الموضعية في بعض الحالات.</p>
-      <p><strong>5) علاج السبب الأساسي:</strong> إذا كان السبب مثل السكري أو انخفاض هرمون الذكورة، فإن علاج السبب هو جزء أساسي من الحل.</p>
-      
-      <h3>متى يجب مراجعة الطبيب؟</h3>
-      <ul>
-        <li>المشكلة مستمرة أو متكررة.</li>
-        <li>ظهرت بشكل مفاجئ دون سبب واضح.</li>
-        <li>رافقتها أعراض أخرى مثل ضعف الرغبة أو التعب.</li>
-        <li>كان هناك سكري أو ضغط أو تدخين أو تاريخ قلبي.</li>
-        <li>أثرت على العلاقة الزوجية أو الحالة النفسية.</li>
-      </ul>
-      
-      <div class="article-tip">
-        <div class="article-tip-title">نصيحة طبية مهمة</div>
-        <p>الضعف الجنسي ��يس علامة ضعف شخصية، ولا شيء يدعو للحرج. في كثير من الأحيان يكون رسالة من الجسم تقول إن هناك عاملًا صحيًا يحتاج إلى انتباه. التعامل الصحيح معه يبدأ بالفهم، ثم الفحص، ثم اختيار العلاج المناسب بدل الصمت أو التجاهل.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Prostate Cancer Article Modal -->
-<div id="prostate-cancer-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">سرطان البروستاتا: الكشف المبكر ينقذ الحياة</h2>
-      <p class="article-subtitle">دليل شامل من أخصائي جراحة المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>سرطان البروستاتا من أكثر السرطانات شيوعًا عند الرجال، لكنه في كثير من الحالات يكون بطيء النمو ويمكن اكتشافه مبكرًا قبل أن يسبب أعراضًا واضحة. ولهذا السبب، فإن الفحص المنتظم وفهم تحليل PSA يساعدان كثيرًا في الوصول إلى التشخيص في الوقت المناسب.</p>
-      
-      <h3>ما هو سرطان البروستاتا؟</h3>
-      <p>سرطان البروستاتا هو نمو غير طبيعي في خلايا غدة البروستاتا، وقد يبقى محصورًا داخل الغدة لفترة طويلة دون أن يسبب أعراضًا واضحة. وفي بعض الحالات قد يتطور المرض ويحتاج إلى علاج سريع ودقيق. لذلك لا ينبغي الاعتماد على الأعراض فقط، لأن المرض قد يكون موجودًا قبل أن يشعر به المريض.</p>
-      
-      <h3>ما هو فحص PSA؟</h3>
-      <p>تحليل PSA هو فحص دم يقيس مستوى المستضد النوعي للبروستاتا، وهو بروتين تفرزه البروستاتا طبيعيًا. قد يرتفع هذا الرقم في حالات متعددة، مثل تضخم البروستاتا الحميد، التهاب البروستاتا، التهابات المسالك البولية، أو سرطان البروستاتا. لذلك فإن PSA ليس تشخيصًا نهائيًا للسرطان، لكنه أداة مهمة تساعد الطبيب على تقييم الحاجة إلى فحوصات إضافية.</p>
-      
-      <h3>من يحتاج إلى الفحص؟</h3>
-      <p>لا يُطلب الفحص من الجميع بنفس الطريقة، لكن أهم من يحتاجونه هم:</p>
-      <ul>
-        <li>الرجال الأكبر سنًا.</li>
-        <li>من لديهم تاريخ عائلي لسرطان البروستاتا.</li>
-        <li>من يعانون من أعراض بولية غير مفسرة.</li>
-        <li>من لديهم عوامل خطورة أخرى يحددها الطبيب.</li>
-      </ul>
-      <p>قرار الفحص يجب أن يكون مبنيًا على العمر، والتاريخ العائلي، والحالة الصحية العامة، وليس على القلق فقط.</p>
-      
-      <h3>ماذا يعني ارتفاع PSA؟</h3>
-      <p>ارتفاع PSA لا يعني تلقائيًا وجود سرطان. فقد يرتفع بسبب تضخم البروستاتا الحميد، أو التهاب البروستاتا، أو عدوى بولية، أو حتى بعد بعض الإجراءات الطبية أو المجهود الذي يؤثر على الغدة. لذلك، عندما تكون النتيجة مرتفعة، فإن الخطوة التالية تكون عادة إعادة التقييم، والفحص السريري، وأحيانًا التصوير بالرنين المغناطيسي أو أخذ عينة من البروستاتا إذا رأى الطبيب ذلك مناسبًا.</p>
-      
-      <h3>ماذا يعني التشخيص فعلًا؟</h3>
-      <p>تشخيص سرطان البروستاتا لا يعني دائمًا أن الحالة خطيرة أو متقدمة. الأهم هو معرفة درجة الخطورة ومرحلة المرض، لأن بعض الحالات تكون بطيئة جدًا ويمكن متابعتها فقط، بينما تحتاج حالات أخرى إلى علاج نشط. ويعتمد التقييم على:</p>
-      <ul>
-        <li>نتيجة PSA.</li>
-        <li>الفحص السريري.</li>
-        <li>نتائج الخزعة إذا لزم الأمر.</li>
-        <li>درجة الورم ومدى انتشاره.</li>
-      </ul>
-      <p>أي أن كلمة "سرطان" وحدها لا تكفي للحكم على شدة الحالة، لأن بعض الحالات تكون محدودة جدًا وقابلة للعلاج بنجاح كبير.</p>
-      
-      <h3>متى يجب الانتباه أكثر؟</h3>
-      <p>يصبح التقييم مهمًا بشكل أسرع إذا كان هناك:</p>
-      <ul>
-        <li>ارتفاع مستمر في PSA.</li>
-        <li>صعوبة أو ضعف واضح في التبول.</li>
-        <li>دم في البول أو السائل المنوي.</li>
-        <li>ألم في الظهر أو العظام في الحالات المتقدمة.</li>
-        <li>تاريخ عائلي قوي للمرض.</li>
-      </ul>
-      
-      <div class="article-tip">
-        <div class="article-tip-title">رسالة طبية مهمة</div>
-        <p>الهدف من فحص PSA ليس تخويف الرجل، بل اكتشاف المرض مبكرًا عندما تكون فرص العلاج أفضل بكثير. كما أن تجاهل الفحص تمامًا قد يؤدي إلى تأخر التشخيص في بعض الحالات، بينما القلق من رقم واحد دون تفسير طبي صحيح قد يسبب خوفًا غير ضروري. الفهم الصحيح هو ما يحقق التوازن بين الاطمئنان والحذر.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Blood in Urine Article Modal -->
-<div id="blood-urine-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">الدم في البول: متى يكون خطيرًا ومتى لا؟</h2>
-      <p class="article-subtitle">دليل طبي موثوق من أخصائي جراحة المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>وجود الدم في البول لا يعني دائمًا شيئًا خطيرًا، لكنه عرض لا ينبغي تجاهله. في كثير من الحالات يكون السبب بسيطًا مثل التهاب بولي أو حصوة، بينما قد يكون أحيانًا علامة على مشكلة تحتاج فحصًا سريعًا مثل التهاب الكلى أو أورام المسالك البولية.</p>
-      
-      <h3>ماذا يعني الدم في البول��</h3>
-      <p>الدم قد يظهر بشكل واضح فيصبح البول ورديًا أو أحمر أو بنيًا، وقد لا يُرى با��عين ويُكتشف فقط في تحليل البول. في الحالتين، المهم هو معرفة السبب بدل الاعتماد على اللون فقط.</p>
-      
-      <h3>الأسباب الشائعة</h3>
-      <p>من الأسباب الشائعة لوجود الدم في البول:</p>
-      <ul>
-        <li>التهابات المسالك البولية.</li>
-        <li>حصو��ت الكلى أو المثانة.</li>
-        <li>تضخم البروستاتا.</li>
-        <li>التهاب البروستاتا.</li>
-        <li>بعض الأدوية مثل مميعات الدم أو بعض المسكنات.</li>
-      </ul>
-      <p>وفي بعض الحالات، خاصة عند كبار السن أو المدخنين، قد نحتاج إلى استبعاد أسباب أخطر مثل أورام المثانة أو الكلى.</p>
-      
-      <h3>متى يكون الأمر مقلقًا؟</h3>
-      <p>يحتاج الدم في البول إلى تقييم أسرع إذا كان مصحوبًا بـ:</p>
-      <ul>
-        <li>جلطات دموية.</li>
-        <li>صعوبة في التبول.</li>
-        <li>ألم شديد في الخاصرة أو البطن.</li>
-        <li>حرارة وقشعريرة.</li>
-        <li>تكرر أكثر من مرة.</li>
-      </ul>
-      <p>كما أن ظهور الدم دون ألم، خاصة إذا تكرر، يستحق الانتباه لأنه قد يكون أحيانًا علامة مبكرة على مشكلة مهمة.</p>
-      
-      <h3>متى قد لا يكون خطيرًا؟</h3>
-      <p>أحيانًا يكون السبب مؤقتًا وبسيطًا، مثل:</p>
-      <ul>
-        <li>التهاب بولي واضح الأعراض.</li>
-        <li>مجهود بدني شديد.</li>
-        <li>إصابة بسيطة.</li>
-      </ul>
-      <p>وقد يختفي بعد العلاج أو الراحة. لكن حتى في هذه الحالات، لا ينبغي افتراض السبب من تلقاء نفسك دون تحليل بول أو تقييم طبي إذا تكرر العرض.</p>
-      
-      <h3>الفحوصات المطلوبة فقط</h3>
-      <p>عادة يبدأ الطبيب بـ:</p>
-      <ul>
-        <li><strong>تحليل بول كامل:</strong> الفحص الأول والأساسي.</li>
-        <li><strong>زراعة بول:</strong> إذا كان هناك اشتباه التهاب.</li>
-        <li><strong>تصوير بالموجات فوق الصوتية أو الأشعة المقطعية:</strong> إذا لم يكن السبب واضحًا.</li>
-        <li><strong>تنظير المثانة:</strong> بحسب العمر وعوامل الخطورة وطبيعة الأعراض.</li>
-      </ul>
-      
-      <div class="article-tip">
-        <div class="article-tip-title">خلاصة طبية</div>
-        <p>الدم في البول ليس سببًا للذعر، لكنه أيضًا ليس عرضًا يُتجاهل. كثير من الحالات تكون بسيطة وقابلة للعلاج، لكن الفحص المبكر هو الطريقة الصحيحة والآمنة لمعرفة السبب الحقيقي والاطمئنان.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Bladder Article Modal -->
-<div id="bladder-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">المثانة المفرطة النشاط: الأعراض الحقيقية والعلاج الحديث</h2>
-      <p class="article-subtitle">دليل شامل من أخصائي جراحة المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>المثانة المفرطة النشاط من الحالات الشائعة التي تسبب رغبة مفاجئة وملحّة في التبول، مع زيادة عدد مرات التبول نهارًا أو ليلًا، وقد يصاحبها أحيانًا تسرب للبول قبل الوصول إلى الحمام. هذه الحالة مزعجة، لكنها غالبًا قابلة للتحسن بشكل واضح إذا تم التعامل معها بطريقة صحيحة ومنظمة.</p>
-      
-      <h3>ما الذي يحدث في ��لمثانة؟</h3>
-      <p>في الحالة الطبيعية، تخزن المثانة البول بهدوء حتى تم��لئ، ثم ترسل إشارات مناسبة إلى الدماغ عندما يحين وقت التبول. أما في المثانة المفرطة النشاط، فقد تصبح عضلة المثانة أكثر حساسية أو أكثر انقباضًا من اللازم، فيشعر المريض بحاجة ملحّة ومفاجئة للتبول حتى لو لم تكن المثانة ممتلئة بال��امل.</p>
-      <p>هذه الحالة ليست مجرد "كثرة شرب الماء"، وليست دائمًا مشكلة نفسية كما يعتقد بعض الناس. أحيانًا تكون هناك أسباب واضحة مثل التهابات البول، تضخم البروستاتا، حصوات المثانة، السكري، أو اضطرابات عصبية. وفي بعض الحالات لا يظهر سبب محدد، وهنا تكون المشكلة وظيفية أكثر من كونها عضوية.</p>
-      
-      <h3>الأعراض الحقيقية</h3>
-      <ul>
-        <li>رغبة مفاجئة وملحّة في التبول.</li>
-        <li>كثرة التبول خلال النهار.</li>
-        <li>الاستيقاظ أكثر من مرة ليلًا للتبول.</li>
-        <li>تسرب البول قبل الوصول إلى الحمام.</li>
-        <li>صعوبة تأجيل التبول حتى لفترة قصيرة.</li>
-      </ul>
-      <p>من المهم التمييز بين المثانة المفرطة النشاط وبين الالتهاب البولي أو الأمراض الأخرى، لأن العلاج يختلف حسب السبب الحقيقي.</p>
-      
-      <h3>الأسباب والعوامل المساعدة</h3>
-      <ul>
-        <li>التهابات المسالك البولية.</li>
-        <li>حصوات أو تهيج في المثانة.</li>
-        <li>تضخم البروستاتا عند الرجال.</li>
-        <li>السكري.</li>
-        <li>السمنة.</li>
-        <li>الإمساك المزمن.</li>
-        <li>بعض الأمراض العصبية.</li>
-        <li>كثرة ��ل��افيين والمشروبات المنبهة.</li>
-      </ul>
-      
-      <h3>العلاج بخطوات عملية</h3>
-      <p><strong>1. تعديل العادات اليومية:</strong></p>
-      <ul>
-        <li>تقليل القهوة والشاي والمشروبات الغازية.</li>
-        <li>توزيع شرب الماء على اليوم بدلًا من شرب كميات كبيرة دفعة واحدة.</li>
-        <li>تجنب السوائل قبل النوم بساعتين إلى ثلاث ساعات.</li>
-        <li>علاج الإمساك.</li>
-        <li>تقليل الوزن عند الحاجة.</li>
-      </ul>
-      <p><strong>2. تدريب المثانة:</strong> يتم تدريب المثانة على تأخير التبول تدريجيًا لفترات قصيرة، ثم زيادة هذه الفترات مع الوقت. هذا يساعد على تحسين التحكم وتخفيف الإلحاح.</p>
-      <p><strong>3. تمارين قاع الحوض:</strong> هذه التمارين قد تكون مفيدة، خاصة عند وجود تسرب بول مع الإلحاح. وهي تحتاج التزامًا وصبرًا حتى تظهر نتائجها.</p>
-      <p><strong>4. الأدوية:</strong> إذا لم تكفِ الخطوات السابقة، قد يصف الطبيب أدوية تساعد على تهدئة المثانة وتقليل الإلحاح وكثرة التبول.</p>
-      <p><strong>5. العلاجات المتقدمة:</strong> في الحالات التي لا تستجيب للعلاج المحافظ والأدوية، توجد خيارات أخرى مثل التحفيز العصبي، وبعض الحقن داخل المثانة في حالات محددة.</p>
-      
-      <h3>متى تحتاج مراجعة الطبيب؟</h3>
-      <ul>
-        <li>التبول المتكرر يوقظك من النوم بشكل مزعج.</li>
-        <li>هناك تسرب بول متكر��.</li>
-        <li>ظهرت حرقة أو دم في البول.</li>
-        <li>بدأت الأعراض فجأة وبشكل غير معتاد.</li>
-        <li>يوجد ألم، حرارة، أو صعوبة في إفراغ المثانة.</li>
-        <li>الأعراض تؤثر على العمل أو الحياة اليومية.</li>
-      </ul>
-      
-      <div class="article-tip">
-        <div class="article-tip-title">نصيحة الطبيب</div>
-        <p>المثانة المفرطة النشاط حالة شائعة وقابلة للعلاج، ولا ينبغي اعتبارها أمرًا محرجًا أو طبي��يًا تمامًا. التشخيص الصحيح ووضع خطة علاج مناسبة غالبًا يحققان تحسنًا واضحًا، خاصة عندما يبدأ العلاج مبكرًا.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Prostate Article Modal -->
-<div id="prostate-modal" class="article-modal">
-  <div class="article-content">
-    <button class="article-close" onclick="closeArticle()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="article-header">
-      <h2 class="article-title">تضخم البروستاتا: الأسباب الحقيقية، الأعراض، والعلاجات الحديثة</h2>
-      <p class="article-subtitle">دليل شامل من أخصائي جراحة المسالك البولية</p>
-    </div>
-    <div class="article-body">
-      <p>تضخم البروستاتا الحميد من أكثر المشكلات شيوعًا عند الرجال مع التقدم في العمر. وهو يعني زيادة حجم غدة البروستاتا تدريجيًا، مما قد يضغط على مجرى البول ويؤدي إلى أعراض بولية مزعجة. هذه الحالة ليست ��رطانًا، لكنها تحتاج إلى تقييم طبي إذا بدأت تؤثر على التبول أو جودة الحياة.</p>
-      
-      <h3>الآليات الهرمونية والسريرية</h3>
-      <p>تتأثر البروستاتا بالتغيرات الهرمونية مع العمر، وخاصة بوجود هرمون ديهدروتستوستيرون داخل الغدة. هذا الهرمون يساعد على نمو خلايا البروستاتا، ومع مرور السنوات قد يزداد حجمها بشكل تدريجي. كما تلعب الوراثة، والتقدم في العمر، والسمنة، وبعض الأمراض المزمنة مثل السكري دورًا في زيادة احتمال حدوث التضخ��.</p>
-      
-      <h3>الأعراض الحقيقية</h3>
-      <p>أعراض تضخم البروستاتا تظهر عادة بشكل بطيء، وقد يلاحظها المريض تدريجيًا:</p>
-      <ul>
-        <li>ضعف اندفاع البول.</li>
-        <li>صعوبة بدء التبول.</li>
-        <li>تقطع البول أو نزوله على دفعات.</li>
-        <li>كثرة التبول، خاصة ليلًا.</li>
-        <li>الشعور بعدم إفراغ المثانة بالكامل.</li>
-        <li>الحاجة الملحة والمتكررة للتبول.</li>
-      </ul>
-      <p>هذه هي الأعراض الأكثر شيوعًا، أما بعض المعتقدات المنتشرة مثل أن كل ألم في أسفل البطن يعني تضخمًا في البروستاتا، فهي غير دقيقة. كذلك، ليس كل من يعاني من أعراض بولي�� لديه تضخم كبير، لذلك الفحص الطبي هو الذي ي��دد السبب الحقيقي.</p>
-      
-      <h3>خرافات شائعة</h3>
-      <p>هناك الكثير من المعلومات الخاطئة حول تضخم البروستاتا:</p>
-      <ul>
-        <li><strong>الخرافة الأولى:</strong> تضخم البروستاتا يعني سرطان البروستاتا. هذا غ���� صحيح، لأن التضخم الحميد يختلف تمامًا عن السرطان.</li>
-        <li><strong>الخرافة الثانية:</strong> كل الحالات تحتاج عملية فورًا. في الحقيقة، كثير من المرضى يتحسنون بالأدوية أو المتابعة فقط.</li>
-        <li><strong>الخرافة الثالثة:</strong> تقليل شرب الماء يحل المشكلة. هذا قد يزيد تركيز البول ويجعل الأعراض أسوأ.</li>
-      </ul>
-      
-      <h3>العلاجات المتقدمة اليوم</h3>
-      <p>العلاج يعتمد على شدة الأعراض، وحجم البروستاتا، ووجود مضاعفات من عدمه:</p>
-      <ul>
-        <li><strong>المتابعة فقط:</strong> في الحالات البسيطة التي لا تؤثر بشكل وا��ح على الحياة اليومية.</li>
-        <li><strong>الأدوية:</strong> بعض الأدوية تساعد على إرخاء عضلات البروستاتا وعنق المثانة، وأدوية أخرى قد تُستخدم لتقليل حجم البروستاتا عند بعض المرضى.</li>
-        <li><strong>العلاج التدخلي أو الجراحي:</strong> إذا لم تنجح الأدوية، أو ظهرت مضاعفات مثل احتباس البول أو الالتهابات المتكررة، قد نلجأ إلى إجراءات حديثة مثل الاستئصال عبر ����لإحليل أو العلاج بالليزر أو تقنيا�� أقل تدخلًا حسب حالة المريض.</li>
-      </ul>
-      
-      <h3>متى تحتاج مراجعة الطبيب؟</h3>
-      <p>يجب مراجعة طبيب المسالك البولي��� إذا ظهرت:</p>
-      <ul>
-        <li>صعوبة واضحة في التبول.</li>
-        <li>ضعف شديد في اندفاع البول.</li>
-        <li>احتباس بول.</li>
-        <li>دم في البول.</li>
-        <li>التهابات بولية متكررة.</li>
-        <li>استيقاظ متكرر ليلًا للتبول.</li>
-        <li>ألم أو شعور متزايد بعدم الراحة في منطقة الحوض.</li>
-      </ul>
-      
-      <div class="article-tip">
-        <div class="article-tip-title">نصيحة الطبيب</div>
-        <p>تضخم البروستاتا حالة شائعة ويمكن السيطرة عليها في معظم الحالات إذا شُخّصت مبكرًا. لا تنتظر حتى تصبح الأعراض شديدة، لأن التقييم المبكر يساعد على اختيار العلاج الأنسب وتجنب المضاعفات لاحقًا.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-function openArticle(id) {
-  document.getElementById(id + '-modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeArticle() {
-  document.querySelectorAll('.article-modal').forEach(m => m.classList.remove('active'));
-  document.body.style.overflow = '';
-}
-document.querySelectorAll('.article-modal').forEach(modal => {
-  modal.addEventListener('click', function(e) {
-    if (e.target === this) closeArticle();
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeArticle();
-});
 </script>
+
 </body>
 </html>
