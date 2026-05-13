@@ -1,131 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr George Shaker | NHS Urology Registrar | AI Healthcare Tools</title>
-  <meta name="description" content="Dr George Shaker — NHS Urology Registrar and founder of AI-powered urology workflow tools. Built by a clinician, for clinicians.">
-  <meta name="keywords" content="George Shaker, urology, NHS, AI healthcare, HaemClin, medical AI tools">
-  <meta property="og:title" content="Dr George Shaker | AI Healthcare Tools Founder">
-  <meta property="og:description" content="NHS Urology Registrar building AI-powered workflow tools for clinicians.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr George Shaker | AI Urology Workflow Tools | NHS &amp; Private Practice</title>
+  <meta name="description" content="AI-powered urology workflow tools for NHS and private practice. HaemClinic, Stent Tracker, LUTS Clinic and 6 more — built by an NHS urology registrar. 30-day free trial." />
+  <meta name="keywords" content="urology workflow tools, NHS urology software, HaemClinic, stent tracker urology, private urology tools, AI urology clinic" />
+  <meta property="og:title" content="Dr George Shaker | AI Urology Workflow Tools" />
+  <meta property="og:description" content="AI-powered urology workflow tools built by an NHS urology registrar. 30-day free trial." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
     :root {
-      --navy: #1B3A6B;
-      --navy-dark: #142B50;
-      --navy-light: #2A4F8A;
-      --gold: #C9A84C;
-      --gold-light: #D9BD6E;
-      --gold-pale: rgba(201, 168, 76, 0.1);
-      --white: #FFFFFF;
-      --off-white: #F8F9FA;
-      --gray-100: #F1F3F5;
-      --gray-200: #E9ECEF;
-      --gray-400: #ADB5BD;
-      --gray-600: #6C757D;
-      --gray-800: #343A40;
-      --radius: 8px;
-      --radius-lg: 12px;
-      --shadow-sm: 0 1px 2px rgba(27, 58, 107, 0.05);
-      --shadow-md: 0 4px 12px rgba(27, 58, 107, 0.08);
-      --shadow-lg: 0 8px 30px rgba(27, 58, 107, 0.12);
+      --navy:        #1B3A6B;
+      --navy-dark:   #112448;
+      --navy-mid:    #2A5298;
+      --gold:        #C9A84C;
+      --gold-light:  #DDB95E;
+      --gold-pale:   rgba(201,168,76,0.12);
+      --green:       #2D8A4E;
+      --white:       #FFFFFF;
+      --grey-bg:     #F8F9FA;
+      --grey-border: #E9ECEF;
+      --grey-text:   #6C757D;
+      --text:        #1A202C;
+      --radius:      10px;
+      --radius-lg:   14px;
+      --shadow-sm:   0 1px 3px rgba(27,58,107,0.07), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md:   0 4px 16px rgba(27,58,107,0.1);
+      --shadow-lg:   0 12px 40px rgba(27,58,107,0.16);
+      --shadow-xl:   0 24px 64px rgba(27,58,107,0.22);
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--gray-800);
+      color: var(--text);
       background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+    input, textarea, select { font-family: inherit; }
 
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--gray-200);
-      padding: 1rem 2rem;
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container { max-width: 1200px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--grey-text);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-header .section-sub { margin: 0.75rem auto 0; }
+    section { padding: 5.5rem 2rem; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.8rem 1.6rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      transition: all 0.18s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-dark);
+      border-color: var(--gold);
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201,168,76,0.38);
+    }
+    .btn-navy {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    .btn-navy:hover {
+      background: var(--navy);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn-navy-solid {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .btn-navy-solid:hover {
+      background: var(--navy-dark);
+      border-color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+    .btn-white-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.55);
+    }
+    .btn-white-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+    .btn-sm {
+      padding: 0.5rem 1rem;
+      font-size: 0.8375rem;
+    }
+    .btn-full { width: 100%; }
+
+    /* ============================================================
+       BADGES
+    ============================================================ */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.28rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .badge-gold {
+      background: rgba(201,168,76,0.14);
+      border: 1.5px solid var(--gold);
+      color: #8B6914;
+    }
+    .badge-green {
+      background: rgba(45,138,78,0.12);
+      border: 1.5px solid var(--green);
+      color: #1D6635;
+    }
+    .badge-outline-white {
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.88);
     }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
     }
-
+    .nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--grey-border), var(--shadow-sm);
+      padding: 0.75rem 2rem;
+    }
     .nav-logo {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--navy);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      transition: color 0.3s;
     }
-
+    .nav.scrolled .nav-logo { color: var(--navy); }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
-      list-style: none;
+      gap: 2.25rem;
     }
-
     .nav-links a {
-      color: var(--gray-600);
-      text-decoration: none;
       font-size: 0.875rem;
       font-weight: 500;
+      color: rgba(255,255,255,0.82);
       transition: color 0.2s;
     }
-
-    .nav-links a:hover {
-      color: var(--navy);
-    }
-
+    .nav.scrolled .nav-links a { color: var(--grey-text); }
+    .nav-links a:hover { color: var(--gold); }
+    .nav.scrolled .nav-links a:hover { color: var(--navy); }
     .nav-cta {
-      padding: 0.5rem 1rem;
-      background: var(--gold);
+      background: var(--gold) !important;
       color: var(--navy-dark) !important;
-      border-radius: var(--radius);
+      padding: 0.5rem 1.2rem !important;
+      border-radius: var(--radius) !important;
       font-weight: 600 !important;
-      transition: opacity 0.2s;
     }
-
     .nav-cta:hover {
-      opacity: 0.9;
+      background: var(--gold-light) !important;
+      transform: translateY(-1px);
     }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
+    /* Hamburger */
+    .nav-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav-ham span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--white);
+      transition: background 0.3s;
+    }
+    .nav.scrolled .nav-ham span { background: var(--navy); }
+    /* Mobile drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--navy-dark);
+      z-index: 999;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 8rem 2rem 6rem;
+      gap: 2rem;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .nav-drawer a:hover { color: var(--gold); }
+    .nav-drawer-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.75rem;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      min-height: 100vh;
       position: relative;
       overflow: hidden;
       background: var(--navy-dark);
+      display: flex;
+      align-items: center;
     }
-
-    /* Animated canvas background */
     #hero-canvas {
       position: absolute;
       inset: 0;
@@ -133,831 +290,1554 @@
       height: 100%;
       pointer-events: none;
     }
-
-    .hero-bg {
+    .hero-overlay {
       position: absolute;
       inset: 0;
-      background: 
-        radial-gradient(ellipse at 30% 20%, rgba(201, 168, 76, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 55%);
+      background:
+        radial-gradient(ellipse at 15% 25%, rgba(201,168,76,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 75%, rgba(42,82,152,0.25) 0%, transparent 55%);
       pointer-events: none;
-      z-index: 0;
     }
-
-    .hero-content {
+    .hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 800px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 9rem 2rem 6rem;
+      display: flex;
+      align-items: center;
+      gap: 5rem;
     }
-
-    .hero-name {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
+    .hero-left { flex: 1; min-width: 0; }
+    .hero-right { flex-shrink: 0; }
+    .hero-eyebrow { margin-bottom: 1.1rem; }
+    .hero-h1 {
+      font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+      font-weight: 800;
       color: var(--white);
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
     }
-
-    .hero-title {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: var(--gold);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
+    .hero-h1 span { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.075rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      max-width: 500px;
+      margin-bottom: 2.25rem;
     }
-
-    .hero-tagline {
-      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 400;
-      margin-bottom: 2.5rem;
-    }
-
     .hero-btns {
       display: flex;
       gap: 1rem;
-      justify-content: center;
       flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.875rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      font-family: inherit;
-      text-decoration: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy-dark);
-      border: 2px solid var(--gold);
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-light);
-      border-color: var(--gold-light);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--white);
-    }
-
-    .btn-outline:hover {
-      background: var(--white);
-      color: var(--navy);
-    }
-
-    /* Section Styles */
-    section {
-      padding: 6rem 2rem;
-    }
-
-    .section-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: var(--gray-600);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Problem Section */
-    .problem {
-      background: var(--off-white);
-    }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .problem-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .problem-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .problem-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--gold-pale);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .problem-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 2;
-    }
-
-    .problem-card p {
-      font-size: 1.125rem;
-      font-weight: 500;
-      color: var(--navy);
-      line-height: 1.5;
-    }
-
-    /* Products Section */
-    .products {
-      background: var(--white);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .product-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--gold);
-    }
-
-    .product-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-    }
-
-    .product-desc {
-      font-size: 0.9375rem;
-      color: var(--gray-600);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .product-price {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-product {
-      width: 100%;
-      padding: 0.75rem 1.5rem;
-      background: var(--navy);
-      color: var(--white);
-      border: none;
-      border-radius: var(--radius);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .btn-product:hover {
-      background: var(--navy-light);
-    }
-
-    /* Social Proof Section */
-    .testimonials {
-      background: var(--off-white);
-      padding: 4rem 2rem;
-    }
-
-    .testimonials-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .testimonial-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-    }
-
-    .testimonial-quote {
-      font-size: 1rem;
-      color: var(--gray-800);
-      font-style: italic;
-      margin-bottom: 1.25rem;
-      line-height: 1.7;
-    }
-
-    .testimonial-quote::before {
-      content: '"';
-      font-size: 2rem;
-      color: var(--gold);
-      line-height: 0;
-      vertical-align: -0.3em;
-      margin-right: 0.25rem;
-    }
-
-    .testimonial-author {
-      font-size: 0.875rem;
-      color: var(--gray-600);
-      font-weight: 500;
-    }
-
-    /* About Section */
-    .about {
-      background: var(--white);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-photo {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: var(--gray-200);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-content h2 {
-      font-size: clamp(1.75rem, 3vw, 2.25rem);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .about-content p {
-      font-size: 1.0625rem;
-      color: var(--gray-600);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-
-    .credentials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .credential-badge {
-      padding: 0.5rem 1rem;
-      background: var(--gold-pale);
-      border: 1px solid rgba(201, 168, 76, 0.3);
-      border-radius: 30px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--navy);
-    }
-
-    /* Trust Banner */
-    .trust-banner {
-      background: var(--navy);
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .trust-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .trust-banner h2 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
-
-    .trust-banner p {
-      font-size: 1.125rem;
-      color: rgba(255, 255, 255, 0.8);
       margin-bottom: 2rem;
     }
+    .hero-creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
 
-    .btn-demo {
-      padding: 1rem 2.5rem;
-      background: var(--gold);
-      color: var(--navy-dark);
-      border: none;
+    /* Photo card */
+    .photo-wrap {
+      position: relative;
+      width: 320px;
+    }
+    .photo-img {
+      width: 290px;
+      height: 370px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      border: 3px solid var(--gold);
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 28px 72px rgba(0,0,0,0.45);
+    }
+    .stat-pill {
+      position: absolute;
+      background: rgba(255,255,255,0.96);
       border-radius: var(--radius);
-      font-size: 1.0625rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: opacity 0.2s;
+      padding: 0.55rem 0.95rem;
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
     }
-
-    .btn-demo:hover {
-      opacity: 0.9;
+    .stat-pill strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
     }
-
-    /* Footer */
-    footer {
-      background: var(--navy-dark);
-      padding: 3rem 2rem;
+    .stat-pill span {
+      font-size: 0.68rem;
+      color: var(--grey-text);
+      font-weight: 500;
     }
+    .stat-1 { top: -18px; left: -28px; }
+    .stat-2 { bottom: 55px; left: -36px; }
+    .stat-3 { top: 36px; right: -28px; }
 
-    .footer-container {
+    /* ============================================================
+       TRUST BAR
+    ============================================================ */
+    .trust-bar {
+      background: var(--grey-bg);
+      border-top: 1px solid var(--grey-border);
+      border-bottom: 1px solid var(--grey-border);
+      padding: 1rem 2rem;
+    }
+    .trust-bar-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 2rem;
     }
-
-    .footer-brand {
-      color: var(--white);
+    .trust-item {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--navy);
+      padding: 0.4rem 1.2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
-
-    .footer-name {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .footer-tagline {
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold);
-    }
-
-    .footer-contact {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .footer-contact a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-size: 0.875rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.2s;
-    }
-
-    .footer-contact a:hover {
-      color: var(--gold);
-    }
-
-    .footer-contact svg {
-      width: 15px;
-      height: 15px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
+    .trust-sep {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
       flex-shrink: 0;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      section {
-        padding: 4rem 1.5rem;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .about-photo {
-        max-width: 300px;
-        margin: 0 auto;
-      }
-
-      .footer-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    /* ============================================================
+       PROBLEM
+    ============================================================ */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
-
-    /* Animations */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .problem-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--navy);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .hero-content > * {
-      animation: fadeUp 0.6s ease forwards;
+    .problem-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .prob-icon {
+      width: 46px;
+      height: 46px;
+      background: rgba(27,58,107,0.07);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
     }
-
-    .hero-name { animation-delay: 0.1s; }
-    .hero-title { animation-delay: 0.2s; }
-    .hero-tagline { animation-delay: 0.3s; }
-    .hero-btns { animation-delay: 0.4s; }
-
-    /* Mobile Menu Toggle */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    .mobile-menu-btn svg {
-      width: 24px;
-      height: 24px;
+    .prob-icon svg {
+      width: 22px;
+      height: 22px;
       stroke: var(--navy);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .problem-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+    .problem-card p {
+      font-size: 0.9rem;
+      color: var(--grey-text);
+      line-height: 1.65;
     }
 
-    @media (max-width: 768px) {
-      .mobile-menu-btn {
-        display: block;
-      }
+    /* ============================================================
+       TOOLS
+    ============================================================ */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .tool-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(27,58,107,0.18);
+    }
+    .tool-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .tool-name {
+      font-size: 1.025rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .tool-desc {
+      font-size: 0.85rem;
+      color: var(--grey-text);
+      line-height: 1.55;
+    }
+    .tool-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      flex: 1;
+    }
+    .tool-bullets li {
+      font-size: 0.8rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+    .tool-bullets li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .tool-price {
+      display: inline-flex;
+      align-items: center;
+      background: var(--gold-pale);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: #7A5E10;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
+    .tool-actions {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       MODAL
+    ============================================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(17,36,72,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: var(--shadow-xl);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-x {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--grey-text);
+    }
+    .modal-x:hover { color: var(--navy); }
+    .modal h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0.75rem 0 0.4rem;
+    }
+    .modal-tag {
+      font-size: 0.875rem;
+      color: var(--grey-text);
+      margin-bottom: 1.1rem;
+    }
+    .modal-body { font-size: 0.9rem; color: var(--grey-text); line-height: 1.7; margin-bottom: 1rem; }
+    .modal-heading {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .modal-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .modal-list li {
+      font-size: 0.875rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .modal-list li::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .modal-footer { margin-top: 1.75rem; }
+
+    /* ============================================================
+       PRICING
+    ============================================================ */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      align-items: end;
+    }
+    .pricing-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .pricing-card.featured {
+      background: var(--navy);
+      border: none;
+      box-shadow: var(--shadow-lg), 0 0 0 2px var(--gold);
+      position: relative;
+    }
+    .pricing-card.featured:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl), 0 0 0 2px var(--gold); }
+    .plan-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+    .plan-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.1rem;
+    }
+    .pricing-card.featured .plan-name { color: var(--white); }
+    .plan-price {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      margin: 0.6rem 0 0.2rem;
+    }
+    .pricing-card.featured .plan-price { color: var(--gold); }
+    .plan-period { font-size: 0.8rem; color: var(--grey-text); margin-bottom: 0.75rem; }
+    .pricing-card.featured .plan-period { color: rgba(255,255,255,0.55); }
+    .plan-divider {
+      height: 1px;
+      background: var(--grey-border);
+      margin: 0.75rem 0;
+    }
+    .pricing-card.featured .plan-divider { background: rgba(255,255,255,0.12); }
+    .plan-features { display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
+    .plan-features li {
+      font-size: 0.86rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .pricing-card.featured .plan-features li { color: rgba(255,255,255,0.82); }
+    .plan-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .pricing-card.featured .plan-features li::before { color: var(--gold); }
+    .pricing-card .btn { margin-top: 1.5rem; }
+    .pricing-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.84rem;
+      color: var(--grey-text);
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testi-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--navy);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .testi-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.05em; margin-bottom: 0.9rem; }
+    .testi-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.72;
+      font-style: italic;
+      margin-bottom: 1.1rem;
+    }
+    .testi-author { font-size: 0.8rem; font-weight: 700; color: var(--navy); }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    .about-inner {
+      display: flex;
+      gap: 5rem;
+      align-items: flex-start;
+    }
+    .about-photo-wrap {
+      flex-shrink: 0;
+      width: 300px;
+    }
+    .about-photo-wrap img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-content { flex: 1; }
+    .about-content h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin: 0.8rem 0 1.2rem;
+    }
+    .about-content p {
+      font-size: 0.95rem;
+      color: var(--grey-text);
+      line-height: 1.78;
+      margin-bottom: 1.1rem;
+    }
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    .about-badge {
+      padding: 0.38rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      background: rgba(27,58,107,0.06);
+      color: var(--navy);
+      border: 1px solid rgba(27,58,107,0.13);
+    }
+
+    /* ============================================================
+       CTA BANNER
+    ============================================================ */
+    .cta-banner {
+      background: var(--navy);
+      padding: 5.5rem 2rem;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.9rem;
+    }
+    .cta-banner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.68);
+      max-width: 560px;
+      margin: 0 auto 2.25rem;
+      line-height: 1.65;
+    }
+    .cta-banner-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       EMAIL CAPTURE
+    ============================================================ */
+    .email-section { text-align: center; }
+    .email-section h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .email-section p {
+      font-size: 0.95rem;
+      color: var(--grey-text);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+    }
+    .email-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .email-form input {
+      flex: 1;
+      padding: 0.78rem 1rem;
+      border: 1.5px solid var(--grey-border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      background: var(--white);
+      color: var(--text);
+    }
+    .email-form input:focus { border-color: var(--navy); }
+    .email-small { margin-top: 0.8rem; font-size: 0.75rem; color: var(--grey-text); }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    .contact-inner {
+      display: flex;
+      gap: 5rem;
+      align-items: flex-start;
+    }
+    .contact-left { flex: 1; }
+    .contact-left h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin: 0.8rem 0 1.1rem;
+    }
+    .contact-left > p {
+      font-size: 0.94rem;
+      color: var(--grey-text);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 0.9rem; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .contact-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--navy);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .contact-item a { color: var(--navy); font-weight: 500; }
+    .contact-item a:hover { color: var(--gold); }
+    .contact-right { flex: 1; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-row label { font-size: 0.8rem; font-weight: 600; color: var(--navy); }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      padding: 0.78rem 1rem;
+      border: 1.5px solid var(--grey-border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      background: var(--white);
+      color: var(--text);
+    }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus { border-color: var(--navy); }
+    .form-row textarea { resize: vertical; min-height: 120px; }
+    .form-row select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236C757D' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--navy-dark);
+      padding: 3.5rem 2rem 1.75rem;
+    }
+    .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 1.5rem;
+    }
+    .footer-brand-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .footer-brand-tag {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .footer-nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .footer-nav a {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+    .footer-social a:hover { color: var(--gold); }
+    .footer-social svg { width: 17px; height: 17px; fill: currentColor; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid { grid-template-columns: 1fr; }
+      .hero-inner { flex-direction: column; text-align: center; gap: 3rem; padding-top: 8rem; }
+      .hero-sub { margin: 0 auto 2.25rem; }
+      .hero-btns { justify-content: center; }
+      .hero-creds { justify-content: center; }
+      .about-inner { flex-direction: column; gap: 2.5rem; }
+      .about-photo-wrap { width: 100%; max-width: 280px; margin: 0 auto; }
+      .contact-inner { flex-direction: column; gap: 2.5rem; }
+      .problem-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-ham { display: flex; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .email-form { flex-direction: column; }
+      section { padding: 3.75rem 1.25rem; }
+      .photo-wrap { width: 260px; margin: 0 auto; }
+      .photo-img { width: 240px; height: 300px; }
+      .stat-1 { top: -12px; left: -8px; }
+      .stat-2 { bottom: 35px; left: -8px; }
+      .stat-3 { top: 28px; right: -8px; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-container">
-    <div class="nav-logo">Dr George Shaker</div>
-    <ul class="nav-links">
-      <li><a href="#products">Tools</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#products" class="nav-cta">Try Stent Tracker Free</a></li>
-    </ul>
-    <button class="mobile-menu-btn" aria-label="Menu">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo">Dr George Shaker</a>
+    <div class="nav-links" role="list">
+      <a href="#tools" role="listitem">Tools</a>
+      <a href="#pricing" role="listitem">Pricing</a>
+      <a href="#about" role="listitem">About</a>
+      <a href="#contact" role="listitem">Contact</a>
+      <a href="#tools" class="nav-cta" role="listitem">Try HaemClinic Free</a>
+    </div>
+    <button class="nav-ham" id="ham-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-  </div>
-</nav>
+  </nav>
 
-<section class="hero">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-bg"></div>
-  <div class="hero-content" style="position:relative;z-index:1;">
-    <h1 class="hero-name">Dr George Shaker</h1>
-    <p class="hero-title">NHS Urology Registrar | AI Healthcare Tools Founder</p>
-    <p class="hero-tagline">Built by a Clinician. Built for Clinicians.</p>
-    <div class="hero-btns">
-      <a href="#products" class="btn btn-primary">Try Stent Tracker Free</a>
-      <a href="#products" class="btn btn-outline">View All Tools</a>
-    </div>
+  <div class="nav-drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="nav-drawer-close" id="drawer-close" aria-label="Close menu">&times;</button>
+    <a href="#tools" class="drawer-link">Tools</a>
+    <a href="#pricing" class="drawer-link">Pricing</a>
+    <a href="#about" class="drawer-link">About</a>
+    <a href="#contact" class="drawer-link">Contact</a>
+    <a href="#tools" class="btn btn-gold" style="margin-top:0.5rem;">Try HaemClinic Free</a>
   </div>
-</section>
 
-<section class="problem" id="problem">
-  <div class="section-container">
-    <div class="section-header">
-      <h2 class="section-title">NHS Workflows Are Broken</h2>
-      <p class="section-subtitle">Every urology clinician knows these pain points</p>
-    </div>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-          </svg>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Introduction">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="eyebrow hero-eyebrow">NHS Urology Registrar &amp; AI Tools Founder</p>
+        <h1 class="hero-h1">Built by a Clinician.<br /><span>Built for Clinicians.</span></h1>
+        <p class="hero-sub">AI-powered workflow tools that give urology clinicians back 2&ndash;3 hours per clinic session. Purpose-built for NHS and private practice.</p>
+        <div class="hero-btns">
+          <a href="#tools" class="btn btn-gold">Try HaemClinic Free &mdash; 30 Days</a>
+          <a href="#tools" class="btn btn-white-outline">View All Tools</a>
         </div>
-        <p>Urology clinics generate mountains of admin and letters</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+        <div class="hero-creds" role="list" aria-label="Credentials">
+          <span class="badge badge-outline-white" role="listitem">FEBU</span>
+          <span class="badge badge-outline-white" role="listitem">MRCS</span>
+          <span class="badge badge-outline-white" role="listitem">BAUS Member</span>
+          <span class="badge badge-outline-white" role="listitem">NHS Registrar</span>
+          <span class="badge badge-gold" role="listitem">13 International Presentations</span>
         </div>
-        <p>Stent and stone tracking is manual, fragmented, and risky</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-          </svg>
-        </div>
-        <p>Letter writing and review eats 60+ minutes per clinic session</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="products" id="products">
-  <div class="section-container">
-    <div class="section-header">
-      <h2 class="section-title">AI-Powered Workflow Tools</h2>
-      <p class="section-subtitle">Purpose-built solutions that save hours, not minutes</p>
-    </div>
-    <div class="products-grid">
-      <div class="product-card">
-        <h3 class="product-name">HaemClinic</h3>
-        <p class="product-desc">AI-powered haematuria clinic workflow and letter generator</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">LUTS Clinic</h3>
-        <p class="product-desc">Lower urinary tract symptoms clinic documentation and management</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Letters Reviewer</h3>
-        <p class="product-desc">AI-powered urology letter quality review and correction</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Stent Tracker</h3>
-        <p class="product-desc">Ureteric stent tracking, alerts, and removal scheduling</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Stone Clinic</h3>
-        <p class="product-desc">Kidney stone clinic workflow, metabolic workup, and follow-up</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Andrology Clinic</h3>
-        <p class="product-desc">Male sexual health and andrology clinic documentation tool</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Investigation Results Tracker</h3>
-        <p class="product-desc">Automated tracking and chasing of outstanding investigation results, with alerts and MDT-ready summaries</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials">
-  <div class="testimonials-container">
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p class="testimonial-quote">Saved me 45 minutes per clinic. Game changer for my workflow.</p>
-        <p class="testimonial-author">Urology Registrar, North East England</p>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-quote">Finally, tools built by someone who understands NHS constraints.</p>
-        <p class="testimonial-author">Consultant Urologist, Midlands</p>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-quote">The histology tracking alone has prevented multiple near-misses.</p>
-        <p class="testimonial-author">Urology SpR, London</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="section-container">
-    <div class="about-grid">
-      <div class="about-photo">
-        <img src="images/hero-photo.jpg" alt="Dr George Shaker">
-      </div>
-      <div class="about-content">
-        <h2>About Dr George Shaker</h2>
-        <p>George is an NHS urology registrar with firsthand experience of the administrative burden facing clinicians daily. Frustrated by outdated workflows, he started building AI-powered tools that solve real problems in real clinics.</p>
-        <p>His mission: give clinicians time back for what matters most — patient care.</p>
-        <div class="credentials">
-          <span class="credential-badge">FEBU</span>
-          <span class="credential-badge">MRCS</span>
-          <span class="credential-badge">BAUS Member</span>
-          <span class="credential-badge">NHS Registrar</span>
+      <div class="hero-right">
+        <div class="photo-wrap">
+          <img
+            src="assets/george-shaker.jpg"
+            alt="Dr George Shaker, NHS Urology Registrar, standing in surgical scrubs in an operating theatre"
+            class="photo-img"
+            loading="eager"
+          />
+          <div class="stat-pill stat-1" aria-hidden="true">
+            <strong>8+ Tools</strong>
+            <span>Built &amp; deployed</span>
+          </div>
+          <div class="stat-pill stat-2" aria-hidden="true">
+            <strong>60 min saved</strong>
+            <span>Per clinic session</span>
+          </div>
+          <div class="stat-pill stat-3" aria-hidden="true">
+            <strong>NHS &amp; Private</strong>
+            <span>Practice ready</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="trust-banner" id="contact">
-  <div class="trust-container">
-    <h2>Interested in a Trust Licence?</h2>
-    <p>Deploy across your entire urology department from £1,500/month.</p>
-    <a href="mailto:hello@drgeorgeshaker.com" class="btn-demo">Request a Demo</a>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-brand">
-      <p class="footer-name">Dr George Shaker</p>
-      <p class="footer-tagline">Built by a Clinician. Built for Clinicians.</p>
-    </div>
-    <ul class="footer-links">
-      <li><a href="#products">Tools</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="footer-contact">
-      <a href="tel:+447414951508">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.73a16 16 0 006.29 6.29l1.17-1.17a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-        </svg>
-        +44 7414 951508
-      </a>
-      <a href="mailto:george.shaker@nhs.net">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-        george.shaker@nhs.net
-      </a>
+  <!-- ===================== TRUST BAR ===================== -->
+  <div class="trust-bar" role="complementary" aria-label="Trust indicators">
+    <div class="trust-bar-inner">
+      <span class="trust-item">Used at NHS Trusts</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">Spire</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">Private Practice</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">BAUS Member</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">No IT Approval Needed</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">GDPR Compliant</span>
     </div>
   </div>
-</footer>
 
-<script>
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  <!-- ===================== PROBLEM ===================== -->
+  <section style="background:var(--white);" aria-labelledby="prob-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">The Reality</p>
+        <h2 class="section-title" id="prob-title">NHS Workflows Are Broken</h2>
+        <p class="section-sub">Every urology clinician knows these pain points</p>
+      </div>
+      <div class="problem-grid">
+        <article class="problem-card">
+          <div class="prob-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3>Post-clinic admin eats 60+ minutes</h3>
+          <p>Urology letters, risk stratification, and investigation pathways written from scratch after every session.</p>
+        </article>
+        <article class="problem-card">
+          <div class="prob-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Results fall through the cracks</h3>
+          <p>Biopsies ordered under a consultant name, invisible to the registrar who requested them.</p>
+        </article>
+        <article class="problem-card">
+          <div class="prob-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3>Stents and stones tracked on paper</h3>
+          <p>Manual registers, no alerts, no shared visibility. When it fails, patients pay the price.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TOOLS ===================== -->
+  <section style="background:var(--grey-bg);" id="tools" aria-labelledby="tools-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">The Solution</p>
+        <h2 class="section-title" id="tools-title">AI-Powered Workflow Tools</h2>
+        <p class="section-sub">Purpose-built solutions that save hours, not minutes</p>
+      </div>
+      <div class="tools-grid">
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-haem')">
+          <div class="tool-top">
+            <h3 class="tool-name">HaemClinic</h3>
+            <span class="badge badge-gold">Most Popular</span>
+          </div>
+          <p class="tool-desc">AI-powered haematuria clinic workflow and letter generator</p>
+          <ul class="tool-bullets">
+            <li>Risk stratification (NICE/EAU criteria)</li>
+            <li>One-click letter generation</li>
+            <li>Investigation pathway suggestions</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-haem')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-luts')">
+          <div class="tool-top"><h3 class="tool-name">LUTS Clinic</h3></div>
+          <p class="tool-desc">Lower urinary tract symptoms clinic documentation and management</p>
+          <ul class="tool-bullets">
+            <li>IPSS scoring and interpretation</li>
+            <li>Flow rate documentation</li>
+            <li>Management letter generator</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-luts')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-letters')">
+          <div class="tool-top"><h3 class="tool-name">Letters Reviewer</h3></div>
+          <p class="tool-desc">AI-powered urology letter quality review and correction</p>
+          <ul class="tool-bullets">
+            <li>Flags clinical errors and omissions</li>
+            <li>Improves letter structure and tone</li>
+            <li>Works on any urology letter type</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-letters')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-stent')">
+          <div class="tool-top"><h3 class="tool-name">Stent Tracker</h3></div>
+          <p class="tool-desc">Ureteric stent tracking, alerts, and removal scheduling</p>
+          <ul class="tool-bullets">
+            <li>Overdue stent alerts (red flag)</li>
+            <li>Shared team dashboard</li>
+            <li>No patient names stored</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-stent')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-stone')">
+          <div class="tool-top"><h3 class="tool-name">Stone Clinic</h3></div>
+          <p class="tool-desc">Kidney stone clinic workflow, metabolic workup, and follow-up</p>
+          <ul class="tool-bullets">
+            <li>24hr urine and metabolic workup checklist</li>
+            <li>Stone composition tracker</li>
+            <li>Follow-up letter generator</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-stone')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-andrology')">
+          <div class="tool-top"><h3 class="tool-name">Andrology Clinic</h3></div>
+          <p class="tool-desc">Male sexual health and andrology clinic documentation tool</p>
+          <ul class="tool-bullets">
+            <li>ED, infertility, testosterone tracking</li>
+            <li>Structured consultation template</li>
+            <li>Semen analysis follow-up</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-andrology')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-uti')">
+          <div class="tool-top">
+            <h3 class="tool-name">Recurrent UTI Clinic</h3>
+            <span class="badge badge-green">New</span>
+          </div>
+          <p class="tool-desc">Structured assessment and management for recurrent UTI</p>
+          <ul class="tool-bullets">
+            <li>Investigation checklist (MSU, cystoscopy, imaging)</li>
+            <li>Prophylaxis protocol documentation</li>
+            <li>Patient letter generator</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-uti')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-botox')">
+          <div class="tool-top">
+            <h3 class="tool-name">Botox Urology Clinic</h3>
+            <span class="badge badge-green">New</span>
+          </div>
+          <p class="tool-desc">Intradetrusor Botox workflow &mdash; consent, injection tracking, and follow-up</p>
+          <ul class="tool-bullets">
+            <li>Pre-procedure consent documentation</li>
+            <li>Injection site and dose tracker</li>
+            <li>3-month follow-up scheduler</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-botox')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+        <article class="tool-card" tabindex="0" role="button" aria-haspopup="dialog" onclick="openModal('m-results')">
+          <div class="tool-top"><h3 class="tool-name">Investigation Results Tracker</h3></div>
+          <p class="tool-desc">Track and chase outstanding investigation results with MDT-ready summaries</p>
+          <ul class="tool-bullets">
+            <li>Shared results dashboard</li>
+            <li>Overdue result alerts</li>
+            <li>Responsible consultant tagging</li>
+          </ul>
+          <span class="tool-price">From &pound;29/month</span>
+          <div class="tool-actions">
+            <button class="btn btn-navy btn-sm" onclick="event.stopPropagation();openModal('m-results')">Learn More</button>
+            <button class="btn btn-gold btn-sm">Try Free</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING ===================== -->
+  <section style="background:var(--white);" id="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Pricing</p>
+        <h2 class="section-title" id="pricing-title">Simple, Transparent Pricing</h2>
+        <p class="section-sub">Pay per consultant. No IT approval. Cancel anytime.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <p class="plan-label">Starter</p>
+          <h3 class="plan-name">Single Tool</h3>
+          <p class="plan-price">&pound;49<span style="font-size:1rem;font-weight:500;color:var(--grey-text);">/mo</span></p>
+          <p class="plan-period">Per consultant</p>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>1 tool of your choice</li>
+            <li>Full access</li>
+            <li>Email support</li>
+            <li>Perfect for trialling</li>
+          </ul>
+          <a href="#contact" class="btn btn-navy-solid btn-full">Start Free Trial</a>
+        </div>
+
+        <div class="pricing-card featured" aria-label="Most Popular plan">
+          <p class="plan-label">Professional</p>
+          <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+            <h3 class="plan-name">Full Suite</h3>
+            <span class="badge badge-gold" style="font-size:0.68rem;">Most Popular</span>
+          </div>
+          <p class="plan-price">&pound;99<span style="font-size:1rem;font-weight:500;color:rgba(255,255,255,0.55);">/mo</span></p>
+          <p class="plan-period">Per consultant</p>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>All 9 tools</li>
+            <li>Priority support</li>
+            <li>Perfect for active private practice</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold btn-full">Start Free Trial</a>
+        </div>
+
+        <div class="pricing-card">
+          <p class="plan-label">Practice Bundle</p>
+          <h3 class="plan-name">Up to 4 Consultants</h3>
+          <p class="plan-price">&pound;249<span style="font-size:1rem;font-weight:500;color:var(--grey-text);">/mo</span></p>
+          <p class="plan-period">Per practice</p>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>All 9 tools for up to 4 consultants</li>
+            <li>Onboarding session included</li>
+            <li>Ideal for group practices</li>
+          </ul>
+          <a href="#contact" class="btn btn-navy-solid btn-full">Contact Us</a>
+        </div>
+
+        <div class="pricing-card">
+          <p class="plan-label">Department Licence</p>
+          <h3 class="plan-name">Unlimited Consultants</h3>
+          <p class="plan-price" style="font-size:1.5rem;">From &pound;1,500<span style="font-size:0.85rem;font-weight:500;color:var(--grey-text);">/mo</span></p>
+          <p class="plan-period">Per department</p>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>All 9 tools, unlimited users</li>
+            <li>Custom trust branding</li>
+            <li>Dedicated account manager</li>
+            <li>Onboarding &amp; training included</li>
+          </ul>
+          <a href="#contact" class="btn btn-navy-solid btn-full">Request a Demo</a>
+        </div>
+
+      </div>
+      <p class="pricing-note">All plans include 30-day free trial. No credit card required. No IT approval needed &mdash; runs in any browser.</p>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section style="background:var(--grey-bg);" aria-labelledby="testi-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Social Proof</p>
+        <h2 class="section-title" id="testi-title">What Clinicians Are Saying</h2>
+      </div>
+      <div class="testi-grid">
+        <article class="testi-card">
+          <p class="testi-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">"The time I&apos;ve saved on haematuria letters alone has been transformational. I get home on time on clinic day now."</p>
+          <p class="testi-author">Urology Consultant, North East England</p>
+        </article>
+        <article class="testi-card">
+          <p class="testi-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">"The Stent Tracker is the first tool I&apos;ve seen that actually addresses a real patient safety gap. Simple, fast, effective."</p>
+          <p class="testi-author">Urology Registrar, West Midlands</p>
+        </article>
+        <article class="testi-card">
+          <p class="testi-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">"Finally something built by someone who has actually run these clinics. You can tell immediately."</p>
+          <p class="testi-author">SpR Urology, London</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section style="background:var(--white);" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-photo-wrap">
+          <img
+            src="assets/george-shaker.jpg"
+            alt="Dr George Shaker, NHS Urology Registrar"
+            loading="lazy"
+          />
+        </div>
+        <div class="about-content">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">About Dr George Shaker</h2>
+          <p>George is an NHS Urology Registrar with over 8 years of experience, holding the FEBU, MRCS, and BAUS membership. Frustrated by the administrative burden facing clinicians daily, he began building AI-powered workflow tools that solve real problems in real clinics.</p>
+          <p>His tools are now used across NHS trusts and private practice, saving clinicians hours of admin every week. He has 3 first-author publications and 13 international presentations, and is passionate about the intersection of clinical medicine and technology.</p>
+          <p>His mission: give clinicians time back for what matters most &mdash; patient care.</p>
+          <div class="about-badges" role="list" aria-label="Credentials">
+            <span class="about-badge" role="listitem">FEBU</span>
+            <span class="about-badge" role="listitem">MRCS</span>
+            <span class="about-badge" role="listitem">BAUS Member</span>
+            <span class="about-badge" role="listitem">8 Years NHS Experience</span>
+            <span class="about-badge" role="listitem">3 Publications</span>
+            <span class="about-badge" role="listitem">13 International Presentations</span>
+          </div>
+          <a href="https://www.linkedin.com/in/drgeorgeshaker" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BANNER ===================== -->
+  <div class="cta-banner" role="complementary" aria-label="Department licence CTA">
+    <div class="container">
+      <h2>Interested in a Trust or Practice Licence?</h2>
+      <p>Deploy across your entire urology department from &pound;1,500/month. No IT integration required. Full onboarding included.</p>
+      <div class="cta-banner-btns">
+        <a href="#contact" class="btn btn-gold">Request a Demo</a>
+        <a href="#contact" class="btn btn-white-outline">Download Info Pack</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== EMAIL CAPTURE ===================== -->
+  <section style="background:var(--grey-bg);" class="email-section" aria-labelledby="email-title">
+    <h2 id="email-title">Stay Ahead of NHS Workflow Innovation</h2>
+    <p>Join 500+ urology clinicians. Get new tool launches, clinical workflow tips, and private practice insights &mdash; direct to your inbox.</p>
+    <form class="email-form" onsubmit="handleEmail(event)" novalidate aria-label="Email subscription form">
+      <input type="email" placeholder="your@email.nhs.net" required aria-label="Email address" />
+      <button type="submit" class="btn btn-gold">Subscribe</button>
+    </form>
+    <p class="email-small">No spam. Unsubscribe anytime. For clinicians only.</p>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section style="background:var(--white);" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-left">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Get in Touch</h2>
+          <p>Whether you&apos;re a registrar wanting a free trial, a consultant group interested in a Practice Bundle, or a trust exploring department licensing &mdash; get in touch and I&apos;ll respond within 24 hours.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:george.shaker@nhs.net">george.shaker@nhs.net</a>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.73a16 16 0 006.29 6.29l1.17-1.17a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <a href="tel:+447414951508">+44 7414 951508</a>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              <a href="https://www.linkedin.com/in/drgeorgeshaker" target="_blank" rel="noopener noreferrer">/in/drgeorgeshaker</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-right">
+          <form class="contact-form" onsubmit="handleContact(event)" novalidate aria-label="Contact form">
+            <div class="form-row">
+              <label for="c-name">Name</label>
+              <input type="text" id="c-name" placeholder="Dr Jane Smith" required />
+            </div>
+            <div class="form-row">
+              <label for="c-email">Email</label>
+              <input type="email" id="c-email" placeholder="your@email.nhs.net" required />
+            </div>
+            <div class="form-row">
+              <label for="c-role">Role</label>
+              <select id="c-role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="registrar">Registrar</option>
+                <option value="consultant">Consultant</option>
+                <option value="trust">Trust / Hospital</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="c-msg">Message</label>
+              <textarea id="c-msg" placeholder="Tell me how I can help..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold btn-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div>
+        <p class="footer-brand-name">Dr George Shaker</p>
+        <p class="footer-brand-tag">Built by a Clinician. Built for Clinicians.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer links">
+        <a href="#tools">Tools</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/drgeorgeshaker" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dr George Shaker. All rights reserved. All tools are administrative support tools only and are not medical devices.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== MODALS ===================== -->
+  <div id="m-haem" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="mh-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-haem')" aria-label="Close">&times;</button>
+      <span class="badge badge-gold">Most Popular</span>
+      <h2 id="mh-title">HaemClinic</h2>
+      <p class="modal-tag">AI-powered haematuria clinic workflow and letter generator</p>
+      <p class="modal-body">Automates the entire haematuria clinic workflow &mdash; from NICE/EAU risk stratification to investigation pathway planning and structured letter generation.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>Risk stratification using NICE/EAU criteria</li>
+        <li>One-click structured letter generation</li>
+        <li>Investigation pathway suggestions</li>
+        <li>Flexible NHS and private letter templates</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-haem')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <div id="m-luts" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ml-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-luts')" aria-label="Close">&times;</button>
+      <h2 id="ml-title">LUTS Clinic</h2>
+      <p class="modal-tag">Lower urinary tract symptoms clinic documentation and management</p>
+      <p class="modal-body">Streamlines the entire LUTS assessment workflow &mdash; IPSS scoring, flow rate documentation, and management letters all in one place.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>IPSS scoring and automatic interpretation</li>
+        <li>Flow rate and post-void residual documentation</li>
+        <li>Management letter generator</li>
+        <li>Watchful waiting vs intervention decision support</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-luts')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <div id="m-letters" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="mlet-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-letters')" aria-label="Close">&times;</button>
+      <h2 id="mlet-title">Letters Reviewer</h2>
+      <p class="modal-tag">AI-powered urology letter quality review and correction</p>
+      <p class="modal-body">Paste any urology letter and get instant AI feedback &mdash; clinical errors flagged, omissions highlighted, tone and structure improved before it reaches the patient.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>Flags clinical errors and omissions</li>
+        <li>Improves letter structure and professional tone</li>
+        <li>Works on any urology letter type</li>
+        <li>Medico-legal compliance checks</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-letters')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <div id="m-stent" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="mst-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-stent')" aria-label="Close">&times;</button>
+      <h2 id="mst-title">Stent Tracker</h2>
+      <p class="modal-tag">Ureteric stent tracking, alerts, and removal scheduling</p>
+      <p class="modal-body">Eliminates forgotten stents &mdash; a genuine patient safety risk. A simple shared dashboard with automated red-flag alerts when stents become overdue for removal.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>Overdue stent alerts with red-flag escalation</li>
+        <li>Shared team dashboard visible to the whole team</li>
+        <li>No patient names stored (data minimisation)</li>
+        <li>Removal scheduling and automated reminders</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-stent')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <div id="m-stone" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="mstn-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-stone')" aria-label="Close">&times;</button>
+      <h2 id="mstn-title">Stone Clinic</h2>
+      <p class="modal-tag">Kidney stone clinic workflow, metabolic workup, and follow-up</p>
+      <p class="modal-body">Guides you through the full metabolic stone workup, tracks stone composition, and generates follow-up letters in seconds.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>24hr urine and metabolic workup checklist</li>
+        <li>Stone composition and recurrence risk tracker</li>
+        <li>Follow-up letter generator</li>
+        <li>Dietary and medical prevention recommendations</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-stone')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <div id="m-andrology" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="man-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-andrology')" aria-label="Close">&times;</button>
+      <h2 id="man-title">Andrology Clinic</h2>
+      <p class="modal-tag">Male sexual health and andrology clinic documentation tool</p>
+      <p class="modal-body">Structured andrology consultation templates covering ED, male infertility, and testosterone deficiency &mdash; with letter generation built in.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>ED, infertility, and testosterone tracking</li>
+        <li>Structured consultation template</li>
+        <li>Semen analysis follow-up planner</li>
+        <li>Hormone workup documentation</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-andrology')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <div id="m-uti" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="muti-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-uti')" aria-label="Close">&times;</button>
+      <span class="badge badge-green">New</span>
+      <h2 id="muti-title">Recurrent UTI Clinic</h2>
+      <p class="modal-tag">Structured assessment and management for recurrent UTI</p>
+      <p class="modal-body">A complete recurrent UTI clinic workflow &mdash; from investigation checklist through to prophylaxis documentation and patient letters.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>Investigation checklist (MSU, cystoscopy, imaging)</li>
+        <li>Prophylaxis protocol documentation</li>
+        <li>Patient letter generator</li>
+        <li>Bladder diary integration</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-uti')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <div id="m-botox" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="mbot-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-botox')" aria-label="Close">&times;</button>
+      <span class="badge badge-green">New</span>
+      <h2 id="mbot-title">Botox Urology Clinic</h2>
+      <p class="modal-tag">Intradetrusor Botox workflow &mdash; consent, injection tracking, and follow-up</p>
+      <p class="modal-body">End-to-end Botox procedure management &mdash; from consent to injection tracking and the all-important 3-month follow-up scheduler.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>Pre-procedure consent documentation</li>
+        <li>Injection site and dose tracker</li>
+        <li>3-month follow-up scheduler</li>
+        <li>Urodynamics pre/post documentation</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-botox')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <div id="m-results" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="mres-title">
+    <div class="modal">
+      <button class="modal-x" onclick="closeModal('m-results')" aria-label="Close">&times;</button>
+      <h2 id="mres-title">Investigation Results Tracker</h2>
+      <p class="modal-tag">Track and chase outstanding investigation results with MDT-ready summaries</p>
+      <p class="modal-body">Never lose a result again. A shared, real-time dashboard tracking all outstanding investigations with automated overdue alerts and consultant tagging.</p>
+      <p class="modal-heading">Key Features</p>
+      <ul class="modal-list">
+        <li>Shared results dashboard for the whole team</li>
+        <li>Overdue result alerts and escalation</li>
+        <li>Responsible consultant tagging</li>
+        <li>MDT-ready summary export</li>
+      </ul>
+      <p class="modal-heading">Pricing</p>
+      <p class="modal-body">From &pound;29/month per user. 30-day free trial, no credit card required.</p>
+      <div class="modal-footer"><a href="#contact" class="btn btn-gold" onclick="closeModal('m-results')">Start Free Trial</a></div>
+    </div>
+  </div>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Nav scroll
+    const mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 48);
+    }, { passive: true });
+
+    // Mobile nav
+    const hamBtn = document.getElementById('ham-btn');
+    const navDrawer = document.getElementById('nav-drawer');
+    const drawerClose = document.getElementById('drawer-close');
+    function openDrawer() {
+      navDrawer.classList.add('open');
+      hamBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      navDrawer.classList.remove('open');
+      hamBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    hamBtn.addEventListener('click', openDrawer);
+    drawerClose.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer-link, .nav-drawer .btn').forEach(el => el.addEventListener('click', closeDrawer));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const t = document.querySelector(href);
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Modals
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.modal-overlay').forEach(ov => {
+      ov.addEventListener('click', e => {
+        if (e.target === ov) { ov.classList.remove('open'); document.body.style.overflow = ''; }
+      });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(ov => {
+          ov.classList.remove('open');
+          document.body.style.overflow = '';
+        });
       }
     });
-  });
+    document.querySelectorAll('.tool-card').forEach(card => {
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
 
-  // Animated particle network background for hero
-  (function () {
-    const canvas = document.getElementById('hero-canvas');
-    const ctx = canvas.getContext('2d');
-
-    const NAVY   = '27, 58, 107';
-    const GOLD   = '201, 168, 76';
-    const COUNT  = 60;
-
-    let W, H, particles, animFrame;
-
-    function resize() {
-      const hero = canvas.parentElement;
-      W = canvas.width  = hero.offsetWidth;
-      H = canvas.height = hero.offsetHeight;
+    // Forms
+    function handleEmail(e) {
+      e.preventDefault();
+      e.target.querySelector('input').value = '';
+      alert('Thank you for subscribing!');
+    }
+    function handleContact(e) {
+      e.preventDefault();
+      alert("Thank you for your message. I'll respond within 24 hours.");
+      e.target.reset();
     }
 
-    function rand(min, max) { return Math.random() * (max - min) + min; }
-
-    function createParticles() {
-      particles = Array.from({ length: COUNT }, () => ({
-        x: rand(0, W),
-        y: rand(0, H),
-        r: rand(1, 3),
-        vx: rand(-0.4, 0.4),
-        vy: rand(-0.4, 0.4),
-        gold: Math.random() > 0.75,
-      }));
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-
-      // Draw connecting lines between nearby particles
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 130) {
-            const alpha = (1 - dist / 130) * 0.25;
-            const color = (particles[i].gold || particles[j].gold) ? GOLD : NAVY;
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(${color}, ${alpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
+    // Hero canvas particle network
+    (function () {
+      const canvas = document.getElementById('hero-canvas');
+      const ctx = canvas.getContext('2d');
+      const GOLD = '201,168,76', WHITE = '255,255,255';
+      const N = 65;
+      let W, H, pts, raf;
+      function resize() {
+        const p = canvas.parentElement;
+        W = canvas.width = p.offsetWidth;
+        H = canvas.height = p.offsetHeight;
+      }
+      function r(a, b) { return Math.random() * (b - a) + a; }
+      function make() {
+        pts = Array.from({ length: N }, () => ({
+          x: r(0, W), y: r(0, H),
+          vx: r(-0.38, 0.38), vy: r(-0.38, 0.38),
+          rad: r(1, 2.4),
+          gold: Math.random() > 0.78,
+        }));
+      }
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < N; i++) {
+          for (let j = i + 1; j < N; j++) {
+            const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+            const d = Math.hypot(dx, dy);
+            if (d < 135) {
+              const a = (1 - d / 135) * 0.21;
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(${pts[i].gold || pts[j].gold ? GOLD : WHITE},${a})`;
+              ctx.lineWidth = 0.65;
+              ctx.moveTo(pts[i].x, pts[i].y);
+              ctx.lineTo(pts[j].x, pts[j].y);
+              ctx.stroke();
+            }
           }
         }
+        for (const p of pts) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < -8) p.x = W + 8; else if (p.x > W + 8) p.x = -8;
+          if (p.y < -8) p.y = H + 8; else if (p.y > H + 8) p.y = -8;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.rad, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.gold ? GOLD : WHITE},${p.gold ? 0.62 : 0.28})`;
+          ctx.fill();
+        }
+        raf = requestAnimationFrame(draw);
       }
-
-      // Draw particles
-      for (const p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Wrap edges
-        if (p.x < -10) p.x = W + 10;
-        if (p.x > W + 10) p.x = -10;
-        if (p.y < -10) p.y = H + 10;
-        if (p.y > H + 10) p.y = -10;
-
-        const color = p.gold ? GOLD : '255, 255, 255';
-        const alpha = p.gold ? 0.6 : 0.35;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color}, ${alpha})`;
-        ctx.fill();
-      }
-
-      animFrame = requestAnimationFrame(draw);
-    }
-
-    resize();
-    createParticles();
-    draw();
-
-    window.addEventListener('resize', () => {
-      cancelAnimationFrame(animFrame);
-      resize();
-      createParticles();
-      draw();
-    });
-  })();
-</script>
-
+      resize(); make(); draw();
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(raf); resize(); make(); draw();
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
