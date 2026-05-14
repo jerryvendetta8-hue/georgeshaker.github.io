@@ -1,131 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr George Shaker | NHS Urology Registrar | AI Healthcare Tools</title>
-  <meta name="description" content="Dr George Shaker — NHS Urology Registrar and founder of AI-powered urology workflow tools. Built by a clinician, for clinicians.">
-  <meta name="keywords" content="George Shaker, urology, NHS, AI healthcare, HaemClin, medical AI tools">
-  <meta property="og:title" content="Dr George Shaker | AI Healthcare Tools Founder">
-  <meta property="og:description" content="NHS Urology Registrar building AI-powered workflow tools for clinicians.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UrologyAI — Reclaim Your Time. Built by a Urologist, for Urologists.</title>
+  <meta name="description" content="AI-powered productivity tools for NHS urologists. Save 5+ hours every week on letters, results, and clinic admin. Built by an NHS urology registrar. 14-day free trial." />
+  <meta property="og:title" content="UrologyAI — Built by a Urologist, for Urologists" />
+  <meta property="og:description" content="AI tools that give urologists back 5+ hours every week from clinical admin. NHS-safe, GDPR-compliant, immediately useful." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
     :root {
-      --navy: #1B3A6B;
-      --navy-dark: #142B50;
-      --navy-light: #2A4F8A;
-      --gold: #C9A84C;
-      --gold-light: #D9BD6E;
-      --gold-pale: rgba(201, 168, 76, 0.1);
-      --white: #FFFFFF;
-      --off-white: #F8F9FA;
-      --gray-100: #F1F3F5;
-      --gray-200: #E9ECEF;
-      --gray-400: #ADB5BD;
-      --gray-600: #6C757D;
-      --gray-800: #343A40;
-      --radius: 8px;
-      --radius-lg: 12px;
-      --shadow-sm: 0 1px 2px rgba(27, 58, 107, 0.05);
-      --shadow-md: 0 4px 12px rgba(27, 58, 107, 0.08);
-      --shadow-lg: 0 8px 30px rgba(27, 58, 107, 0.12);
+      --blue:         #1E3A5F;
+      --blue-dark:    #152B47;
+      --blue-mid:     #2D5080;
+      --teal:         #2E9CCA;
+      --teal-pale:    rgba(46,156,202,0.1);
+      --coral:        #FF6B6B;
+      --coral-pale:   rgba(255,107,107,0.1);
+      --sage:         #88B0A4;
+      --sage-pale:    rgba(136,176,164,0.12);
+      --gold:         #D4A574;
+      --gold-pale:    rgba(212,165,116,0.12);
+      --warm-white:   #FAFAF7;
+      --white:        #FFFFFF;
+      --grey-bg:      #F4F5F7;
+      --grey-border:  #E8EAED;
+      --grey-text:    #6B7280;
+      --grey-light:   #9CA3AF;
+      --text:         #111827;
+      --radius-sm:    8px;
+      --radius:       12px;
+      --radius-lg:    16px;
+      --radius-xl:    24px;
+      --shadow-xs:    0 1px 2px rgba(0,0,0,0.05);
+      --shadow-sm:    0 2px 8px rgba(30,58,95,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md:    0 6px 24px rgba(30,58,95,0.1);
+      --shadow-lg:    0 16px 48px rgba(30,58,95,0.14);
+      --shadow-xl:    0 28px 72px rgba(30,58,95,0.2);
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--gray-800);
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      color: var(--text);
       background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+    input, textarea, select { font-family: inherit; }
 
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--gray-200);
-      padding: 1rem 2rem;
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container { max-width: 1160px; margin: 0 auto; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
     }
+    .section-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 600;
+      color: var(--blue);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--grey-text);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-top: 0.9rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-header .section-sub { margin: 0.9rem auto 0; }
+    section { padding: 6rem 2rem; }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      font-family: 'Manrope', sans-serif;
+      border-radius: var(--radius);
+      transition: all 0.18s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+    .btn-coral {
+      background: var(--coral);
+      color: var(--white);
+      border-color: var(--coral);
+    }
+    .btn-coral:hover {
+      background: #ff5252;
+      border-color: #ff5252;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,107,107,0.35);
+    }
+    .btn-blue {
+      background: transparent;
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+    .btn-blue:hover {
+      background: var(--blue);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn-blue-solid {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+    .btn-blue-solid:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+    .btn-teal {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+    .btn-teal:hover {
+      background: #2288b3;
+      border-color: #2288b3;
+      transform: translateY(-2px);
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--blue);
+      border-color: var(--white);
+    }
+    .btn-white:hover {
+      background: var(--warm-white);
+      transform: translateY(-2px);
+    }
+    .btn-white-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn-white-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.8);
+    }
+    .btn-sm { padding: 0.55rem 1.1rem; font-size: 0.8375rem; }
+    .btn-full { width: 100%; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.25rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
     }
-
+    .nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--grey-border);
+      padding: 0.8rem 2rem;
+    }
     .nav-logo {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
-      list-style: none;
+      gap: 0.5rem;
     }
-
-    .nav-links a {
-      color: var(--gray-600);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--navy);
-    }
-
-    .nav-cta {
-      padding: 0.5rem 1rem;
-      background: var(--gold);
-      color: var(--navy-dark) !important;
-      border-radius: var(--radius);
-      font-weight: 600 !important;
-      transition: opacity 0.2s;
-    }
-
-    .nav-cta:hover {
-      opacity: 0.9;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--coral);
+      border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 8rem 2rem 6rem;
-      position: relative;
-      overflow: hidden;
-      background: var(--navy-dark);
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--white);
+      transition: background 0.3s;
+    }
+    .nav-logo-text {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      transition: color 0.3s;
+      letter-spacing: -0.02em;
+    }
+    .nav.scrolled .nav-logo-text { color: var(--blue); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.2s;
+    }
+    .nav.scrolled .nav-links a { color: var(--grey-text); }
+    .nav-links a:hover { color: var(--white); }
+    .nav.scrolled .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--coral) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem !important;
+      border-radius: var(--radius) !important;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    .nav-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav-ham span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--white);
+      transition: background 0.3s;
+    }
+    .nav.scrolled .nav-ham span { background: var(--blue); }
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--blue-dark);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.25rem;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      font-family: 'Fraunces', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+    .nav-drawer a:hover { color: var(--coral); }
+    .nav-drawer-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.75rem;
+      font-size: 2rem;
+      line-height: 1;
+      color: rgba(255,255,255,0.7);
     }
 
-    /* Animated canvas background */
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: var(--blue-dark);
+      display: flex;
+      align-items: center;
+    }
     #hero-canvas {
       position: absolute;
       inset: 0;
@@ -133,831 +310,1698 @@
       height: 100%;
       pointer-events: none;
     }
-
-    .hero-bg {
+    .hero-overlay {
       position: absolute;
       inset: 0;
-      background: 
-        radial-gradient(ellipse at 30% 20%, rgba(201, 168, 76, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 55%);
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(46,156,202,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(255,107,107,0.07) 0%, transparent 55%);
       pointer-events: none;
-      z-index: 0;
     }
-
-    .hero-content {
+    .hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 800px;
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 9rem 2rem 6rem;
+      display: flex;
+      align-items: center;
+      gap: 5rem;
     }
-
-    .hero-name {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+    .hero-left { flex: 1; min-width: 0; }
+    .hero-right { flex-shrink: 0; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(46,156,202,0.15);
+      border: 1px solid rgba(46,156,202,0.3);
+      color: var(--teal);
+      font-size: 0.72rem;
       font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-title {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: var(--gold);
-      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
       margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
     }
-
-    .hero-tagline {
-      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 400;
+    .hero-h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--coral);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      max-width: 480px;
       margin-bottom: 2.5rem;
     }
-
     .hero-btns {
       display: flex;
       gap: 1rem;
-      justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 2.5rem;
     }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.875rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      font-family: inherit;
-      text-decoration: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy-dark);
-      border: 2px solid var(--gold);
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-light);
-      border-color: var(--gold-light);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--white);
-    }
-
-    .btn-outline:hover {
-      background: var(--white);
-      color: var(--navy);
-    }
-
-    /* Section Styles */
-    section {
-      padding: 6rem 2rem;
-    }
-
-    .section-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: var(--gray-600);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Problem Section */
-    .problem {
-      background: var(--off-white);
-    }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .problem-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .problem-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .problem-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--gold-pale);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .problem-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 2;
-    }
-
-    .problem-card p {
-      font-size: 1.125rem;
-      font-weight: 500;
-      color: var(--navy);
-      line-height: 1.5;
-    }
-
-    /* Products Section */
-    .products {
-      background: var(--white);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .product-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--gold);
-    }
-
-    .product-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-    }
-
-    .product-desc {
-      font-size: 0.9375rem;
-      color: var(--gray-600);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .product-price {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-product {
-      width: 100%;
-      padding: 0.75rem 1.5rem;
-      background: var(--navy);
-      color: var(--white);
-      border: none;
-      border-radius: var(--radius);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .btn-product:hover {
-      background: var(--navy-light);
-    }
-
-    /* Social Proof Section */
-    .testimonials {
-      background: var(--off-white);
-      padding: 4rem 2rem;
-    }
-
-    .testimonials-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .testimonial-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-    }
-
-    .testimonial-quote {
-      font-size: 1rem;
-      color: var(--gray-800);
-      font-style: italic;
-      margin-bottom: 1.25rem;
-      line-height: 1.7;
-    }
-
-    .testimonial-quote::before {
-      content: '"';
-      font-size: 2rem;
-      color: var(--gold);
-      line-height: 0;
-      vertical-align: -0.3em;
-      margin-right: 0.25rem;
-    }
-
-    .testimonial-author {
-      font-size: 0.875rem;
-      color: var(--gray-600);
-      font-weight: 500;
-    }
-
-    /* About Section */
-    .about {
-      background: var(--white);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-photo {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: var(--gray-200);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-content h2 {
-      font-size: clamp(1.75rem, 3vw, 2.25rem);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .about-content p {
-      font-size: 1.0625rem;
-      color: var(--gray-600);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-
-    .credentials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .credential-badge {
-      padding: 0.5rem 1rem;
-      background: var(--gold-pale);
-      border: 1px solid rgba(201, 168, 76, 0.3);
-      border-radius: 30px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--navy);
-    }
-
-    /* Trust Banner */
-    .trust-banner {
-      background: var(--navy);
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .trust-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .trust-banner h2 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
-
-    .trust-banner p {
-      font-size: 1.125rem;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 2rem;
-    }
-
-    .btn-demo {
-      padding: 1rem 2.5rem;
-      background: var(--gold);
-      color: var(--navy-dark);
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1.0625rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: opacity 0.2s;
-    }
-
-    .btn-demo:hover {
-      opacity: 0.9;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--navy-dark);
-      padding: 3rem 2rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .footer-brand {
-      color: var(--white);
-    }
-
-    .footer-name {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .footer-tagline {
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold);
-    }
-
-    .footer-contact {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .footer-contact a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-size: 0.875rem;
+    .hero-trust {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: color 0.2s;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
     }
-
-    .footer-contact a:hover {
-      color: var(--gold);
-    }
-
-    .footer-contact svg {
-      width: 15px;
-      height: 15px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
+    .hero-trust-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
       flex-shrink: 0;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
+    /* Photo card */
+    .photo-wrap {
+      position: relative;
+      width: 300px;
+    }
+    .photo-img {
+      width: 272px;
+      height: 360px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+    .stat-pill {
+      position: absolute;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius);
+      padding: 0.6rem 1rem;
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+    }
+    .stat-pill strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1.2;
+    }
+    .stat-pill span {
+      font-size: 0.66rem;
+      color: var(--grey-text);
+      font-weight: 500;
+    }
+    .stat-1 { top: -16px; left: -24px; }
+    .stat-2 { bottom: 60px; left: -32px; }
+    .stat-3 { top: 40px; right: -24px; }
 
-      .nav-links {
-        display: none;
-      }
-
-      section {
-        padding: 4rem 1.5rem;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .about-photo {
-        max-width: 300px;
-        margin: 0 auto;
-      }
-
-      .footer-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    /* ============================================================
+       TRUST BAR
+    ============================================================ */
+    .trust-bar {
+      background: var(--warm-white);
+      border-top: 1px solid var(--grey-border);
+      border-bottom: 1px solid var(--grey-border);
+      padding: 1.1rem 2rem;
+    }
+    .trust-bar-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    .trust-item {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--blue);
+      padding: 0.3rem 1.4rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .trust-sep {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex-shrink: 0;
     }
 
-    /* Animations */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* ============================================================
+       FOUNDER SECTION
+    ============================================================ */
+    .founder-inner {
+      display: flex;
+      gap: 5.5rem;
+      align-items: center;
+    }
+    .founder-photo-wrap {
+      flex-shrink: 0;
+      width: 260px;
+    }
+    .founder-photo-wrap img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .founder-content { flex: 1; }
+    .founder-content h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .founder-content p {
+      font-size: 0.95rem;
+      color: var(--grey-text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .founder-creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0 1.75rem;
+    }
+    .cred-badge {
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: rgba(30,58,95,0.06);
+      color: var(--blue);
+      border: 1px solid rgba(30,58,95,0.12);
     }
 
-    .hero-content > * {
-      animation: fadeUp 0.6s ease forwards;
+    /* ============================================================
+       PAIN POINTS
+    ============================================================ */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .pain-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .pain-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(30,58,95,0.2);
+    }
+    .pain-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .pain-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .pain-card p {
+      font-size: 0.875rem;
+      color: var(--grey-text);
+      line-height: 1.65;
     }
 
-    .hero-name { animation-delay: 0.1s; }
-    .hero-title { animation-delay: 0.2s; }
-    .hero-tagline { animation-delay: 0.3s; }
-    .hero-btns { animation-delay: 0.4s; }
+    /* ============================================================
+       STATS
+    ============================================================ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+    }
+    .stat-number {
+      font-family: 'Fraunces', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--blue);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+    }
+    .stat-number span { color: var(--coral); }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--grey-text);
+      font-weight: 500;
+      line-height: 1.5;
+    }
 
-    /* Mobile Menu Toggle */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
+    /* ============================================================
+       ASSISTANTS SECTION
+    ============================================================ */
+    .assistants-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .assistant-card {
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.22s, box-shadow 0.22s;
+      cursor: default;
+    }
+    .assistant-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .assistant-card.drafty   { background: #EEF3FA; border: 1px solid rgba(30,58,95,0.12); }
+    .assistant-card.voxie    { background: #EBF7FC; border: 1px solid rgba(46,156,202,0.18); }
+    .assistant-card.tracker  { background: #EFF5F3; border: 1px solid rgba(136,176,164,0.25); }
+    .assistant-card.haemy    { background: #FFF0F0; border: 1px solid rgba(255,107,107,0.2); }
+    .assistant-card.briefy   { background: #FDF5EC; border: 1px solid rgba(212,165,116,0.25); }
+    .assistant-card.drafty .assistant-role   { color: var(--blue); }
+    .assistant-card.voxie .assistant-role    { color: var(--teal); }
+    .assistant-card.tracker .assistant-role  { color: var(--sage); }
+    .assistant-card.haemy .assistant-role    { color: var(--coral); }
+    .assistant-card.briefy .assistant-role   { color: var(--gold); }
+    .assistant-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .assistant-emoji {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .assistant-color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .assistant-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.15rem;
+    }
+    .assistant-role {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .assistant-problem {
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+    }
+    .assistant-desc {
+      font-size: 0.875rem;
+      color: var(--grey-text);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .assistant-tagline {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--blue);
+      opacity: 0.7;
+      border-top: 1px solid rgba(30,58,95,0.1);
+      padding-top: 0.85rem;
+      margin-top: auto;
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .how-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+      position: relative;
+    }
+    .how-number {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(30,58,95,0.1);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .how-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+    .how-card p {
+      font-size: 0.875rem;
+      color: var(--grey-text);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       WHO IT'S FOR
+    ============================================================ */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .who-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .who-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .who-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(30,58,95,0.06);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.4rem;
+    }
+    .who-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.01em;
+    }
+    .who-card p {
+      font-size: 0.875rem;
+      color: var(--grey-text);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       TRUST & SAFETY
+    ============================================================ */
+    .trust-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .trust-col {
+      text-align: center;
+      padding: 2.5rem 1.75rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+    }
+    .trust-col-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .trust-col h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+    .trust-col p {
+      font-size: 0.875rem;
+      color: var(--grey-text);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testi-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .testi-stars { color: #F59E0B; font-size: 0.875rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .testi-text {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+    .testi-author { font-size: 0.8rem; font-weight: 700; color: var(--blue); }
+    .testi-role { font-size: 0.75rem; color: var(--grey-text); margin-top: 0.15rem; }
+
+    /* ============================================================
+       PRICING
+    ============================================================ */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: end;
+    }
+    .pricing-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .pricing-card.featured {
+      background: var(--blue);
       border: none;
-      cursor: pointer;
-      padding: 0.5rem;
+      box-shadow: var(--shadow-xl), 0 0 0 2px var(--coral);
+      transform: scale(1.03);
+    }
+    .pricing-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+    .plan-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .pricing-card.featured .plan-label { color: var(--coral); }
+    .plan-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: -0.02em;
+    }
+    .pricing-card.featured .plan-name { color: var(--white); }
+    .plan-price {
+      font-family: 'Fraunces', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: var(--blue);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0.75rem 0 0.25rem;
+    }
+    .pricing-card.featured .plan-price { color: var(--white); }
+    .plan-period { font-size: 0.8rem; color: var(--grey-text); margin-bottom: 1rem; }
+    .pricing-card.featured .plan-period { color: rgba(255,255,255,0.5); }
+    .plan-divider {
+      height: 1px;
+      background: var(--grey-border);
+      margin: 1rem 0;
+    }
+    .pricing-card.featured .plan-divider { background: rgba(255,255,255,0.12); }
+    .plan-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+    }
+    .plan-features li {
+      font-size: 0.875rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .pricing-card.featured .plan-features li { color: rgba(255,255,255,0.82); }
+    .plan-features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .pricing-card.featured .plan-features li::before { color: var(--coral); }
+    .pricing-card .btn { margin-top: 1.75rem; }
+    .pricing-note {
+      text-align: center;
+      margin-top: 2.25rem;
+      font-size: 0.84rem;
+      color: var(--grey-text);
     }
 
-    .mobile-menu-btn svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--navy);
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--grey-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--grey-border);
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--blue);
+      background: transparent;
+      transition: background 0.15s;
+    }
+    .faq-q:hover { background: var(--warm-white); }
+    .faq-q-icon {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--grey-light);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-q-icon { transform: rotate(45deg); color: var(--coral); }
+    .faq-a {
+      display: none;
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--grey-text);
+      line-height: 1.75;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ============================================================
+       FINAL CTA
+    ============================================================ */
+    .final-cta {
+      background: var(--blue-dark);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(46,156,202,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .final-cta p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      position: relative;
+    }
+    .final-cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .final-cta-trust {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      position: relative;
     }
 
-    @media (max-width: 768px) {
-      .mobile-menu-btn {
-        display: block;
-      }
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    .contact-inner {
+      display: flex;
+      gap: 5rem;
+      align-items: flex-start;
+    }
+    .contact-left { flex: 1; }
+    .contact-left h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: -0.02em;
+      margin: 0.8rem 0 1.1rem;
+    }
+    .contact-left > p {
+      font-size: 0.94rem;
+      color: var(--grey-text);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 0.9rem; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .contact-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--blue);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .contact-item a { color: var(--blue); font-weight: 500; }
+    .contact-item a:hover { color: var(--coral); }
+    .contact-right { flex: 1; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-row label { font-size: 0.8rem; font-weight: 600; color: var(--blue); }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      padding: 0.78rem 1rem;
+      border: 1.5px solid var(--grey-border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      background: var(--white);
+      color: var(--text);
+    }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus { border-color: var(--teal); }
+    .form-row textarea { resize: vertical; min-height: 120px; }
+    .form-row select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: #0D1F35;
+      padding: 3.5rem 2rem 2rem;
+    }
+    .footer-top {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 2rem;
+    }
+    .footer-brand p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.3rem;
+      max-width: 240px;
+      line-height: 1.6;
+    }
+    .footer-brand-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .footer-nav a {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--coral); }
+    .footer-contact-links { display: flex; flex-direction: column; gap: 0.55rem; }
+    .footer-contact-links a {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .footer-contact-links a:hover { color: var(--coral); }
+    .footer-contact-links svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .footer-bottom {
+      max-width: 1160px;
+      margin: 0 auto;
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.28);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .assistants-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid { grid-template-columns: 1fr; }
+      .trust-cols { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-card.featured { transform: none; }
+      .hero-inner { flex-direction: column; text-align: center; gap: 3rem; padding-top: 8rem; }
+      .hero-sub { margin: 0 auto 2.5rem; }
+      .hero-btns { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .founder-inner { flex-direction: column; gap: 2.5rem; }
+      .founder-photo-wrap { width: 100%; max-width: 260px; margin: 0 auto; }
+      .pain-grid { grid-template-columns: repeat(2, 1fr); }
+      .who-grid { grid-template-columns: 1fr; }
+      .contact-inner { flex-direction: column; gap: 2.5rem; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-ham { display: flex; }
+      .assistants-grid { grid-template-columns: 1fr; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.25rem; }
+      .photo-wrap { width: 260px; margin: 0 auto; }
+      .photo-img { width: 240px; height: 310px; }
+      .stat-1 { top: -10px; left: -6px; }
+      .stat-2 { bottom: 40px; left: -6px; }
+      .stat-3 { top: 30px; right: -6px; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-container">
-    <div class="nav-logo">Dr George Shaker</div>
-    <ul class="nav-links">
-      <li><a href="#products">Tools</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#products" class="nav-cta">Try Stent Tracker Free</a></li>
-    </ul>
-    <button class="mobile-menu-btn" aria-label="Menu">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" aria-label="UrologyAI home">
+      <span class="nav-logo-mark" aria-hidden="true">U</span>
+      <span class="nav-logo-text">UrologyAI</span>
+    </a>
+    <div class="nav-links" role="list">
+      <a href="#assistants" role="listitem">The Tools</a>
+      <a href="#about" role="listitem">About</a>
+      <a href="#pricing" role="listitem">Pricing</a>
+      <a href="#faq" role="listitem">FAQ</a>
+      <a href="#contact" role="listitem">Contact</a>
+      <a href="#pricing" class="nav-cta" role="listitem">Start Free Trial</a>
+    </div>
+    <button class="nav-ham" id="ham-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-  </div>
-</nav>
+  </nav>
 
-<section class="hero">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-bg"></div>
-  <div class="hero-content" style="position:relative;z-index:1;">
-    <h1 class="hero-name">Dr George Shaker</h1>
-    <p class="hero-title">NHS Urology Registrar | AI Healthcare Tools Founder</p>
-    <p class="hero-tagline">Built by a Clinician. Built for Clinicians.</p>
-    <div class="hero-btns">
-      <a href="#products" class="btn btn-primary">Try Stent Tracker Free</a>
-      <a href="#products" class="btn btn-outline">View All Tools</a>
-    </div>
+  <div class="nav-drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="nav-drawer-close" id="drawer-close" aria-label="Close menu">&times;</button>
+    <a href="#assistants" class="drawer-link">The Tools</a>
+    <a href="#about" class="drawer-link">About</a>
+    <a href="#pricing" class="drawer-link">Pricing</a>
+    <a href="#faq" class="drawer-link">FAQ</a>
+    <a href="#contact" class="drawer-link">Contact</a>
+    <a href="#pricing" class="btn btn-coral" style="margin-top:0.5rem;">Start Free Trial</a>
   </div>
-</section>
 
-<section class="problem" id="problem">
-  <div class="section-container">
-    <div class="section-header">
-      <h2 class="section-title">NHS Workflows Are Broken</h2>
-      <p class="section-subtitle">Every urology clinician knows these pain points</p>
-    </div>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-          </svg>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Introduction">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <span class="hero-eyebrow" aria-label="NHS Urology Registrar and AI Tools Founder">NHS Urology Registrar &amp; AI Tools Founder</span>
+        <h1 class="hero-h1">Reclaim <em>5+ Hours</em><br />Every Week from<br />Clinical Admin</h1>
+        <p class="hero-sub">AI tools built by a urologist, for urologists. NHS-safe, GDPR-compliant, immediately useful.</p>
+        <div class="hero-btns">
+          <a href="#pricing" class="btn btn-coral">Start Free Trial</a>
+          <a href="#assistants" class="btn btn-white-outline">Meet the Tools</a>
         </div>
-        <p>Urology clinics generate mountains of admin and letters</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+        <div class="hero-trust" role="list" aria-label="Trust indicators">
+          <span role="listitem">14-day free trial</span>
+          <span class="hero-trust-dot" aria-hidden="true"></span>
+          <span role="listitem">No card required</span>
+          <span class="hero-trust-dot" aria-hidden="true"></span>
+          <span role="listitem">Built by NHS clinician</span>
         </div>
-        <p>Stent and stone tracking is manual, fragmented, and risky</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-          </svg>
-        </div>
-        <p>Letter writing and review eats 60+ minutes per clinic session</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="products" id="products">
-  <div class="section-container">
-    <div class="section-header">
-      <h2 class="section-title">AI-Powered Workflow Tools</h2>
-      <p class="section-subtitle">Purpose-built solutions that save hours, not minutes</p>
-    </div>
-    <div class="products-grid">
-      <div class="product-card">
-        <h3 class="product-name">HaemClinic</h3>
-        <p class="product-desc">AI-powered haematuria clinic workflow and letter generator</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">LUTS Clinic</h3>
-        <p class="product-desc">Lower urinary tract symptoms clinic documentation and management</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Letters Reviewer</h3>
-        <p class="product-desc">AI-powered urology letter quality review and correction</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Stent Tracker</h3>
-        <p class="product-desc">Ureteric stent tracking, alerts, and removal scheduling</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Stone Clinic</h3>
-        <p class="product-desc">Kidney stone clinic workflow, metabolic workup, and follow-up</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Andrology Clinic</h3>
-        <p class="product-desc">Male sexual health and andrology clinic documentation tool</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-      <div class="product-card">
-        <h3 class="product-name">Investigation Results Tracker</h3>
-        <p class="product-desc">Automated tracking and chasing of outstanding investigation results, with alerts and MDT-ready summaries</p>
-        <p class="product-price">£29/month per user</p>
-        <button class="btn-product">Learn More</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials">
-  <div class="testimonials-container">
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p class="testimonial-quote">Saved me 45 minutes per clinic. Game changer for my workflow.</p>
-        <p class="testimonial-author">Urology Registrar, North East England</p>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-quote">Finally, tools built by someone who understands NHS constraints.</p>
-        <p class="testimonial-author">Consultant Urologist, Midlands</p>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-quote">The histology tracking alone has prevented multiple near-misses.</p>
-        <p class="testimonial-author">Urology SpR, London</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="section-container">
-    <div class="about-grid">
-      <div class="about-photo">
-        <img src="images/hero-photo.jpg" alt="Dr George Shaker">
-      </div>
-      <div class="about-content">
-        <h2>About Dr George Shaker</h2>
-        <p>George is an NHS urology registrar with firsthand experience of the administrative burden facing clinicians daily. Frustrated by outdated workflows, he started building AI-powered tools that solve real problems in real clinics.</p>
-        <p>His mission: give clinicians time back for what matters most — patient care.</p>
-        <div class="credentials">
-          <span class="credential-badge">FEBU</span>
-          <span class="credential-badge">MRCS</span>
-          <span class="credential-badge">BAUS Member</span>
-          <span class="credential-badge">NHS Registrar</span>
+      <div class="hero-right">
+        <div class="photo-wrap">
+          <img
+            src="assets/george-shaker.jpg"
+            alt="Dr George Shaker, NHS Urology Registrar, in surgical scrubs in an operating theatre"
+            class="photo-img"
+            loading="eager"
+          />
+          <div class="stat-pill stat-1" aria-hidden="true">
+            <strong>5+ hrs</strong>
+            <span>Saved per week</span>
+          </div>
+          <div class="stat-pill stat-2" aria-hidden="true">
+            <strong>14-day</strong>
+            <span>Free trial</span>
+          </div>
+          <div class="stat-pill stat-3" aria-hidden="true">
+            <strong>GDPR</strong>
+            <span>Compliant</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="trust-banner" id="contact">
-  <div class="trust-container">
-    <h2>Interested in a Trust Licence?</h2>
-    <p>Deploy across your entire urology department from £1,500/month.</p>
-    <a href="mailto:hello@drgeorgeshaker.com" class="btn-demo">Request a Demo</a>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-brand">
-      <p class="footer-name">Dr George Shaker</p>
-      <p class="footer-tagline">Built by a Clinician. Built for Clinicians.</p>
-    </div>
-    <ul class="footer-links">
-      <li><a href="#products">Tools</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="footer-contact">
-      <a href="tel:+447414951508">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.73a16 16 0 006.29 6.29l1.17-1.17a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-        </svg>
-        +44 7414 951508
-      </a>
-      <a href="mailto:george.shaker@nhs.net">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-        george.shaker@nhs.net
-      </a>
+  <!-- ===================== TRUST BAR ===================== -->
+  <div class="trust-bar" role="complementary" aria-label="Trust indicators">
+    <div class="trust-bar-inner">
+      <span class="trust-item">NHS Clinician Built</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">GDPR Compliant</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">No IT Approval Needed</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">BAUS Member</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">Caldicott Principles</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">14-Day Free Trial</span>
     </div>
   </div>
-</footer>
 
-<script>
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  <!-- ===================== FOUNDER ===================== -->
+  <section style="background:var(--warm-white);" id="about" aria-labelledby="founder-title">
+    <div class="container">
+      <div class="founder-inner">
+        <div class="founder-photo-wrap">
+          <img
+            src="assets/george-shaker.jpg"
+            alt="Dr George Shaker, NHS Urology Registrar"
+            loading="lazy"
+          />
+        </div>
+        <div class="founder-content">
+          <span class="eyebrow">Built by someone who gets it</span>
+          <h2 id="founder-title">Hi, I&apos;m Dr George.<br />NHS Urology Registrar.</h2>
+          <p>A few months ago, I was sitting at my desk at 9 PM on a Wednesday evening. My clinic had finished at 5. The waiting room had been empty for hours. But I was still there &mdash; reviewing letters, chasing scan results, and trying to remember which patient needed a follow-up in three months.</p>
+          <p>I did the maths: five to eight hours a week on letter admin, thirty to sixty minutes a day chasing results, two hours every weekend preparing for MDT. That&apos;s 10&ndash;15 hours every single week on tasks that have nothing to do with examining patients or making clinical decisions.</p>
+          <p>I built UrologyAI because I&apos;m tired of watching brilliant colleagues burn out doing admin work that computers do better. Every tool here solves a problem I personally face every week.</p>
+          <div class="founder-creds" role="list" aria-label="Credentials">
+            <span class="cred-badge" role="listitem">ST5 Urology Registrar, NHS</span>
+            <span class="cred-badge" role="listitem">MRCS</span>
+            <span class="cred-badge" role="listitem">FEBU Part 1</span>
+            <span class="cred-badge" role="listitem">BAUS Member</span>
+            <span class="cred-badge" role="listitem">EAU Member</span>
+            <span class="cred-badge" role="listitem">3 First-Author Publications</span>
+            <span class="cred-badge" role="listitem">13 International Presentations</span>
+            <span class="cred-badge" role="listitem">8 Years Urology Experience</span>
+          </div>
+          <a href="https://www.linkedin.com/in/drgeorgeshaker" target="_blank" rel="noopener noreferrer" class="btn btn-blue">
+            Read my story &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PAIN POINTS ===================== -->
+  <section style="background:var(--white);" aria-labelledby="pain-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Sound Familiar?</span>
+        <h2 class="section-title" id="pain-title">If any of these feel like<br />your week, you&apos;re not alone.</h2>
+        <p class="section-sub">These aren&apos;t edge cases. They&apos;re the norm. And they don&apos;t have to be.</p>
+      </div>
+      <div class="pain-grid">
+        <article class="pain-card">
+          <div class="pain-icon" style="background:rgba(255,107,107,0.1);" aria-hidden="true">&#128338;</div>
+          <h3>&ldquo;I&apos;m still writing letters at 10 PM&rdquo;</h3>
+          <p>You finished clinic six hours ago. The letters are still waiting. This is not normal &mdash; it just feels that way.</p>
+        </article>
+        <article class="pain-card">
+          <div class="pain-icon" style="background:rgba(30,58,95,0.07);" aria-hidden="true">&#128203;</div>
+          <h3>&ldquo;I dread admin sessions&rdquo;</h3>
+          <p>Two hours blocked out. Twelve letters waiting. You&apos;d rather operate. So would we.</p>
+        </article>
+        <article class="pain-card">
+          <div class="pain-icon" style="background:rgba(46,156,202,0.1);" aria-hidden="true">&#128270;</div>
+          <h3>&ldquo;I&apos;m chasing the same scan results weekly&rdquo;</h3>
+          <p>Did that CT come back? Was the PSA actioned? You can&apos;t remember. Neither can anyone else.</p>
+        </article>
+        <article class="pain-card">
+          <div class="pain-icon" style="background:rgba(136,176,164,0.15);" aria-hidden="true">&#128179;</div>
+          <h3>&ldquo;Patient queries pile up endlessly&rdquo;</h3>
+          <p>The inbox never empties. Each one needs a careful response. It&apos;s relentless.</p>
+        </article>
+        <article class="pain-card">
+          <div class="pain-icon" style="background:rgba(212,165,116,0.12);" aria-hidden="true">&#128197;</div>
+          <h3>&ldquo;MDT prep eats my weekends&rdquo;</h3>
+          <p>Saturday mornings spent reading scans and writing summaries. This is not why you became a doctor.</p>
+        </article>
+        <article class="pain-card">
+          <div class="pain-icon" style="background:rgba(255,107,107,0.08);" aria-hidden="true">&#128260;</div>
+          <h3>&ldquo;I feel like I&apos;m constantly behind&rdquo;</h3>
+          <p>Every week starts already overwhelmed. Every week ends the same way. There&apos;s a better way.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <section style="background:var(--grey-bg);" aria-labelledby="stats-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">The Numbers</span>
+        <h2 class="section-title" id="stats-title">The numbers behind<br />the difference</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <p class="stat-number">5<span>+</span></p>
+          <p class="stat-label">Hours saved<br />every week</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-number">95<span>%</span></p>
+          <p class="stat-label">Accuracy on<br />letter reviews</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-number">100<span>%</span></p>
+          <p class="stat-label">GDPR compliant<br />by design</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-number" style="font-size:1.8rem;letter-spacing:-0.02em;">NHS</p>
+          <p class="stat-label">Clinician built,<br />not consultant</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AI ASSISTANTS ===================== -->
+  <section style="background:var(--warm-white);" id="assistants" aria-labelledby="assistants-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Meet the AI Assistants</span>
+        <h2 class="section-title" id="assistants-title">Five tools. Five problems<br />solved.</h2>
+        <p class="section-sub">Each one built for a specific pain point in your week. Each one tested in real NHS clinics before anyone else used it.</p>
+      </div>
+      <div class="assistants-grid">
+
+        <!-- Drafty -->
+        <article class="assistant-card drafty" tabindex="0">
+          <div class="assistant-top">
+            <div class="assistant-emoji" aria-hidden="true">&#128221;</div>
+            <span class="assistant-color-dot" style="background:var(--blue);" aria-hidden="true"></span>
+          </div>
+          <p class="assistant-role">Letter Review Assistant</p>
+          <h3 class="assistant-name">Drafty</h3>
+          <p class="assistant-problem">The Problem</p>
+          <p class="assistant-desc">Every admin session, you sit down with 10&ndash;15 typed letters waiting for review. Each one takes 5&ndash;8 minutes. Errors slip through. Safety netting gets missed. You leave at 7 PM, exhausted.</p>
+          <p class="assistant-problem" style="margin-top:0.75rem;">The Superpower</p>
+          <p class="assistant-desc">Spots spelling errors, flags missing PSA results or follow-up plans, checks medication doses, verifies safety netting, highlights vague language. Confirms whether the letter is ready to send.</p>
+          <p class="assistant-tagline">&ldquo;Reviews your letters in 5 seconds. Catches what you miss.&rdquo;</p>
+        </article>
+
+        <!-- Voxie -->
+        <article class="assistant-card voxie" tabindex="0">
+          <div class="assistant-top">
+            <div class="assistant-emoji" aria-hidden="true">&#127897;</div>
+            <span class="assistant-color-dot" style="background:var(--teal);" aria-hidden="true"></span>
+          </div>
+          <p class="assistant-role">Voice-to-Letter Converter</p>
+          <h3 class="assistant-name">Voxie</h3>
+          <p class="assistant-problem">The Problem</p>
+          <p class="assistant-desc">The dictation cycle is broken. You dictate after each patient. The secretary types it days later. You review and amend. They re-type. Days pass. Letters pile up. Patients wait.</p>
+          <p class="assistant-problem" style="margin-top:0.75rem;">The Superpower</p>
+          <p class="assistant-desc">You speak naturally about a consultation. Voxie converts 60 seconds of natural speech into a polished, NHS-format clinic letter &mdash; ready for review in seconds. Bypasses the secretary bottleneck entirely.</p>
+          <p class="assistant-tagline">&ldquo;Talk for 60 seconds. Get a complete letter.&rdquo;</p>
+        </article>
+
+        <!-- Tracker -->
+        <article class="assistant-card tracker" tabindex="0">
+          <div class="assistant-top">
+            <div class="assistant-emoji" aria-hidden="true">&#128269;</div>
+            <span class="assistant-color-dot" style="background:var(--sage);" aria-hidden="true"></span>
+          </div>
+          <p class="assistant-role">Results Management Assistant</p>
+          <h3 class="assistant-name">Tracker</h3>
+          <p class="assistant-problem">The Problem</p>
+          <p class="assistant-desc">You request a CT KUB. Two weeks later, you can&apos;t remember if the result came back. You request a PSA. Three weeks later, you discover it was 12 and the patient hasn&apos;t been contacted.</p>
+          <p class="assistant-problem" style="margin-top:0.75rem;">The Superpower</p>
+          <p class="assistant-desc">Maintains a live tracker of all pending investigations. Alerts you when results are overdue. Flags abnormal values. Drafts patient and GP letters automatically. Creates an audit trail for governance.</p>
+          <p class="assistant-tagline">&ldquo;Never lose a result again. Sleep better at weekends.&rdquo;</p>
+        </article>
+
+        <!-- Haemy -->
+        <article class="assistant-card haemy" tabindex="0">
+          <div class="assistant-top">
+            <div class="assistant-emoji" aria-hidden="true">&#129656;</div>
+            <span class="assistant-color-dot" style="background:var(--coral);" aria-hidden="true"></span>
+          </div>
+          <p class="assistant-role">Haematuria Clinic Workflow</p>
+          <h3 class="assistant-name">Haemy</h3>
+          <p class="assistant-problem">The Problem</p>
+          <p class="assistant-desc">Haematuria clinics are admin-heavy. You see 12&ndash;15 patients in a session. Each needs flexible cystoscopy, USS, urine cytology, and a follow-up plan. Tracking what each patient needs is a nightmare.</p>
+          <p class="assistant-problem" style="margin-top:0.75rem;">The Superpower</p>
+          <p class="assistant-desc">Complete haematuria clinic management &mdash; tap-based chip interface for fast data entry, automatic risk stratification (low/intermediate/high), generates investigation plans based on guidelines, creates clinic letters via API in seconds.</p>
+          <p class="assistant-tagline">&ldquo;Haematuria clinics, simplified. From referral to letter, in one tool.&rdquo;</p>
+        </article>
+
+        <!-- Briefy -->
+        <article class="assistant-card briefy" tabindex="0">
+          <div class="assistant-top">
+            <div class="assistant-emoji" aria-hidden="true">&#129504;</div>
+            <span class="assistant-color-dot" style="background:var(--gold);" aria-hidden="true"></span>
+          </div>
+          <p class="assistant-role">Pre-Clinic Briefing Tool</p>
+          <h3 class="assistant-name">Briefy</h3>
+          <p class="assistant-problem">The Problem</p>
+          <p class="assistant-desc">You walk into clinic having never seen the referrals. You spend the first 2 minutes of each 15-minute slot reading. That&apos;s 24 minutes per clinic of reading time you could spend with the patient.</p>
+          <p class="assistant-problem" style="margin-top:0.75rem;">The Superpower</p>
+          <p class="assistant-desc">The night before clinic, paste in your patient list and referrals. Briefy reads everything and gives you a one-page summary per patient &mdash; key issue, relevant history, recent investigations, and what to focus on.</p>
+          <p class="assistant-tagline">&ldquo;Walk into clinic ready. Read 12 referrals in 10 minutes.&rdquo;</p>
+        </article>
+
+      </div>
+      <p style="text-align:center;margin-top:3rem;font-size:0.9rem;color:var(--grey-text);">
+        Plus 4 more tools: Stent Tracker, Stone Clinic, LUTS Clinic, Andrology Clinic &mdash;
+        <a href="#contact" style="color:var(--teal);font-weight:600;">get in touch to learn more &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section style="background:var(--white);" aria-labelledby="how-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section-title" id="how-title">Simple. Honest. Risk-free.</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-card">
+          <p class="how-number" aria-hidden="true">01</p>
+          <h3>Try for 14 days, free</h3>
+          <p>No credit card. No commitment. Just access to the tools and time to see if they work for you.</p>
+        </div>
+        <div class="how-card">
+          <p class="how-number" aria-hidden="true">02</p>
+          <h3>Use them on real clinic days</h3>
+          <p>The only test that matters: do they save you time on actual work? Use them in your next admin session.</p>
+        </div>
+        <div class="how-card">
+          <p class="how-number" aria-hidden="true">03</p>
+          <h3>Track your time saved</h3>
+          <p>We help you measure the difference. If it&apos;s less than 3 hours a week, it&apos;s not working &mdash; and you don&apos;t pay.</p>
+        </div>
+        <div class="how-card">
+          <p class="how-number" aria-hidden="true">04</p>
+          <h3>Continue or cancel</h3>
+          <p>Worth it? Subscribe for &pound;50/month. Not worth it? Cancel with one click. No awkward emails.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHO IT'S FOR ===================== -->
+  <section style="background:var(--grey-bg);" aria-labelledby="who-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Who It&apos;s For</span>
+        <h2 class="section-title" id="who-title">Built for urologists<br />at every stage</h2>
+      </div>
+      <div class="who-grid">
+        <article class="who-card">
+          <div class="who-icon" aria-hidden="true">&#129323;</div>
+          <div>
+            <h3>NHS Urology Registrars</h3>
+            <p>The biggest admin burden, the tightest schedule. UrologyAI was built by a registrar, for registrars. Get your evenings back.</p>
+          </div>
+        </article>
+        <article class="who-card">
+          <div class="who-icon" aria-hidden="true">&#128084;</div>
+          <div>
+            <h3>Urology Consultants</h3>
+            <p>Free up time for what only you can do &mdash; complex cases, teaching, leadership. Let the AI handle the admin.</p>
+          </div>
+        </article>
+        <article class="who-card">
+          <div class="who-icon" aria-hidden="true">&#127968;</div>
+          <div>
+            <h3>Private Urologists</h3>
+            <p>Same workflow problems, no NHS support structure. Run a lean private practice without burning out.</p>
+          </div>
+        </article>
+        <article class="who-card">
+          <div class="who-icon" aria-hidden="true">&#127963;</div>
+          <div>
+            <h3>Urology Departments</h3>
+            <p>Licence for your whole team. Department-wide productivity gains with trust-wide deployment and onboarding included.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRUST & SAFETY ===================== -->
+  <section style="background:var(--warm-white);" aria-labelledby="safety-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Trust &amp; Safety</span>
+        <h2 class="section-title" id="safety-title">Built with NHS principles<br />at the core</h2>
+      </div>
+      <div class="trust-cols">
+        <div class="trust-col">
+          <div class="trust-col-icon" aria-hidden="true">&#128737;</div>
+          <h3>GDPR Compliant</h3>
+          <p>All patient data is anonymized before AI processing. No identifiable information ever leaves your computer. Names, NHS numbers, addresses &mdash; all removed automatically.</p>
+        </div>
+        <div class="trust-col">
+          <div class="trust-col-icon" aria-hidden="true">&#127973;</div>
+          <h3>NHS-Safe</h3>
+          <p>Aligned with NHS Digital Standards and Caldicott Principles. Designed by an NHS clinician who understands the rules and works within them every day.</p>
+        </div>
+        <div class="trust-col">
+          <div class="trust-col-icon" aria-hidden="true">&#128104;&#8205;&#9877;</div>
+          <h3>Clinician-Built</h3>
+          <p>Every tool tested in real NHS clinics by a working urologist. Not a tech founder. Not a consultant. A doctor who runs these clinics every week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section style="background:var(--white);" aria-labelledby="testi-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">What Urologists Are Saying</span>
+        <h2 class="section-title" id="testi-title">Words from colleagues</h2>
+      </div>
+      <div class="testi-grid">
+        <article class="testi-card">
+          <p class="testi-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">&ldquo;Drafty has changed my admin sessions completely. I used to dread them. Now I do them in half the time and catch errors I would have missed.&rdquo;</p>
+          <p class="testi-author">Dr S.R.</p>
+          <p class="testi-role">ST5 Urology, North East England</p>
+        </article>
+        <article class="testi-card">
+          <p class="testi-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">&ldquo;The time I&apos;ve saved on haematuria letters alone has been transformational. I get home on time on clinic day now. I didn&apos;t think that was possible.&rdquo;</p>
+          <p class="testi-author">Consultant Urologist</p>
+          <p class="testi-role">NHS Trust, North East England</p>
+        </article>
+        <article class="testi-card">
+          <p class="testi-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <p class="testi-text">&ldquo;Finally something built by someone who has actually run these clinics. You can tell immediately. This is what clinical AI should look like.&rdquo;</p>
+          <p class="testi-author">SpR Urology</p>
+          <p class="testi-role">London Deanery</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING ===================== -->
+  <section style="background:var(--grey-bg);" id="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Pricing</span>
+        <h2 class="section-title" id="pricing-title">Simple, honest pricing</h2>
+        <p class="section-sub">No hidden fees. No long contracts. Cancel anytime. If it doesn&apos;t save you 3+ hours a week, you don&apos;t pay.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <p class="plan-label">Free Trial</p>
+          <h3 class="plan-name">14 Days Free</h3>
+          <p class="plan-price">&#163;0</p>
+          <p class="plan-period">Full access, no card required</p>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>All 5 AI assistants</li>
+            <li>Unlimited use for 14 days</li>
+            <li>No credit card</li>
+            <li>No commitment</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a href="#contact" class="btn btn-blue btn-full">Start Free Trial</a>
+        </div>
+
+        <div class="pricing-card featured" aria-label="Most Popular plan">
+          <p class="plan-label">Most Popular</p>
+          <h3 class="plan-name">Individual</h3>
+          <p class="plan-price">&#163;50</p>
+          <p class="plan-period">Per month &mdash; all tools included</p>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>All 5 AI assistants</li>
+            <li>Unlimited use</li>
+            <li>Priority email support</li>
+            <li>Free updates &amp; new tools</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a href="#contact" class="btn btn-coral btn-full">Start 14-Day Trial</a>
+        </div>
+
+        <div class="pricing-card">
+          <p class="plan-label">Department Licence</p>
+          <h3 class="plan-name">Your Whole Team</h3>
+          <p class="plan-price" style="font-size:1.75rem;">Contact us</p>
+          <p class="plan-period">Custom pricing for departments</p>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>Trust-wide deployment</li>
+            <li>Training &amp; onboarding</li>
+            <li>Dedicated support</li>
+            <li>Custom integrations possible</li>
+            <li>Volume pricing</li>
+          </ul>
+          <a href="#contact" class="btn btn-blue btn-full">Talk to Us</a>
+        </div>
+
+      </div>
+      <p class="pricing-note">All plans include 14-day free trial &middot; No credit card required &middot; Works in any browser, no installation &middot; No IT approval needed</p>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section style="background:var(--white);" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="section-title" id="faq-title">Questions you might have</h2>
+      </div>
+      <div class="faq-list" role="list">
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Is this GDPR compliant?
+            <span class="faq-q-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Yes. Patient data is anonymized before AI processing &mdash; names, NHS numbers, addresses, dates of birth are all removed automatically. Only clinical information is processed. No identifiable patient data ever leaves your device. This aligns with NHS Caldicott Principles.
+          </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Will it integrate with my EPR?
+            <span class="faq-q-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            The current version uses a copy-paste workflow that works with any EPR (System One, EPIC, Cerner, Lorenzo). Direct integration is on the roadmap and depends on trust IT approval.
+          </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Do I need to be tech-savvy?
+            <span class="faq-q-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            No. If you can use Microsoft Word, you can use these tools. There&apos;s no installation, no setup, no coding. Most users are running in under 10 minutes.
+          </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            What if it doesn&apos;t save me time?
+            <span class="faq-q-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            You don&apos;t pay. The 14-day trial gives you time to test it on real clinic days. If you&apos;re not saving at least 3 hours a week by the end of the trial, just cancel &mdash; no questions asked.
+          </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Can I use this within the NHS network?
+            <span class="faq-q-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Yes. All processing happens through approved AI providers (OpenAI&apos;s API, which has commercial data protection agreements and doesn&apos;t train on your inputs). The tools run on your own device, so no patient data passes through any unauthorized servers.
+          </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Can I cancel anytime?
+            <span class="faq-q-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Yes. One click in your account, and you&apos;re cancelled. No phone calls, no retention emails, no awkward conversations.
+          </div>
+        </div>
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Who built this?
+            <span class="faq-q-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Dr George Shaker, an NHS urology registrar in the North East. Not a tech startup. Not a private equity-backed company. Just a doctor who got tired of admin and built better tools.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <div class="final-cta" role="complementary" aria-labelledby="cta-title">
+    <h2 id="cta-title">Ready to get your time back?</h2>
+    <p>Stop spending evenings on admin. Stop chasing the same results week after week. Try UrologyAI free for 14 days. If it doesn&apos;t save you 3+ hours a week, cancel &mdash; no questions asked.</p>
+    <div class="final-cta-btns">
+      <a href="#contact" class="btn btn-coral">Start Free Trial</a>
+      <a href="#contact" class="btn btn-white-outline">Book a 15-min Demo</a>
+    </div>
+    <p class="final-cta-trust">14 days free &middot; No card required &middot; Cancel anytime</p>
+  </div>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section style="background:var(--white);" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-left">
+          <span class="eyebrow">Contact</span>
+          <h2 id="contact-title">Get in Touch</h2>
+          <p>Whether you&apos;re a registrar wanting a free trial, a consultant interested in the individual plan, or a trust exploring department licensing &mdash; get in touch and I&apos;ll respond within 24 hours.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:george.shaker@nhs.net">george.shaker@nhs.net</a>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.73a16 16 0 006.29 6.29l1.17-1.17a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <a href="tel:+447414951508">+44 7414 951508</a>
+            </div>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              <a href="https://www.linkedin.com/in/drgeorgeshaker" target="_blank" rel="noopener noreferrer">/in/drgeorgeshaker</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-right">
+          <form class="contact-form" onsubmit="handleContact(event)" novalidate aria-label="Contact form">
+            <div class="form-row">
+              <label for="c-name">Name</label>
+              <input type="text" id="c-name" placeholder="Dr Jane Smith" required />
+            </div>
+            <div class="form-row">
+              <label for="c-email">Email</label>
+              <input type="email" id="c-email" placeholder="your@email.nhs.net" required />
+            </div>
+            <div class="form-row">
+              <label for="c-role">Role</label>
+              <select id="c-role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="registrar">Registrar</option>
+                <option value="consultant">Consultant</option>
+                <option value="trust">Trust / Hospital</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="c-msg">Message</label>
+              <textarea id="c-msg" placeholder="Tell me how I can help..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-coral btn-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-brand-name">UrologyAI</p>
+        <p>Built by a urologist, for urologists. Reclaim your time.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer links">
+        <a href="#assistants">The Tools</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer-contact-links" aria-label="Contact links">
+        <a href="mailto:george.shaker@nhs.net">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          george.shaker@nhs.net
+        </a>
+        <a href="tel:+447414951508">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.73a16 16 0 006.29 6.29l1.17-1.17a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +44 7414 951508
+        </a>
+        <a href="https://www.linkedin.com/in/drgeorgeshaker" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" stroke="none"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 UrologyAI &mdash; Dr George Shaker. All rights reserved. UrologyAI tools are administrative support tools only and are not medical devices. Always apply clinical judgement.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Sticky nav
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Mobile drawer
+    const ham = document.getElementById('ham-btn');
+    const drawer = document.getElementById('nav-drawer');
+    const drawerClose = document.getElementById('drawer-close');
+    ham.addEventListener('click', () => {
+      drawer.classList.add('open');
+      ham.setAttribute('aria-expanded', 'true');
     });
-  });
+    drawerClose.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+    });
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        ham.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-  // Animated particle network background for hero
-  (function () {
-    const canvas = document.getElementById('hero-canvas');
-    const ctx = canvas.getContext('2d');
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
 
-    const NAVY   = '27, 58, 107';
-    const GOLD   = '201, 168, 76';
-    const COUNT  = 60;
-
-    let W, H, particles, animFrame;
-
-    function resize() {
-      const hero = canvas.parentElement;
-      W = canvas.width  = hero.offsetWidth;
-      H = canvas.height = hero.offsetHeight;
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     }
 
-    function rand(min, max) { return Math.random() * (max - min) + min; }
-
-    function createParticles() {
-      particles = Array.from({ length: COUNT }, () => ({
-        x: rand(0, W),
-        y: rand(0, H),
-        r: rand(1, 3),
-        vx: rand(-0.4, 0.4),
-        vy: rand(-0.4, 0.4),
-        gold: Math.random() > 0.75,
-      }));
+    // Contact form
+    function handleContact(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const orig = btn.textContent;
+      btn.textContent = 'Sent!';
+      btn.style.opacity = '0.6';
+      setTimeout(() => { btn.textContent = orig; btn.style.opacity = ''; }, 3000);
     }
 
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
+    // Animated particle network hero canvas
+    (function() {
+      const canvas = document.getElementById('hero-canvas');
+      const ctx = canvas.getContext('2d');
+      const TEAL  = '46,156,202';
+      const CORAL = '255,107,107';
+      const WHITE = '255,255,255';
+      const COUNT = 55;
+      let W, H, particles, raf;
 
-      // Draw connecting lines between nearby particles
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 130) {
-            const alpha = (1 - dist / 130) * 0.25;
-            const color = (particles[i].gold || particles[j].gold) ? GOLD : NAVY;
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(${color}, ${alpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
+      function resize() {
+        W = canvas.width  = canvas.parentElement.offsetWidth;
+        H = canvas.height = canvas.parentElement.offsetHeight;
+      }
+      function rand(a, b) { return Math.random() * (b - a) + a; }
+      function init() {
+        particles = Array.from({ length: COUNT }, () => ({
+          x: rand(0, W), y: rand(0, H),
+          r: rand(1, 2.5),
+          vx: rand(-0.35, 0.35), vy: rand(-0.35, 0.35),
+          color: Math.random() > 0.8 ? CORAL : Math.random() > 0.5 ? TEAL : WHITE,
+        }));
+      }
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 120) {
+              const a = (1 - d / 120) * 0.18;
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(255,255,255,${a})`;
+              ctx.lineWidth = 0.7;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
           }
         }
+        for (const p of particles) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < -8) p.x = W + 8;
+          if (p.x > W + 8) p.x = -8;
+          if (p.y < -8) p.y = H + 8;
+          if (p.y > H + 8) p.y = -8;
+          const alpha = p.color === WHITE ? 0.3 : 0.5;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.color},${alpha})`;
+          ctx.fill();
+        }
+        raf = requestAnimationFrame(draw);
       }
+      resize(); init(); draw();
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(raf); resize(); init(); draw();
+      }, { passive: true });
+    })();
 
-      // Draw particles
-      for (const p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
+    // Scroll-triggered card animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-        // Wrap edges
-        if (p.x < -10) p.x = W + 10;
-        if (p.x > W + 10) p.x = -10;
-        if (p.y < -10) p.y = H + 10;
-        if (p.y > H + 10) p.y = -10;
-
-        const color = p.gold ? GOLD : '255, 255, 255';
-        const alpha = p.gold ? 0.6 : 0.35;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color}, ${alpha})`;
-        ctx.fill();
-      }
-
-      animFrame = requestAnimationFrame(draw);
-    }
-
-    resize();
-    createParticles();
-    draw();
-
-    window.addEventListener('resize', () => {
-      cancelAnimationFrame(animFrame);
-      resize();
-      createParticles();
-      draw();
+    document.querySelectorAll('.assistant-card, .pain-card, .how-card, .who-card, .stat-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
     });
-  })();
-</script>
-
+  </script>
 </body>
 </html>
