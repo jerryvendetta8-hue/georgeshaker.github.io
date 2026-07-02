@@ -1092,6 +1092,258 @@
     }
 
     /* ============================================================
+       GET THE BOOK
+    ============================================================ */
+    .book-section {
+      background: var(--warm-white);
+      border-top: 1px solid var(--grey-border);
+      border-bottom: 1px solid var(--grey-border);
+    }
+    .book-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+    .book-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--grey-border);
+    }
+    .book-card-label {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 1.1rem;
+    }
+    .book-card-label.teal {
+      background: rgba(14,124,123,0.1);
+      color: #0E7C7B;
+      border: 1px solid rgba(14,124,123,0.2);
+    }
+    .book-card-label.navy {
+      background: rgba(31,58,95,0.08);
+      color: var(--blue);
+      border: 1px solid rgba(31,58,95,0.15);
+    }
+    .book-card h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    .book-card-desc {
+      font-size: 0.9rem;
+      color: var(--grey-text);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Preview form */
+    .preview-form { display: flex; flex-direction: column; gap: 0.85rem; }
+    .preview-form .form-row { gap: 0.3rem; }
+    .preview-form label { font-size: 0.78rem; font-weight: 600; color: var(--blue); }
+    .preview-form input,
+    .preview-form select {
+      padding: 0.72rem 1rem;
+      border: 1.5px solid var(--grey-border);
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: var(--white);
+      color: var(--text);
+      width: 100%;
+    }
+    .preview-form input:focus,
+    .preview-form select:focus {
+      border-color: #0E7C7B;
+      box-shadow: 0 0 0 3px rgba(14,124,123,0.1);
+    }
+    .preview-form input.error,
+    .preview-form select.error { border-color: var(--coral); }
+    .preview-form select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .btn-book-teal {
+      background: #0E7C7B;
+      color: var(--white);
+      border-color: #0E7C7B;
+      width: 100%;
+      margin-top: 0.25rem;
+    }
+    .btn-book-teal:hover {
+      background: #0a6665;
+      border-color: #0a6665;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(14,124,123,0.3);
+    }
+    .btn-book-teal:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+    .preview-micro {
+      text-align: center;
+      font-size: 0.74rem;
+      color: var(--grey-light);
+      margin-top: 0.5rem;
+    }
+    .preview-error-msg {
+      font-size: 0.8rem;
+      color: var(--coral);
+      margin-top: -0.25rem;
+      display: none;
+    }
+    .preview-error-msg.visible { display: block; }
+
+    /* Success state */
+    .preview-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+    .preview-success.visible { display: flex; }
+    .success-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(14,124,123,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .success-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: #0E7C7B;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .preview-success p {
+      font-size: 0.925rem;
+      color: var(--grey-text);
+      line-height: 1.65;
+      max-width: 280px;
+    }
+    .btn-download-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.72rem 1.5rem;
+      background: #0E7C7B;
+      color: var(--white);
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 600;
+      font-family: 'Manrope', sans-serif;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .btn-download-pdf:hover {
+      background: #0a6665;
+      transform: translateY(-2px);
+    }
+    .btn-download-pdf svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* Buy card */
+    .book-cover-wrap {
+      margin-bottom: 1.5rem;
+    }
+    .book-cover-img {
+      width: 140px;
+      height: 196px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      display: block;
+    }
+    .book-price-line {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .book-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 1.75rem;
+    }
+    .book-bullets li {
+      font-size: 0.875rem;
+      color: var(--grey-text);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      line-height: 1.5;
+    }
+    .book-bullets li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #0E7C7B;
+      flex-shrink: 0;
+      margin-top: 0.45em;
+    }
+    .btn-book-navy {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+      width: 100%;
+      font-size: 1rem;
+      padding: 1rem 1.75rem;
+    }
+    .btn-book-navy:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(31,58,95,0.3);
+    }
+
+    /* Book section footer note */
+    .book-footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.76rem;
+      color: var(--grey-light);
+      line-height: 1.7;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .book-cards { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
        FOOTER
     ============================================================ */
     .footer {
@@ -1216,6 +1468,7 @@
       <a href="#about" role="listitem">About</a>
       <a href="#pricing" role="listitem">Pricing</a>
       <a href="#faq" role="listitem">FAQ</a>
+      <a href="#book" role="listitem">The Book</a>
       <a href="#contact" role="listitem">Contact</a>
       <a href="#pricing" class="nav-cta" role="listitem">Start Free Trial</a>
     </div>
@@ -1230,6 +1483,7 @@
     <a href="#about" class="drawer-link">About</a>
     <a href="#pricing" class="drawer-link">Pricing</a>
     <a href="#faq" class="drawer-link">FAQ</a>
+    <a href="#book" class="drawer-link">The Book</a>
     <a href="#contact" class="drawer-link">Contact</a>
     <a href="#pricing" class="btn btn-coral" style="margin-top:0.5rem;">Start Free Trial</a>
   </div>
@@ -1828,6 +2082,102 @@
     </div>
   </section>
 
+  <!-- ===================== GET THE BOOK ===================== -->
+  <section class="book-section" id="book" aria-labelledby="book-section-title">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="book-section-title">Start with the book.</h2>
+        <p class="section-sub">Read a free preview, then get the full system.</p>
+      </div>
+
+      <div class="book-cards">
+
+        <!-- Card A: Free Preview -->
+        <div class="book-card" aria-label="Download free preview">
+          <span class="book-card-label teal">Free Preview</span>
+          <h3>Download the free chapter</h3>
+          <p class="book-card-desc">Get the Introduction and the complete Stent Tracker chapter, plus a 1-page clinic-letter prompt.</p>
+
+          <!-- Form state -->
+          <div id="preview-form-wrap">
+            <form class="preview-form" id="preview-form" onsubmit="handlePreviewSubmit(event)" novalidate aria-label="Free preview request form">
+              <div class="form-row">
+                <label for="p-name">First name</label>
+                <input type="text" id="p-name" name="name" placeholder="George" autocomplete="given-name" required />
+              </div>
+              <div class="form-row">
+                <label for="p-email">Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="p-email" name="email" placeholder="george@nhs.net" autocomplete="email" required />
+                <span class="preview-error-msg" id="p-email-err" role="alert">Please enter a valid email address.</span>
+              </div>
+              <div class="form-row">
+                <label for="p-role">Role</label>
+                <select id="p-role" name="role" required>
+                  <option value="" disabled selected>Select your role</option>
+                  <option value="Consultant urologist">Consultant urologist</option>
+                  <option value="Urology registrar or SpR">Urology registrar or SpR</option>
+                  <option value="SAS or locum doctor">SAS or locum doctor</option>
+                  <option value="Clinical director or manager">Clinical director or manager</option>
+                  <option value="Other clinician">Other clinician</option>
+                </select>
+              </div>
+              <span class="preview-error-msg" id="p-form-err" role="alert"></span>
+              <button type="submit" class="btn btn-book-teal" id="preview-submit-btn">Download free preview &rarr;</button>
+            </form>
+            <p class="preview-micro">No spam. Unsubscribe anytime.</p>
+          </div>
+
+          <!-- Success state (hidden until form submitted) -->
+          <div class="preview-success" id="preview-success" aria-live="polite">
+            <div class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>Check your inbox &mdash; your preview is on its way.</p>
+            <a
+              href="/Efficient_Urologist_Free_Preview.pdf"
+              download
+              class="btn-download-pdf"
+              aria-label="Download the Efficient Urologist free preview PDF"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF now
+            </a>
+          </div>
+        </div>
+
+        <!-- Card B: Buy the Book -->
+        <div class="book-card" aria-label="Buy the full book">
+          <span class="book-card-label navy">The Full Book</span>
+          <div class="book-cover-wrap">
+            <img
+              src="images/book-cover-efficient-urologist.png"
+              alt="The Efficient Urologist book cover — navy blue with title and author Dr George Shaker"
+              class="book-cover-img"
+              loading="lazy"
+            />
+          </div>
+          <h3>The Efficient Urologist</h3>
+          <p class="book-price-line">&pound;9.99 ebook</p>
+          <ul class="book-bullets" aria-label="What you get">
+            <li>18 chapters, clinic by clinic</li>
+            <li>Safe inside NHS IG &amp; GMC standards</li>
+            <li>Read it in an evening, apply it in a week.</li>
+          </ul>
+          <a
+            href="https://vendettajerry.gumroad.com/l/gdkbgi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-book-navy"
+            aria-label="Buy The Efficient Urologist ebook on Gumroad (opens in new tab)"
+          >Buy the book &rarr;</a>
+        </div>
+
+      </div><!-- /.book-cards -->
+
+      <p class="book-footer-note">This book provides general information on the use of AI in clinical administration and does not constitute clinical, legal or regulatory advice. Responsibility for all clinical decisions remains with the treating clinician.</p>
+    </div>
+  </section>
+
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer" role="contentinfo">
     <div class="footer-top">
@@ -1985,6 +2335,60 @@
       }, { passive: true });
     })();
 
+    // Free preview form handler
+    async function handlePreviewSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const nameEl  = document.getElementById('p-name');
+      const emailEl = document.getElementById('p-email');
+      const roleEl  = document.getElementById('p-role');
+      const emailErr = document.getElementById('p-email-err');
+      const formErr  = document.getElementById('p-form-err');
+      const submitBtn = document.getElementById('preview-submit-btn');
+
+      // Reset errors
+      emailEl.classList.remove('error');
+      emailErr.classList.remove('visible');
+      formErr.classList.remove('visible');
+      formErr.textContent = '';
+
+      // Client-side email validation
+      const emailVal = emailEl.value.trim();
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRe.test(emailVal)) {
+        emailEl.classList.add('error');
+        emailErr.classList.add('visible');
+        emailEl.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending\u2026';
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name:  nameEl.value.trim() || '',
+            email: emailVal,
+            role:  roleEl.value || '',
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || 'Something went wrong');
+
+        // Show success state
+        document.getElementById('preview-form-wrap').style.display = 'none';
+        document.getElementById('preview-success').classList.add('visible');
+      } catch (err) {
+        formErr.textContent = err.message || 'Something went wrong. Please try again.';
+        formErr.classList.add('visible');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Download free preview \u2192';
+      }
+    }
+
     // Scroll-triggered card animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1996,7 +2400,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.assistant-card, .pain-card, .how-card, .who-card, .stat-card').forEach(el => {
+    document.querySelectorAll('.assistant-card, .pain-card, .how-card, .who-card, .stat-card, .book-card').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
