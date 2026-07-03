@@ -205,26 +205,40 @@
       gap: 0.5rem;
     }
     .nav-logo-mark {
-      width: 32px;
-      height: 32px;
-      background: var(--coral);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--white);
-      transition: background 0.3s;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid rgba(255,255,255,0.35);
+      transition: border-color 0.3s;
+    }
+    .nav.scrolled .nav-logo-mark {
+      border-color: rgba(31,58,95,0.25);
+    }
+    .nav-logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .nav-logo-text {
       font-family: 'Fraunces', serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: var(--white);
       transition: color 0.3s;
       letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .nav-logo-text small {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.75;
     }
     .nav.scrolled .nav-logo-text { color: var(--blue); }
     .nav-links {
@@ -1459,9 +1473,14 @@
 
   <!-- ===================== NAV ===================== -->
   <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
-    <a href="#" class="nav-logo" aria-label="UrologyAI home">
-      <span class="nav-logo-mark" aria-hidden="true">U</span>
-      <span class="nav-logo-text">UrologyAI</span>
+    <a href="#" class="nav-logo" aria-label="Dr George Shaker home">
+      <span class="nav-logo-mark">
+        <img src="images/dr-george-shaker-logo.png" alt="Dr George Shaker" />
+      </span>
+      <span class="nav-logo-text">
+        Dr George Shaker
+        <small>Consultant Urologist</small>
+      </span>
     </a>
     <div class="nav-links" role="list">
       <a href="#assistants" role="listitem">The Tools</a>
@@ -2182,7 +2201,7 @@
   <footer class="footer" role="contentinfo">
     <div class="footer-top">
       <div class="footer-brand">
-        <p class="footer-brand-name">UrologyAI</p>
+        <p class="footer-brand-name">Dr George Shaker</p>
         <p>Built by a urologist, for urologists. Reclaim your time.</p>
       </div>
       <nav class="footer-nav" aria-label="Footer links">
