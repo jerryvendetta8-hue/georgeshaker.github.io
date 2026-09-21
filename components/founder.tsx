@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Section, SectionHeading } from "@/components/section";
 import { Reveal } from "@/components/motion";
 
-const chips = ["Urology Registrar", "MRCS", "FEBU Part 1", "BAUS & EAU member", "AI automation builder"];
+const chips = ["Urology Registrar", "MRCS", "FEBU", "BAUS & EAU member", "AI automation builder"];
 
 export function Founder() {
   return (

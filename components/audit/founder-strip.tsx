@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 import { Reveal } from "@/components/motion";
 import { site } from "@/lib/site";
 
-const chips = ["Urology Registrar", "MRCS", "FEBU Part 1"];
+const chips = ["Urology Registrar", "MRCS", "FEBU"];
 
 export function AuditFounderStrip() {
   return (
