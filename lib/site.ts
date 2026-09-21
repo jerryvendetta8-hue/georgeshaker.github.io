@@ -5,7 +5,7 @@ export const site = {
   email: "goshaker91@gmail.com",
   phoneDisplay: "+44 7414 951508",
   phoneTel: "+447414951508",
-  linkedin: "https://www.linkedin.com/",
+  linkedin: "https://www.linkedin.com/in/george-shaker-a856b01b9",
   guarantee: "5 booked appointments in 30 days — or you don't pay.",
 };
 
