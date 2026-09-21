@@ -7,7 +7,15 @@ import { navLinks } from "@/lib/site";
 import { buttonClasses } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export function Navbar() {
+export function Navbar({
+  minimal = false,
+  ctaHref = "#contact",
+  ctaLabel = "Book a 15-min demo",
+}: {
+  minimal?: boolean;
+  ctaHref?: string;
+  ctaLabel?: string;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -41,35 +49,39 @@ export function Navbar() {
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
-          {navLinks.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className="text-sm text-muted transition-colors hover:text-foreground">
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {!minimal && (
+          <ul className="hidden items-center gap-8 md:flex">
+            {navLinks.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="text-sm text-muted transition-colors hover:text-foreground">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
 
-        <div className="hidden md:block">
-          <a href="#contact" className={buttonClasses("primary", "sm")}>
-            Book a 15-min demo
+        <div className={cn(minimal ? "block" : "hidden md:block")}>
+          <a href={ctaHref} className={buttonClasses("primary", "sm")}>
+            {ctaLabel}
           </a>
         </div>
 
-        <button
-          type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-foreground md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {!minimal && (
+          <button
+            type="button"
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-foreground md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        )}
       </nav>
 
-      {open && (
+      {!minimal && open && (
         <div id="mobile-menu" className="glass mx-4 mt-3 rounded-2xl p-4 md:hidden">
           <ul className="flex flex-col gap-1">
             {navLinks.map((l) => (
@@ -84,8 +96,8 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <a href="#contact" onClick={() => setOpen(false)} className={buttonClasses("primary", "md", "mt-3 w-full")}>
-            Book a 15-min demo
+          <a href={ctaHref} onClick={() => setOpen(false)} className={buttonClasses("primary", "md", "mt-3 w-full")}>
+            {ctaLabel}
           </a>
         </div>
       )}
