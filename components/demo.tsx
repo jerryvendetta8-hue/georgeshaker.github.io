@@ -1,5 +1,6 @@
-import { Phone, Play } from "lucide-react";
+import { Phone } from "lucide-react";
 import { Section, SectionHeading } from "@/components/section";
+import { DemoVideo } from "@/components/demo-video";
 import { Reveal } from "@/components/motion";
 import { site } from "@/lib/site";
 
@@ -43,21 +44,11 @@ export function Demo() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="glass group relative flex aspect-video items-center justify-center overflow-hidden rounded-3xl lg:h-full lg:aspect-auto">
-            <div className="grid-bg absolute inset-0 opacity-60" aria-hidden />
-            <div className="absolute inset-0 bg-gradient-to-br from-teal/10 via-transparent to-cyan/10" aria-hidden />
-            <button
-              type="button"
-              className="relative flex flex-col items-center gap-4 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan rounded-2xl p-6"
-              aria-label="Play 2-minute demo video (coming soon)"
-            >
-              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-teal to-cyan text-background shadow-[0_0_50px_-10px_rgba(34,211,238,0.8)] transition-transform group-hover:scale-105">
-                <Play className="ml-1 h-8 w-8 fill-current" aria-hidden />
-              </span>
-              <span className="text-sm font-semibold">Watch the 2-minute demo</span>
-              <span className="text-xs text-muted">See a real missed call turn into a booking</span>
-            </button>
-          </div>
+          <DemoVideo
+            title="Watch the 2-minute demo"
+            subtitle="See a real missed call turn into a booking"
+            className="rounded-3xl lg:h-full lg:aspect-auto"
+          />
         </Reveal>
       </div>
     </Section>

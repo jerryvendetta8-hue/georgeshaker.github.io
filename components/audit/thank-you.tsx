@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, Check, Phone, Play } from "lucide-react";
+import { CalendarDays, Check, Phone } from "lucide-react";
 import { Reveal } from "@/components/motion";
+import { DemoVideo } from "@/components/demo-video";
 import { site } from "@/lib/site";
 
 export function ThankYouContent({ firstName }: { firstName?: string }) {
@@ -67,21 +68,12 @@ export function ThankYouContent({ firstName }: { firstName?: string }) {
                 <span className="block text-xl font-extrabold tracking-tight sm:text-2xl">{site.phoneDisplay}</span>
               </span>
             </a>
-            <div className="glass group relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl md:aspect-auto">
-              <div className="grid-bg absolute inset-0 opacity-60" aria-hidden />
-              <div className="absolute inset-0 bg-gradient-to-br from-teal/10 via-transparent to-cyan/10" aria-hidden />
-              <button
-                type="button"
-                className="relative flex flex-col items-center gap-3 rounded-2xl p-6 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan"
-                aria-label="Play Loom walkthrough video (coming soon)"
-              >
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-teal to-cyan text-background shadow-[0_0_40px_-10px_rgba(34,211,238,0.8)] transition-transform group-hover:scale-105">
-                  <Play className="ml-0.5 h-6 w-6 fill-current" aria-hidden />
-                </span>
-                <span className="text-sm font-semibold">Watch the 2-minute Loom</span>
-                <span className="text-xs text-muted">Video coming soon</span>
-              </button>
-            </div>
+            <DemoVideo
+              title="Watch the 2-minute demo"
+              subtitle="See a missed call turn into a booking"
+              size="md"
+              className="rounded-2xl"
+            />
           </div>
         </Reveal>
 
