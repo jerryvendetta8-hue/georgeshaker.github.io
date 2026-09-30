@@ -54,7 +54,7 @@ export function Hero() {
             <div className="absolute -inset-4 rounded-[2rem] bg-gold/15 blur-2xl" aria-hidden="true" />
             <div className="relative overflow-hidden rounded-[2rem] border border-line bg-white shadow-xl">
               <Image
-                src="/images/dr-george-portrait.png"
+                src="/images/dr-george-shaker.png"
                 alt={`${site.doctorName} — ${site.tagline}`}
                 width={520}
                 height={620}

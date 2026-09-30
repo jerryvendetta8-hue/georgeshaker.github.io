@@ -19,7 +19,7 @@ export function AboutStrip() {
           <div className="relative mx-auto w-full max-w-xs">
             <div className="overflow-hidden rounded-[2rem] border border-cream/15">
               <Image
-                src="/images/dr-george-portrait.png"
+                src="/images/dr-george-shaker.png"
                 alt={site.doctorName}
                 width={420}
                 height={520}
