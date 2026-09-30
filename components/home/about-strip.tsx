@@ -1,12 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { GraduationCap, Globe, Stethoscope } from "lucide-react"
+import { Globe, Stethoscope } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { site } from "@/lib/site"
 import { Reveal } from "@/components/motion"
 
 const credentials = [
-  { icon: GraduationCap, text: "زمالة الكلية الملكية البريطانية FEBU" },
   { icon: Stethoscope, text: "استشاري جراحة المسالك البولية" },
   { icon: Globe, text: "خبرة سريرية في المملكة المتحدة" },
 ]
@@ -19,7 +18,7 @@ export function AboutStrip() {
           <div className="relative mx-auto w-full max-w-xs">
             <div className="overflow-hidden rounded-[2rem] border border-cream/15">
               <Image
-                src="/images/dr-george-shaker.png"
+                src="/images/dr-george-shaker-v2.png"
                 alt={site.doctorName}
                 width={420}
                 height={520}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { GraduationCap, Globe, Stethoscope, HeartPulse } from "lucide-react"
+import { Globe, Stethoscope, HeartPulse } from "lucide-react"
 import { Section } from "@/components/section"
 import { CtaBanner } from "@/components/home/cta-banner"
 import { Reveal } from "@/components/motion"
@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 }
 
 const credentials = [
-  { icon: GraduationCap, title: "زمالة FEBU", text: "زمالة البورد الأوروبي في جراحة المسالك البولية" },
   { icon: Stethoscope, title: "استشاري متخصص", text: "خبرة واسعة في تشخيص وعلاج أمراض الذكورة والمسالك البولية" },
   { icon: Globe, title: "خبرة بريطانية", text: "تدريب وممارسة سريرية داخل الخدمة الصحية البريطانية NHS" },
   { icon: HeartPulse, title: "رعاية إنسانية", text: "نهج يركّز على راحة المريض وفهمه الكامل لحالته" },
@@ -27,7 +26,7 @@ export default function AboutPage() {
           <Reveal>
             <div className="mx-auto w-full max-w-xs overflow-hidden rounded-[2rem] border border-cream/15">
               <Image
-                src="/images/dr-george-shaker.png"
+                src="/images/dr-george-shaker-v2.png"
                 alt={site.doctorName}
                 width={420}
                 height={520}
