@@ -1,56 +1,69 @@
-import type { Metadata } from "next";
-import { LegalPage } from "@/components/legal-page";
-import { site } from "@/lib/site";
+import type { Metadata } from "next"
+import { Section } from "@/components/section"
+import { site } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | QURO",
-  description: "How QURO collects, uses and protects personal data.",
-};
+  title: "سياسة الخصوصية",
+  description: "سياسة الخصوصية وحماية البيانات في موقع صحة الرجل.",
+}
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="21 September 2026">
-      <section>
-        <h2>Who we are</h2>
-        <p>
-          {site.company} Ltd (&ldquo;we&rdquo;) provides AI patient capture services to UK private clinics. For enquiries
-          submitted through this website we are the data controller. For patient messages handled on behalf of a clinic,
-          the clinic is the data controller and we act as data processor under a signed Data Processing Agreement.
-        </p>
-      </section>
-      <section>
-        <h2>What we collect</h2>
-        <ul>
-          <li>Contact details you submit via our demo form (name, clinic, email, phone, message).</li>
-          <li>Phone numbers and message content sent to our demo line, used solely to send the demo reply.</li>
-          <li>Basic technical data (browser, device, pages visited) to keep the site secure and improve it.</li>
-        </ul>
-      </section>
-      <section>
-        <h2>How we use it</h2>
-        <p>
-          To respond to your enquiry, arrange a demo, deliver the service you have asked for, and meet our legal
-          obligations. We do not sell personal data and we do not use it for unrelated marketing without consent.
-        </p>
-      </section>
-      <section>
-        <h2>Retention</h2>
-        <p>
-          Demo-line numbers are deleted within 7 days. Enquiry details are kept for up to 12 months unless you become a
-          client, in which case they are retained for the duration of our agreement and as required by law.
-        </p>
-      </section>
-      <section>
-        <h2>Your rights</h2>
-        <p>
-          Under UK GDPR you can request access, correction, deletion or restriction of your data, or object to its
-          processing. Contact us at{" "}
-          <a href={`mailto:${site.email}`} className="text-teal hover:underline">
-            {site.email}
-          </a>
-          . You may also complain to the Information Commissioner&apos;s Office (ico.org.uk).
-        </p>
-      </section>
-    </LegalPage>
-  );
+    <Section className="bg-white">
+      <div className="mx-auto max-w-3xl">
+        <h1 className="font-display text-3xl font-bold text-navy md:text-4xl">
+          سياسة الخصوصية
+        </h1>
+        <div className="mt-8 space-y-6 leading-8 text-ink">
+          <p>
+            نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضّح هذه السياسة
+            كيفية جمعنا واستخدامنا للمعلومات التي تشاركها معنا عبر هذا الموقع.
+          </p>
+          <div>
+            <h2 className="font-display text-xl font-bold text-navy">
+              المعلومات التي نجمعها
+            </h2>
+            <p className="mt-2">
+              عند تحميل أحد الأدلة أو الاشتراك في النشرة الطبية، نجمع اسمك وبريدك
+              الإلكتروني فقط بهدف إرسال المحتوى الطبي المطلوب والنصائح الدورية.
+            </p>
+          </div>
+          <div>
+            <h2 className="font-display text-xl font-bold text-navy">
+              كيف نستخدم بياناتك
+            </h2>
+            <p className="mt-2">
+              نستخدم بياناتك لإرسال الأدلة والمحتوى التثقيفي فقط. لا نبيع أو نشارك
+              بياناتك مع أي طرف ثالث لأغراض تسويقية.
+            </p>
+          </div>
+          <div>
+            <h2 className="font-display text-xl font-bold text-navy">
+              إخلاء المسؤولية الطبية
+            </h2>
+            <p className="mt-2">
+              المحتوى المنشور على هذا الموقع لأغراض تثقيفية عامة فقط، ولا يُغني عن
+              استشارة الطبيب المختص. يُرجى دائماً مراجعة طبيبك قبل اتخاذ أي قرار
+              يتعلق بصحتك.
+            </p>
+          </div>
+          <div>
+            <h2 className="font-display text-xl font-bold text-navy">
+              التواصل معنا
+            </h2>
+            <p className="mt-2">
+              لأي استفسار بخصوص خصوصيتك، يمكنك مراسلتنا عبر البريد الإلكتروني:{" "}
+              <a
+                href={`mailto:${site.email}`}
+                dir="ltr"
+                className="text-gold-dark underline"
+              >
+                {site.email}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </Section>
+  )
 }
