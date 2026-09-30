@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ShieldCheck, Stethoscope, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { LeadButton } from "@/components/lead-button"
 import { site } from "@/lib/site"
 import { Reveal } from "@/components/motion"
 
@@ -23,17 +24,24 @@ export function Hero() {
             </h1>
             <p className="mt-5 max-w-xl text-base leading-8 text-muted md:text-lg">
               مصدرك العربي الموثوق لفهم مشاكل ضعف الانتصاب، سرعة القذف، تضخم
-              البروستاتا، حصوات الكلى وغيرها — بإشراف {site.doctorName}، استشاري
-              جراحة المسالك البولية.
+              البروستاتا، حصوات الكلى وغيرها — بإشراف {site.doctorName}، طبيب
+              مسالك بولية يعمل في بريطانيا.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg">
                 <Link href="/topics">تصفّح المواضيع الطبية</Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/guides">حمّل الأدلة المجانية</Link>
-              </Button>
+              <LeadButton
+                size="lg"
+                variant="outline"
+                source="hero"
+                title="حمّل الأدلة المجانية"
+                subtitle="اترك بريدك ليصلك الدليل مباشرةً، مع محتوى موثوق عن صحة الرجل."
+                modalCta="أرسل لي الأدلة"
+              >
+                حمّل الأدلة المجانية
+              </LeadButton>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-5 text-sm text-muted">
@@ -43,7 +51,7 @@ export function Hero() {
               </span>
               <span className="flex items-center gap-2">
                 <Award className="size-5 text-gold" />
-                خبرة استشارية معتمدة
+                خبرة طبية في بريطانيا
               </span>
             </div>
           </div>

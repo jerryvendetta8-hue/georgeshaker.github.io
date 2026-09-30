@@ -104,6 +104,9 @@ export function SiteFooter() {
             <Link href="/terms" className="transition-colors hover:text-cream">
               الشروط والأحكام
             </Link>
+            <Link href="/refunds" className="transition-colors hover:text-cream">
+              سياسة الاسترجاع
+            </Link>
           </div>
         </div>
       </div>

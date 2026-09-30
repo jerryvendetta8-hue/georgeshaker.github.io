@@ -6,6 +6,8 @@ import {
   Gem,
   Droplets,
   Dna,
+  FlaskConical,
+  Users,
   ArrowLeft,
   type LucideIcon,
 } from "lucide-react"
@@ -18,6 +20,8 @@ const icons: Record<string, LucideIcon> = {
   gem: Gem,
   droplets: Droplets,
   dna: Dna,
+  flask: FlaskConical,
+  users: Users,
 }
 
 export function TopicCard({ topic }: { topic: Topic }) {
