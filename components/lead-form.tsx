@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Check, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { guides } from "@/lib/site"
 
 type Props = {
   guide?: string
@@ -26,6 +27,7 @@ export function LeadForm({
   cta = "أرسل",
   compact = false,
 }: Props) {
+  const selectedGuide = guides.find((item) => item.slug === guide)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
@@ -76,10 +78,15 @@ export function LeadForm({
         <div>
           <p className="font-display font-semibold">تم الإرسال بنجاح</p>
           <p className="text-sm text-muted">
-            {guide
-              ? "سيصلك الدليل على بريدك الإلكتروني خلال دقائق."
+            {selectedGuide
+              ? "تم! حمّل دليلك من الزر أدناه"
               : "شكراً لتواصلك، سنعود إليك في أقرب وقت."}
           </p>
+          {selectedGuide ? (
+            <Button asChild variant="gold" className="mt-4">
+              <a href={selectedGuide.file} download>حمّل الدليل الآن</a>
+            </Button>
+          ) : null}
         </div>
       </div>
     )

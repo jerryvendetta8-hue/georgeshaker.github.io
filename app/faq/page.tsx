@@ -29,7 +29,10 @@ export default function FaqPage() {
             {faqs.map((f, i) => (
               <AccordionItem key={i} value={`item-${i}`}>
                 <AccordionTrigger>{f.q}</AccordionTrigger>
-                <AccordionContent>{f.a}</AccordionContent>
+                <AccordionContent>
+                  {f.a}
+                  {f.href ? <a href={f.href} className="ms-2 font-semibold text-navy underline">{f.linkLabel}</a> : null}
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

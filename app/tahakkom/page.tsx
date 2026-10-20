@@ -59,8 +59,7 @@ export default function TahakkomPage() {
             <LeadButton
               variant="gold"
               size="lg"
-              source="tahakkom-hero"
-              guide="tahakkom-waitlist"
+              source="tahakkom"
               title="انضم لقائمة انتظار «تحكّم»"
               subtitle="سنخبرك فور فتح باب التسجيل، مع أولوية للانضمام وسعر خاص."
               modalCta="انضم لقائمة الانتظار"
@@ -124,8 +123,7 @@ export default function TahakkomPage() {
           <LeadButton
             variant="gold"
             size="lg"
-            source="tahakkom-footer"
-            guide="tahakkom-waitlist"
+            source="tahakkom"
             title="انضم لقائمة انتظار «تحكّم»"
             subtitle="سنخبرك فور فتح باب التسجيل، مع أولوية للانضمام وسعر خاص."
             modalCta="انضم لقائمة الانتظار"

@@ -271,44 +271,60 @@ export type Guide = {
   title: string
   desc: string
   cover: string
+  file: string
   points: string[]
   highlighted?: boolean
 }
 
 export const guides: Guide[] = [
   {
-    slug: "control-guide",
-    title: "دليل التحكّم: ٥ أشياء لازم تعرفها",
-    desc: "دليل مبسّط يشرح أهم ما تحتاج فهمه للتعامل مع سرعة القذف بثقة ووضوح.",
-    cover: "/images/guide-ed.png",
+    slug: "erectile-dysfunction",
+    title: "دليل ضعف الانتصاب الشامل",
+    desc: "تعرّف على أسباب ضعف الانتصاب وخيارات التعامل معه ومتى تحتاج إلى تقييم طبي.",
+    cover: "/images/guide-ed.jpg",
+    file: "/guides/erectile_dysfunction_guide.pdf",
     highlighted: true,
-    points: [
-      "خمس حقائق أساسية عن التحكم",
-      "أخطاء شائعة يقع فيها الكثير",
-      "خطوات عملية تبدأ فيها اليوم",
-    ],
+    points: ["فهم الأسباب والعوامل المؤثرة", "دور نمط الحياة في صحة الانتصاب", "متى تستشير الطبيب"],
   },
   {
-    slug: "when-to-see-doctor",
-    title: "٣ علامات لا تؤجّل فيها زيارة الطبيب",
-    desc: "تعرّف على العلامات التحذيرية التي تستدعي مراجعة طبيب المسالك البولية دون تأخير.",
-    cover: "/images/guide-prostate.png",
-    points: [
-      "علامات لا يجب تجاهلها أبداً",
-      "لماذا التأخير قد يكون مكلفاً",
-      "كيف تستعد لزيارة الطبيب",
-    ],
+    slug: "prostate-health",
+    title: "دليل صحة البروستاتا للرجل فوق الأربعين",
+    desc: "دليل مبسّط لفهم صحة البروستاتا وأعراضها الشائعة ومناقشة الفحوصات المناسبة مع الطبيب.",
+    cover: "/images/guide-prostate.jpg",
+    file: "/guides/prostate_health_guide.pdf",
+    points: ["الأعراض البولية الشائعة", "فهم فحوصات البروستاتا", "علامات تستدعي مراجعة الطبيب"],
   },
   {
-    slug: "daily-habits",
-    title: "عادات يومية لصحة الرجل",
-    desc: "عادات بسيطة ومثبتة علمياً تحافظ على صحتك البولية والجنسية على المدى الطويل.",
-    cover: "/images/guide-stones.png",
-    points: [
-      "عادات الترطيب والتغذية",
-      "دور النوم والرياضة",
-      "ما تتجنبه للحفاظ على صحتك",
-    ],
+    slug: "kidney-stones",
+    title: "دليل حصوات الكلى: الوقاية والعلاج",
+    desc: "افهم كيف تتكوّن حصوات الكلى وطرق الوقاية منها وخيارات علاجها تحت إشراف الطبيب.",
+    cover: "/images/guide-kidney-stones.jpg",
+    file: "/guides/kidney_stones_guide.pdf",
+    points: ["أسباب الحصوات وأعراضها", "الترطيب والعادات الغذائية", "خيارات العلاج والتقييم الطبي"],
+  },
+  {
+    slug: "overactive-bladder",
+    title: "دليل فرط نشاط المثانة",
+    desc: "تعرّف على فرط نشاط المثانة وكيف تساعد العادات اليومية والتقييم الطبي في التعامل معه.",
+    cover: "/images/guide-bladder.jpg",
+    file: "/guides/overactive_bladder_guide.pdf",
+    points: ["فهم الإلحاح وكثرة التبول", "عادات تساعد على إدارة الأعراض", "متى تطلب تقييماً طبياً"],
+  },
+  {
+    slug: "uti-prevention",
+    title: "دليل الوقاية من التهابات المسالك البولية",
+    desc: "دليل عملي لفهم أعراض التهابات المسالك البولية وعادات الوقاية والعلامات التحذيرية.",
+    cover: "/images/guide-uti.jpg",
+    file: "/guides/uti_prevention_guide.pdf",
+    points: ["التعرّف على أعراض الالتهاب", "عادات يومية للوقاية", "علامات تستدعي الرعاية الطبية"],
+  },
+  {
+    slug: "complete-bundle",
+    title: "الحزمة الكاملة: ٥ أدلة في ملف واحد",
+    desc: "اجمع الأدلة الخمسة عن صحة الرجل والبروستاتا والكلى والمثانة والوقاية من الالتهابات في ملف واحد.",
+    cover: "/images/guide-bundle.jpg",
+    file: "/guides/bundle_complete_5_guides.pdf",
+    points: ["صحة الانتصاب والبروستاتا", "حصوات الكلى وفرط نشاط المثانة", "الوقاية من التهابات المسالك البولية"],
   },
 ]
 
@@ -376,18 +392,21 @@ export const programFeatures = [
   "أسئلة فحص قبل الانضمام للتأكد من ملاءمة البرنامج",
 ]
 
+export const weeklyLive = { enabled: false, day: "", time: "", platform: "" }
+
 export type VideoItem = {
+  url: string
   title: string
   platform: "tiktok" | "instagram" | "youtube"
 }
 
 export const videoContent: VideoItem[] = [
-  { title: "٣ أسباب شائعة لضعف الانتصاب", platform: "tiktok" },
-  { title: "هل التستوستيرون يقل مع العمر؟", platform: "tiktok" },
-  { title: "متى تراجع طبيب المسالك؟", platform: "instagram" },
-  { title: "حقائق عن سرعة القذف", platform: "instagram" },
-  { title: "صحة البروستاتا بعد الأربعين", platform: "youtube" },
-  { title: "عادات يومية لصحة الرجل", platform: "youtube" },
+  { title: "٣ أسباب شائعة لضعف الانتصاب", url: "", platform: "tiktok" },
+  { title: "هل التستوستيرون يقل مع العمر؟", url: "", platform: "tiktok" },
+  { title: "متى تراجع طبيب المسالك؟", url: "", platform: "instagram" },
+  { title: "حقائق عن سرعة القذف", url: "", platform: "instagram" },
+  { title: "صحة البروستاتا بعد الأربعين", url: "", platform: "youtube" },
+  { title: "عادات يومية لصحة الرجل", url: "", platform: "youtube" },
 ]
 
 export const faqs = [
@@ -397,7 +416,7 @@ export const faqs = [
   },
   {
     q: "هل تقدّم تشخيصاً أو وصفات أدوية؟",
-    a: "لا. جميع المحتويات والبرامج تثقيفية فقط، ولا تشمل تشخيصاً أو وصف أدوية. إذا احتجت فحصاً طبياً، نوجّهك لطبيب مختص.",
+    a: "المحتوى المجاني والدورات تثقيفية فقط. أما الاستشارة الخاصة فهي تقييم طبي لحالتك مع خطة واضحة للفحوصات والخطوات التالية.",
   },
   {
     q: "هل البرنامج للرجل فقط أو للزوجين؟",
@@ -409,7 +428,13 @@ export const faqs = [
   },
   {
     q: "كيف أدفع؟",
-    a: "تقدر تدفع بالبطاقة أو Apple Pay، بالريال السعودي أو الدرهم الإماراتي.",
+    a: "للاستشارات: بعد تأكيد موعدك عبر واتساب نرسل لك رابط دفع آمن بالبطاقة. للدورات والبرامج: تتوفر خيارات الدفع عند الإطلاق.",
+  },
+  {
+    q: "كيف أحجز استشارة؟",
+    a: "يمكنك حجز استشارة خاصة من صفحة الحجز.",
+    href: "/book",
+    linkLabel: "احجز استشارة",
   },
   {
     q: "هل في استرجاع للمبلغ؟",

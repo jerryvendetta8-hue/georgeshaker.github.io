@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { ShieldCheck, Stethoscope, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { LeadButton } from "@/components/lead-button"
 import { site } from "@/lib/site"
 import { Reveal } from "@/components/motion"
 
@@ -32,16 +31,9 @@ export function Hero() {
               <Button asChild size="lg">
                 <Link href="/topics">تصفّح المواضيع الطبية</Link>
               </Button>
-              <LeadButton
-                size="lg"
-                variant="outline"
-                source="hero"
-                title="حمّل الأدلة المجانية"
-                subtitle="اترك بريدك ليصلك الدليل مباشرةً، مع محتوى موثوق عن صحة الرجل."
-                modalCta="أرسل لي الأدلة"
-              >
-                حمّل الأدلة المجانية
-              </LeadButton>
+              <Button asChild size="lg" variant="outline">
+                <a href="#guides">حمّل الأدلة المجانية</a>
+              </Button>
               <Button asChild size="lg" variant="gold">
                 <Link href="/book">احجز استشارة</Link>
               </Button>

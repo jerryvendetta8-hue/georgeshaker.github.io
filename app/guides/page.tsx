@@ -17,7 +17,7 @@ export default function GuidesPage() {
         <SectionHeading
           eyebrow="أدلة مجانية"
           title="مكتبة الأدلة الطبية"
-          desc="أدلة عملية مبنية على الأدلة العلمية، تصلك مباشرة على بريدك الإلكتروني."
+          desc="أدلة عملية مبنية على الأدلة العلمية، متاحة للتحميل مباشرة بعد تعبئة النموذج."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {guides.map((g) => (
