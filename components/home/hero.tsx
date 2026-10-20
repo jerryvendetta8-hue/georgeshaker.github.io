@@ -28,7 +28,7 @@ export function Hero() {
               مسالك بولية يعمل في بريطانيا.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
               <Button asChild size="lg">
                 <Link href="/topics">تصفّح المواضيع الطبية</Link>
               </Button>
@@ -42,6 +42,9 @@ export function Hero() {
               >
                 حمّل الأدلة المجانية
               </LeadButton>
+              <Button asChild size="lg" variant="gold">
+                <Link href="/book">احجز استشارة</Link>
+              </Button>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-5 text-sm text-muted">
@@ -73,7 +76,7 @@ export function Hero() {
                 <p className="font-display text-lg font-bold text-cream">
                   {site.doctorName}
                 </p>
-                <p className="text-sm text-cream/80">{site.tagline}</p>
+                <p className="text-sm text-cream/80">استشاري جراحة المسالك البولية · <bdi>FEBU</bdi></p>
               </div>
             </div>
           </div>

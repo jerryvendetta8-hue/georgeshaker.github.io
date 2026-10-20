@@ -3,6 +3,7 @@ import { Readex_Pro, IBM_Plex_Sans_Arabic } from "next/font/google"
 import "./globals.css"
 import { site } from "@/lib/site"
 import { LeadModal } from "@/components/lead-modal"
+import { SiteHeader } from "@/components/site-header"
 
 const readex = Readex_Pro({
   subsets: ["arabic", "latin"],
@@ -63,7 +64,8 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={`${readex.variable} ${plexArabic.variable}`}>
       <body>
-        {children}
+        <SiteHeader />
+        <main>{children}</main>
         <LeadModal />
       </body>
     </html>

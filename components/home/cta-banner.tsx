@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { site } from "@/lib/site"
@@ -18,7 +19,11 @@ export function CtaBanner() {
                 لا تتردد في التواصل معنا مباشرة عبر واتساب للحصول على إجابات
                 موثوقة أو لحجز استشارتك.
               </p>
-              <Button asChild variant="whatsapp" size="lg" className="mt-8">
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Button asChild variant="gold" size="lg">
+                <Link href="/book">احجز استشارة</Link>
+              </Button>
+              <Button asChild variant="outlineLight" size="lg">
                 <a
                   href={`https://wa.me/${site.whatsapp}`}
                   target="_blank"
@@ -28,6 +33,7 @@ export function CtaBanner() {
                   تواصل عبر واتساب
                 </a>
               </Button>
+              </div>
             </div>
           </div>
         </Reveal>

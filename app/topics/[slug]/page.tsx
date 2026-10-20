@@ -133,7 +133,10 @@ export default async function TopicPage({
                 <p className="mt-2 text-sm leading-7 text-muted">
                   تواصل معنا مباشرة لمناقشة حالتك بسرّية تامة.
                 </p>
-                <Button asChild variant="whatsapp" className="mt-4 w-full">
+                <Button asChild variant="gold" className="mt-4 w-full">
+                  <Link href="/book">احجز استشارة</Link>
+                </Button>
+                <Button asChild variant="outline" className="mt-3 w-full">
                   <a
                     href={`https://wa.me/${site.whatsapp}`}
                     target="_blank"
