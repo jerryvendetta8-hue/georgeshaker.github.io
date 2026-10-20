@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { ArrowLeft } from "lucide-react"
 import { BookingForm } from "@/components/booking-form"
@@ -5,11 +6,11 @@ import { Section } from "@/components/section"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
 import { consultation } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/book", {
   title: "احجز استشارتك",
   description: "احجز استشارة خاصة مع د. جورج شاكر عبر مكالمة فيديو أو صوت لمدة ٣٠ دقيقة، مع تأكيد الموعد عبر واتساب.",
   alternates: { canonical: "/book" },
-}
+})
 
 const steps = ["املأ نموذج الحجز", "نتواصل معك على واتساب خلال ٢٤ ساعة لتأكيد الموعد", "تأكيد الدفع", "الاستشارة أونلاين"]
 const faqs = [

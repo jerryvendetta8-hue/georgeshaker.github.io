@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft, Check, AlertCircle, Stethoscope, MessageCircle } from "lucide-react"
+import { ArrowLeft, Check, AlertCircle, MessageCircle } from "lucide-react"
 import { Section } from "@/components/section"
 import { Button } from "@/components/ui/button"
 import { LeadForm } from "@/components/lead-form"
 import { topics, site } from "@/lib/site"
+import { pageMetadata } from "@/lib/seo"
 
 export function generateStaticParams() {
   return topics.map((t) => ({ slug: t.slug }))
@@ -19,10 +20,10 @@ export async function generateMetadata({
   const { slug } = await params
   const topic = topics.find((t) => t.slug === slug)
   if (!topic) return { title: "الموضوع غير موجود" }
-  return {
+  return pageMetadata(`/topics/${topic.slug}`, {
     title: topic.title,
-    description: topic.short,
-  }
+    description: topic.summary,
+  })
 }
 
 export default async function TopicPage({
@@ -51,21 +52,16 @@ export default async function TopicPage({
           <h1 className="font-display text-3xl font-bold md:text-4xl">
             {topic.title}
           </h1>
-          <p className="mt-4 text-base leading-8 text-cream/80">{topic.short}</p>
+          <p className="mt-4 text-sm leading-7 text-cream/80">
+            مراجعة طبية: د. جورج شاكر، استشاري جراحة المسالك البولية (FEBU) · آخر تحديث: <time dateTime={topic.reviewedAt}>{new Intl.DateTimeFormat("ar-SA", { dateStyle: "long", calendar: "gregory", timeZone: "UTC" }).format(new Date(topic.reviewedAt))}</time>
+          </p>
+          <p className="mt-5 text-lg leading-8 text-cream/90">{topic.summary}</p>
         </div>
       </section>
 
       <Section className="bg-white">
         <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1.6fr_1fr]">
           <article className="space-y-10">
-            <div>
-              <h2 className="flex items-center gap-2 font-display text-xl font-bold text-navy">
-                <Stethoscope className="size-5 text-gold" />
-                نظرة عامة
-              </h2>
-              <p className="mt-3 leading-8 text-ink">{topic.summary}</p>
-            </div>
-
             <div>
               <h2 className="flex items-center gap-2 font-display text-xl font-bold text-navy">
                 <AlertCircle className="size-5 text-gold" />
@@ -97,7 +93,7 @@ export default async function TopicPage({
 
             <div>
               <h2 className="font-display text-xl font-bold text-navy">
-                خيارات العلاج
+                ما الذي يساعد؟
               </h2>
               <ul className="mt-4 space-y-3">
                 {topic.treatments.map((t) => (
@@ -122,6 +118,14 @@ export default async function TopicPage({
                 ))}
               </ul>
             </div>
+            {topic.sources.length > 0 ? (
+              <section aria-labelledby="sources-heading">
+                <h2 id="sources-heading" className="text-xl font-bold text-navy">مصادر</h2>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {topic.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className="break-words text-gold-dark underline">{source.title}</a></li>)}
+                </ul>
+              </section>
+            ) : null}
           </article>
 
           <aside className="space-y-6">
@@ -162,6 +166,7 @@ export default async function TopicPage({
         </div>
 
         <div className="mx-auto mt-16 max-w-5xl">
+          <aside aria-label="تنبيه طبي" className="mb-8 rounded-2xl border border-line bg-sand p-5 text-sm leading-7 text-ink">{site.disclaimer}</aside>
           <h2 className="mb-6 font-display text-xl font-bold text-navy">
             مواضيع ذات صلة
           </h2>

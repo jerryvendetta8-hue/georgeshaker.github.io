@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { Section, SectionHeading } from "@/components/section"
 import { GuideCard } from "@/components/guide-card"
@@ -6,11 +7,11 @@ import { WeeklyLive } from "@/components/home/weekly-live"
 import { CtaBanner } from "@/components/home/cta-banner"
 import { guides } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/free", {
   title: "المحتوى المجاني",
   description:
     "كل المحتوى المجاني في مكان واحد: أدلة PDF، مقاطع قصيرة موثوقة، وجلسات مباشرة أسبوعية عن صحة الرجل.",
-}
+})
 
 export default function FreePage() {
   return (

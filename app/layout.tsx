@@ -4,6 +4,7 @@ import "./globals.css"
 import { site } from "@/lib/site"
 import { LeadModal } from "@/components/lead-modal"
 import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 
 const readex = Readex_Pro({
   subsets: ["arabic", "latin"],
@@ -25,18 +26,9 @@ export const metadata: Metadata = {
     template: `%s | ${site.doctorName}`,
   },
   description: site.description,
-  keywords: [
-    "صحة الرجل",
-    "ضعف الانتصاب",
-    "سرعة القذف",
-    "تضخم البروستاتا",
-    "حصوات الكلى",
-    "المسالك البولية",
-    "دكتور جورج شاكر",
-  ],
   openGraph: {
     type: "website",
-    locale: "ar_AR",
+    locale: "ar_SA",
     url: site.url,
     title: `${site.doctorName} — ${site.tagline}`,
     description: site.description,
@@ -66,6 +58,7 @@ export default function RootLayout({
       <body>
         <SiteHeader />
         <main>{children}</main>
+        <SiteFooter />
         <LeadModal />
       </body>
     </html>

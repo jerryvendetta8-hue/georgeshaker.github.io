@@ -1,10 +1,11 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { Section } from "@/components/section"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/terms", {
   title: "الشروط والأحكام",
   description: "الشروط والأحكام الخاصة باستخدام موقع صحة الرجل.",
-}
+})
 
 export default function TermsPage() {
   return (

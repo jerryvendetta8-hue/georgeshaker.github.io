@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { Section, SectionHeading } from "@/components/section"
 import { CtaBanner } from "@/components/home/cta-banner"
@@ -9,11 +10,11 @@ import {
 } from "@/components/ui/accordion"
 import { faqs } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/faq", {
   title: "الأسئلة الشائعة",
   description:
     "إجابات عن أكثر الأسئلة شيوعاً حول الخصوصية، المحتوى التثقيفي، برنامج «تحكّم»، الدفع، وسياسة الاسترجاع.",
-}
+})
 
 export default function FaqPage() {
   return (

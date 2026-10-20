@@ -1,14 +1,15 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { Section, SectionHeading } from "@/components/section"
 import { GuideCard } from "@/components/guide-card"
 import { CtaBanner } from "@/components/home/cta-banner"
 import { guides } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/guides", {
   title: "الأدلة الطبية المجانية",
   description:
     "حمّل أدلة PDF مجانية عن ضعف الانتصاب، صحة البروستاتا، والوقاية من حصوات الكلى.",
-}
+})
 
 export default function GuidesPage() {
   return (

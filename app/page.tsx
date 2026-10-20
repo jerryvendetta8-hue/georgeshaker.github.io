@@ -10,9 +10,16 @@ import { WeeklyLive } from "@/components/home/weekly-live"
 import { FaqSection } from "@/components/faq-section"
 import { CtaBanner } from "@/components/home/cta-banner"
 
+import { PhysicianSchema } from "@/components/physician-schema"
+import { pageMetadata } from "@/lib/seo"
+import { site } from "@/lib/site"
+
+export const metadata = pageMetadata("/", { title: `${site.doctorName} — ${site.tagline}`, description: site.description })
+
 export default function HomePage() {
   return (
     <>
+      <PhysicianSchema />
       <Hero />
       <Promises />
       <TopicsSection />

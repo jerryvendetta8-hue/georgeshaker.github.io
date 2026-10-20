@@ -1,11 +1,12 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { Section } from "@/components/section"
 import { site } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/refunds", {
   title: "سياسة الاسترجاع",
   description: "سياسة استرجاع المبالغ للدورات والبرامج المدفوعة.",
-}
+})
 
 export default function RefundsPage() {
   return (

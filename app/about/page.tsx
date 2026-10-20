@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Check } from "lucide-react"
@@ -5,15 +6,17 @@ import { Section } from "@/components/section"
 import { CtaBanner } from "@/components/home/cta-banner"
 import { Reveal } from "@/components/motion"
 import { credentials, site } from "@/lib/site"
+import { PhysicianSchema } from "@/components/physician-schema"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/about", {
   title: "عن الطبيب",
   description: `تعرّف على ${site.doctorName}، استشاري جراحة المسالك البولية.`,
-}
+})
 
 export default function AboutPage() {
   return (
     <>
+      <PhysicianSchema />
       <section className="relative overflow-hidden bg-navy text-cream">
         <div className="absolute inset-0 arabesque opacity-40" aria-hidden="true" />
         <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[0.8fr_1.2fr] md:py-24">

@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { Check, Users, ShieldCheck, Video, ClipboardCheck } from "lucide-react"
 import { Section, SectionHeading } from "@/components/section"
@@ -11,11 +12,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/tahakkom", {
   title: "برنامج «تحكّم»",
   description:
     "برنامج تثقيفي شامل مدته ١٢ أسبوعاً للرجل وزوجته معاً، يجمع بين دروس عملية وجلسات مباشرة ووحدة خاصة للزوجة، بخصوصية تامة.",
-}
+})
 
 const forWho = [
   {

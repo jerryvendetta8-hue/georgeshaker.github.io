@@ -65,7 +65,7 @@ export function SiteFooter() {
                 className="flex items-center gap-2 text-cream/70 transition-colors hover:text-cream"
               >
                 <Phone className="size-4 text-gold-soft" />
-                {site.phoneDisplay}
+                <bdi dir="ltr">{site.phoneDisplay}</bdi>
               </a>
             </li>
             <li>
@@ -97,7 +97,7 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {site.doctorName}. جميع الحقوق محفوظة.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="/privacy" className="transition-colors hover:text-cream">
               سياسة الخصوصية
             </Link>
