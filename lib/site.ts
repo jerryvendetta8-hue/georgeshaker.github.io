@@ -9,7 +9,7 @@ export const site = {
   whatsapp: "447414951508",
   linkedin: "https://www.linkedin.com/in/george-shaker-a856b01b9",
   social: {
-    tiktok: "https://www.tiktok.com/@dr.georgeshaker",
+    tiktok: "https://www.tiktok.com/@dr.george.shaker",
     instagram: "https://www.instagram.com/dr.georgeshaker",
     youtube: "https://www.youtube.com/@dr.georgeshaker",
     whatsappChannel: "https://whatsapp.com/channel/",
@@ -330,7 +330,7 @@ export const guides: Guide[] = [
   {
     slug: "uti-prevention",
     title: "دليل الوقاية من التهابات المسالك البولية",
-    desc: "دليل عملي لفهم أعراض التهابات المسالك البولية وعادات الوقاية والعلامات التحذيرية.",
+    desc: "دليل عملي لفهم أعراض التهاب��ت المسالك البولية وعادات الوقاية والعلامات التحذيرية.",
     cover: "/images/guide-uti.jpg",
     file: "/guides/uti_prevention_guide.pdf",
     points: ["التعرّف على أعراض الالتهاب", "عادات يومية للوقاية", "علامات تستدعي الرعاية الط��ية"],
