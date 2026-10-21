@@ -40,7 +40,7 @@ export function SiteHeader() {
             <Link
               key={l.href}
               href={l.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-navy/5 hover:text-navy"
+              className="rounded-full px-2 py-2 text-sm font-medium text-ink transition-colors hover:bg-navy/5 hover:text-navy"
             >
               {l.label}
             </Link>
@@ -48,14 +48,8 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button asChild variant="whatsapp" size="sm">
-            <a
-              href={`https://wa.me/${site.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              تواصل عبر واتساب
-            </a>
+          <Button asChild variant="gold" size="sm">
+            <Link href="/book">احجز استشارة</Link>
           </Button>
         </div>
 
@@ -83,7 +77,10 @@ export function SiteHeader() {
                 {l.label}
               </Link>
             ))}
-            <Button asChild variant="whatsapp" className="mt-2">
+            <Button asChild variant="gold" className="mt-2">
+              <Link href="/book" onClick={() => setOpen(false)}>احجز استشارة</Link>
+            </Button>
+            <Button asChild variant="outline" className="mt-2">
               <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">
                 تواصل عبر واتساب
               </a>

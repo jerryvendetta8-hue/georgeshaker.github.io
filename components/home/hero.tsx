@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { ShieldCheck, Stethoscope, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { LeadButton } from "@/components/lead-button"
 import { site } from "@/lib/site"
 import { Reveal } from "@/components/motion"
 
@@ -28,20 +27,16 @@ export function Hero() {
               مسالك بولية يعمل في بريطانيا.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
               <Button asChild size="lg">
                 <Link href="/topics">تصفّح المواضيع الطبية</Link>
               </Button>
-              <LeadButton
-                size="lg"
-                variant="outline"
-                source="hero"
-                title="حمّل الأدلة المجانية"
-                subtitle="اترك بريدك ليصلك الدليل مباشرةً، مع محتوى موثوق عن صحة الرجل."
-                modalCta="أرسل لي الأدلة"
-              >
-                حمّل الأدلة المجانية
-              </LeadButton>
+              <Button asChild size="lg" variant="outline">
+                <a href="#guides">حمّل الأدلة المجانية</a>
+              </Button>
+              <Button asChild size="lg" variant="gold">
+                <Link href="/book">احجز استشارة</Link>
+              </Button>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-5 text-sm text-muted">
@@ -73,7 +68,7 @@ export function Hero() {
                 <p className="font-display text-lg font-bold text-cream">
                   {site.doctorName}
                 </p>
-                <p className="text-sm text-cream/80">{site.tagline}</p>
+                <p className="text-sm text-cream/80">استشاري جراحة المسالك البولية · <bdi>FEBU</bdi></p>
               </div>
             </div>
           </div>

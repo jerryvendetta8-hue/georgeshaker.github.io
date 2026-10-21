@@ -1,14 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Globe, Stethoscope } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { site } from "@/lib/site"
+import { credentials, site } from "@/lib/site"
 import { Reveal } from "@/components/motion"
-
-const credentials = [
-  { icon: Stethoscope, text: "استشاري جراحة المسالك البولية" },
-  { icon: Globe, text: "خبرة سريرية في المملكة المتحدة" },
-]
 
 export function AboutStrip() {
   return (
@@ -42,14 +37,9 @@ export function AboutStrip() {
               بعيداً عن المعلومات المغلوطة المنتشرة على الإنترنت.
             </p>
 
-            <ul className="mt-6 space-y-3">
-              {credentials.map((c) => (
-                <li key={c.text} className="flex items-center gap-3 text-cream/90">
-                  <span className="flex size-9 items-center justify-center rounded-lg bg-cream/10 text-gold-soft">
-                    <c.icon className="size-5" />
-                  </span>
-                  {c.text}
-                </li>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {credentials.map((credential) => (
+                <li key={credential}><Badge>{credential}</Badge></li>
               ))}
             </ul>
 

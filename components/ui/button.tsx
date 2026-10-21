@@ -13,6 +13,7 @@ const buttonVariants = cva(
         gold: "bg-gold text-white hover:bg-gold-soft shadow-sm hover:shadow-md",
         outline:
           "border border-navy/25 bg-transparent text-navy hover:bg-navy/5",
+        outlineLight: "border border-cream/50 bg-transparent text-cream hover:bg-cream/10",
         whatsapp: "bg-whatsapp text-white hover:brightness-95 shadow-sm",
         ghost: "bg-transparent text-navy hover:bg-navy/5",
       },

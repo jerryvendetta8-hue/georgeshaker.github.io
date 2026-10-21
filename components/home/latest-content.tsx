@@ -14,8 +14,10 @@ const tabs: { key: VideoItem["platform"]; label: string; href: string }[] = [
 
 export function LatestContent() {
   const [active, setActive] = useState<VideoItem["platform"]>("tiktok")
-  const activeTab = tabs.find((t) => t.key === active)!
-  const items = videoContent.filter((v) => v.platform === active)
+  const availableVideos = videoContent.filter((video) => video.url.trim())
+  const availableTabs = tabs.filter((tab) => availableVideos.some((video) => video.platform === tab.key))
+  const activeTab = availableTabs.find((tab) => tab.key === active) ?? availableTabs[0]
+  const items = availableVideos.filter((video) => video.platform === activeTab?.key)
 
   return (
     <Section id="latest" className="bg-white">
@@ -25,16 +27,22 @@ export function LatestContent() {
         desc="محتوى مبسّط عن صحة الرجل على منصات التواصل، بلغة سهلة ومبنية على العلم."
       />
 
+      {!activeTab ? (
+        <a href={site.social.tiktok} target="_blank" rel="noopener noreferrer" className="mx-auto flex max-w-md items-center justify-center gap-3 rounded-2xl border border-line bg-navy p-8 font-semibold text-cream hover:opacity-90">
+          <Play className="size-6 text-gold" aria-hidden="true" />
+          تابعني على تيك توك
+        </a>
+      ) : <>
       <div className="mb-8 flex justify-center">
         <div className="inline-flex flex-wrap justify-center gap-1 rounded-full border border-line bg-cream p-1">
-          {tabs.map((t) => (
+          {availableTabs.map((t) => (
             <button
               key={t.key}
               type="button"
               onClick={() => setActive(t.key)}
               className={cn(
                 "rounded-full px-5 py-2 text-sm font-semibold transition-colors",
-                active === t.key ? "bg-navy text-white" : "text-muted hover:text-navy",
+                activeTab.key === t.key ? "bg-navy text-white" : "text-muted hover:text-navy",
               )}
             >
               {t.label}
@@ -47,7 +55,7 @@ export function LatestContent() {
         {items.map((v) => (
           <a
             key={v.title}
-            href={activeTab.href}
+            href={v.url}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-navy/85 to-navy p-5 text-white shadow-sm transition-transform hover:-translate-y-1"
@@ -71,6 +79,7 @@ export function LatestContent() {
           تابعني على {activeTab.label}
         </a>
       </div>
+      </>}
     </Section>
   )
 }

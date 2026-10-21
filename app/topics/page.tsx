@@ -1,14 +1,15 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { Section, SectionHeading } from "@/components/section"
 import { TopicCard } from "@/components/topic-card"
 import { CtaBanner } from "@/components/home/cta-banner"
 import { topics } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/topics", {
   title: "المواضيع الطبية",
   description:
     "شروحات طبية مبسّطة عن ضعف الانتصاب، سرعة القذف، تضخم البروستاتا، حصوات الكلى، والتهابات المسالك البولية.",
-}
+})
 
 export default function TopicsPage() {
   return (

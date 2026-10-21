@@ -38,7 +38,7 @@ export function GuideCard({ guide }: { guide: Guide }) {
         <div className="mt-6 flex-1" />
 
         {open ? (
-          <LeadForm guide={guide.slug} source="guide" cta="أرسل لي الدليل" />
+          <LeadForm guide={guide.slug} source="guide" cta="احصل على رابط التحميل" />
         ) : (
           <Button onClick={() => setOpen(true)} variant="gold" className="w-full">
             <Download className="size-4" />

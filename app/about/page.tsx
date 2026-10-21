@@ -1,25 +1,22 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Globe, Stethoscope, HeartPulse } from "lucide-react"
+import { Check } from "lucide-react"
 import { Section } from "@/components/section"
 import { CtaBanner } from "@/components/home/cta-banner"
 import { Reveal } from "@/components/motion"
-import { site } from "@/lib/site"
+import { credentials, site } from "@/lib/site"
+import { PhysicianSchema } from "@/components/physician-schema"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/about", {
   title: "عن الطبيب",
   description: `تعرّف على ${site.doctorName}، استشاري جراحة المسالك البولية.`,
-}
-
-const credentials = [
-  { icon: Stethoscope, title: "استشاري متخصص", text: "خبرة واسعة في تشخيص وعلاج أمراض الذكورة والمسالك البولية" },
-  { icon: Globe, title: "خبرة بريطانية", text: "تدريب وممارسة سريرية داخل الخدمة الصحية البريطانية NHS" },
-  { icon: HeartPulse, title: "رعاية إنسانية", text: "نهج يركّز على راحة المريض وفهمه الكامل لحالته" },
-]
+})
 
 export default function AboutPage() {
   return (
     <>
+      <PhysicianSchema />
       <section className="relative overflow-hidden bg-navy text-cream">
         <div className="absolute inset-0 arabesque opacity-40" aria-hidden="true" />
         <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[0.8fr_1.2fr] md:py-24">
@@ -54,24 +51,15 @@ export default function AboutPage() {
       </section>
 
       <Section className="bg-white">
-        <div className="grid gap-6 sm:grid-cols-2">
-          {credentials.map((c) => (
-            <div
-              key={c.title}
-              className="flex gap-4 rounded-2xl border border-line bg-sand p-6"
-            >
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-navy text-gold-soft">
-                <c.icon className="size-6" />
-              </span>
-              <div>
-                <h2 className="font-display text-lg font-bold text-navy">
-                  {c.title}
-                </h2>
-                <p className="mt-1 text-sm leading-7 text-muted">{c.text}</p>
-              </div>
-            </div>
+        <h2 className="mb-6 text-2xl font-bold text-navy">المؤهلات والخبرة</h2>
+        <ul className="grid gap-4 sm:grid-cols-2">
+          {credentials.map((credential) => (
+            <li key={credential} className="flex items-start gap-3 rounded-2xl border border-line bg-cream p-5 text-navy">
+              <Check className="mt-1 size-5 shrink-0 text-gold" aria-hidden="true" />
+              <span>{credential}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-gold/25 bg-gold/5 p-8 text-center">
           <h2 className="font-display text-2xl font-bold text-navy">رسالتي</h2>

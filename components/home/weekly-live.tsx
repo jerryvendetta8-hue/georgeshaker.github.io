@@ -3,9 +3,11 @@ import { Section } from "@/components/section"
 import { Button } from "@/components/ui/button"
 import { LeadButton } from "@/components/lead-button"
 import { Reveal } from "@/components/motion"
-import { site } from "@/lib/site"
+import { site, weeklyLive } from "@/lib/site"
 
 export function WeeklyLive() {
+  if (!weeklyLive.enabled) return null
+  const hasChannel = site.social.whatsappChannel.trim() && site.social.whatsappChannel !== "https://whatsapp.com/channel/"
   return (
     <Section className="bg-cream">
       <Reveal>
@@ -17,7 +19,7 @@ export function WeeklyLive() {
           <div>
             <div className="flex items-center gap-2 text-sm font-semibold text-gold">
               <Calendar className="size-4" />
-              جلسة أسبوعية مباشرة
+              {weeklyLive.day} · {weeklyLive.time} · {weeklyLive.platform}
             </div>
             <h2 className="mt-2 font-display text-2xl font-bold text-navy md:text-3xl">
               أسئلة وأجوبة مباشرة كل أسبوع
@@ -32,14 +34,13 @@ export function WeeklyLive() {
             <LeadButton
               variant="gold"
               source="weekly-live"
-              guide="weekly-live"
               title="احجز مكانك في الجلسة المباشرة"
               subtitle="سنرسل لك رابط الجلسة القادمة وموعدها على بريدك."
               modalCta="ذكّرني بالجلسة"
             >
               احجز مكانك
             </LeadButton>
-            <Button asChild variant="whatsapp">
+            {hasChannel ? <Button asChild variant="whatsapp">
               <a
                 href={site.social.whatsappChannel}
                 target="_blank"
@@ -48,7 +49,7 @@ export function WeeklyLive() {
                 <MessageCircle className="size-4" />
                 قناة واتساب
               </a>
-            </Button>
+            </Button> : null}
           </div>
         </div>
       </Reveal>

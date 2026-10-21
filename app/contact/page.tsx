@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { MessageCircle, Mail, Phone } from "lucide-react"
 
@@ -12,10 +13,10 @@ import { Section, SectionHeading } from "@/components/section"
 import { LeadForm } from "@/components/lead-form"
 import { site } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/contact", {
   title: "تواصل معنا",
   description: "تواصل مع عيادة صحة الرجل عبر واتساب أو البريد الإلكتروني أو الهاتف.",
-}
+})
 
 const channels = [
   {

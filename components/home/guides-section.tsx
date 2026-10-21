@@ -9,7 +9,7 @@ export function GuidesSection() {
       <SectionHeading
         eyebrow="أدلة مجانية"
         title="حمّل أدلتنا الطبية المجانية"
-        desc="أدلة PDF مبسّطة تصلك مباشرة على بريدك الإلكتروني، تشرح لك حالتك خطوة بخطوة."
+        desc="أدلة PDF مبسّطة تشرح لك حالتك خطوة بخطوة، متاحة للتحميل مباشرة بعد تعبئة النموذج."
       />
       <StaggerGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {guides.map((g) => (

@@ -1,11 +1,12 @@
+import { pageMetadata } from "@/lib/seo"
 import type { Metadata } from "next"
 import { Section } from "@/components/section"
 import { site } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/privacy", {
   title: "سياسة الخصوصية",
   description: "سياسة الخصوصية وحماية البيانات في موقع صحة الرجل.",
-}
+})
 
 export default function PrivacyPage() {
   return (
@@ -15,28 +16,39 @@ export default function PrivacyPage() {
           سياسة الخصوصية
         </h1>
         <div className="mt-8 space-y-6 leading-8 text-ink">
-          <p>
-            نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضّح هذه السياسة
-            كيفية جمعنا واستخدامنا للمعلومات التي تشاركها معنا عبر هذا الموقع.
-          </p>
-          <div>
-            <h2 className="font-display text-xl font-bold text-navy">
-              المعلومات التي نجمعها
-            </h2>
-            <p className="mt-2">
-              عند تحميل أحد الأدلة أو الاشتراك في النشرة الطبية، نجمع اسمك وبريدك
-              الإلكتروني فقط بهدف إرسال المحتوى الطبي المطلوب والنصائح الدورية.
-            </p>
-          </div>
-          <div>
-            <h2 className="font-display text-xl font-bold text-navy">
-              كيف نستخدم بياناتك
-            </h2>
-            <p className="mt-2">
-              نستخدم بياناتك لإرسال الأدلة والمحتوى التثقيفي فقط. لا نبيع أو نشارك
-              بياناتك مع أي طرف ثالث لأغراض تسويقية.
-            </p>
-          </div>
+          <section>
+            <h2 className="text-xl font-bold text-navy">من نحن</h2>
+            <p className="mt-2">يدير هذا الموقع د. جورج شاكر، المسؤول عن استخدام البيانات الموضّح هنا. للاستفسارات أو طلبات الخصوصية: <a href={`mailto:${site.email}`} className="break-all text-gold-dark underline"><bdi>{site.email}</bdi></a>.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-navy">المعلومات التي نجمعها</h2>
+            <p className="mt-2">نجمع الاسم والبريد الإلكتروني عند طلب الأدلة أو الانضمام إلى قوائم الانتظار والنشرة الطبية. قد تتضمن نماذج التواصل رقم الهاتف الاختياري والرسالة التي تختار إرسالها.</p>
+            <p className="mt-2">عند الحجز عبر نموذج Google، تُجمع تفاصيل الحجز: الاسم ورقم واتساب والبلد والعمر ووصف مختصر للحالة. يرجى عدم إرسال معلومات صحية حساسة في نماذج النشرة أو قوائم الانتظار.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-navy">الأغراض والأساس القانوني</h2>
+            <p className="mt-2">نستخدم البيانات لتقديم المحتوى المطلوب وإرسال تحديثات التسجيل التي وافقت عليها، والرد على استفساراتك وترتيب الاستشارات وإجرائها. الأساس القانوني لهذه الاستخدامات هو موافقتك. لا نبيع بياناتك ولا نستخدمها لأغراض تسويقية دون موافقتك.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-navy">مقدّمو الخدمة ونقل البيانات</h2>
+            <p className="mt-2">نستخدم Mailchimp لإدارة قائمة البريد وإرسال الرسائل، وخدمات Google للنماذج وتخزين تفاصيل الحجز. قد يعالج هؤلاء المزوّدون البيانات خارج بلد إقامتك وفق سياساتهم وضماناتهم لحماية البيانات.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-navy">المعلومات الصحية الحساسة</h2>
+            <p className="mt-2">تُستخدم المعلومات الصحية التي تشاركها عند الحجز فقط للتحضير للاستشارة، ولا تُستخدم مطلقاً للتسويق ولا تُضاف إلى قائمة Mailchimp التسويقية.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-navy">مدة الاحتفاظ</h2>
+            <p className="mt-2">نحتفظ ببيانات قائمة البريد حتى إلغاء الاشتراك. نحتفظ بسجلات الحجز والاستشارات طوال المدة اللازمة طبياً، مع مراعاة الالتزامات القانونية والمهنية المنطبقة.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-navy">حقوقك</h2>
+            <p className="mt-2">يمكنك طلب الوصول إلى بياناتك أو تصحيحها أو حذفها أو سحب موافقتك عبر البريد الإلكتروني المذكور في هذه الصفحة. يمكنك أيضاً إلغاء الاشتراك من رابط الإلغاء في رسائل البريد. لا يؤثر سحب الموافقة على المعالجة السابقة، وقد تُقيّد بعض طلبات الحذف بمتطلبات الاحتفاظ القانونية أو الطبية.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-navy">ملفات تعريف الارتباط</h2>
+            <p className="mt-2">لا يضيف كود الموقع ملفات تعريف ارتباط للتحليلات أو الإعلانات أو تسجيل الدخول. نموذج Google المضمّن في صفحة الحجز خدمة خارجية قد تستخدم ملفات تعريف ارتباط خاصة بها بحسب إعدادات متصفحك وحسابك لدى Google. تخضع هذه الملفات لسياسة خصوصية Google، ويمكنك التحكّم بها من إعدادات متصفحك.</p>
+          </section>
           <div>
             <h2 className="font-display text-xl font-bold text-navy">
               إخلاء المسؤولية الطبية

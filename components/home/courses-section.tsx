@@ -6,6 +6,7 @@ import { BookOpen, GraduationCap, Library, Users, type LucideIcon } from "lucide
 import { Section, SectionHeading } from "@/components/section"
 import { StaggerGroup, StaggerItem } from "@/components/motion"
 import { cn } from "@/lib/utils"
+import { LeadButton } from "@/components/lead-button"
 import { courses, SAR_TO_AED, type Course } from "@/lib/site"
 
 const kindIcons: Record<Course["kind"], LucideIcon> = {
@@ -74,6 +75,9 @@ export function CoursesSection() {
                     {c.priceSar != null ? priceLabel(c.priceSar) : "قريبًا"}
                   </span>
                 </div>
+                <LeadButton variant="gold" className="mt-5 w-full" source={c.slug} title={`قائمة الانتظار: ${c.title}`} subtitle="اترك بياناتك لنخبرك عند فتح التسجيل." modalCta="انضم لقائمة الانتظار">
+                  انضم لقائمة الانتظار
+                </LeadButton>
               </div>
             </StaggerItem>
           )

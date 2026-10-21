@@ -28,9 +28,8 @@ export function ProgramBand() {
                 <LeadButton
                   variant="gold"
                   size="lg"
-                  source="program-band"
-                  guide="tahakkom-waitlist"
-                  title="انضم لقائمة انتظار «تحكّم»"
+                  source="tahakkom"
+                      title="انضم لقائمة انتظار «تحكّم»"
                   subtitle="سنخبرك فور فتح باب التسجيل، مع أولوية للانضمام."
                   modalCta="انضم لقائمة الانتظار"
                 >

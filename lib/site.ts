@@ -27,15 +27,20 @@ export const navLinks = [
   { href: "/tahakkom", label: "برنامج «تحكّم»" },
   { href: "/courses", label: "الدورات" },
   { href: "/about", label: "من أنا" },
+  { href: "/book", label: "احجز استشارة" },
   { href: "/faq", label: "الأسئلة الشائعة" },
 ]
 
+export const consultation = { priceUsd: 250, durationMin: 30 }
+
 export const credentials = [
-  "طبيب مسالك بولية في بريطانيا",
+  "استشاري جراحة المسالك البولية",
+  "زمالة المجلس الأوروبي لجراحة المسالك البولية (FEBU)",
+  "الزمالة المصرية في جراحة المسالك البولية",
+  "عضوية الكلية الملكية للجراحين (MRCS)",
   "أكثر من ٨ سنوات في تخصص المسالك البولية",
-  "الزمالة المصرية في المسالك البولية",
-  "MRCS",
-  "عضو BAUS و EAU",
+  "خبرة سريرية في الخدمة الصحية البريطانية (NHS)",
+  "عضو الجمعية البريطانية (BAUS) والأوروبية (EAU) لجراحة المسالك البولية",
 ]
 
 export const promises = [
@@ -71,11 +76,16 @@ export type Topic = {
   short: string
   summary: string
   icon: string
+  reviewedAt: string
+  sources: { title: string; url: string }[]
   symptoms: string[]
   causes: string[]
   treatments: string[]
   whenToSee: string[]
 }
+
+// Reviewed by Dr George Shaker, 21/10/2026
+export const reviewedAt = "2026-10-21"
 
 export const topics: Topic[] = [
   {
@@ -85,6 +95,8 @@ export const topics: Topic[] = [
     summary:
       "سرعة القذف من أكثر مواضيع صحة الرجل شيوعاً، وتعني القذف أسرع مما يرغب الرجل أو زوجته. الحالة مفهومة علمياً وهناك أساليب سلوكية عديدة تساعد على التحكم، والمحتوى هنا تثقيفي لفهمها بوضوح.",
     icon: "timer",
+    reviewedAt,
+    sources: [],
     symptoms: [
       "القذف خلال دقيقة أو أقل من بداية العلاقة",
       "صعوبة تأخير القذف بشكل متكرر",
@@ -115,6 +127,8 @@ export const topics: Topic[] = [
     summary:
       "ضعف الانتصاب هو صعوبة الحصول على انتصاب كافٍ أو الحفاظ عليه. موضوع شائع ومفهوم علمياً، وقد يكون مؤشراً على حالات صحية أخرى تستحق الانتباه. الهدف هنا أن تفهم جسمك لا أن تقلق.",
     icon: "heart-pulse",
+    reviewedAt,
+    sources: [],
     symptoms: [
       "صعوبة في الحصول على الانتصاب",
       "صعوبة في الحفاظ على الانتصاب أثناء العلاقة",
@@ -145,6 +159,8 @@ export const topics: Topic[] = [
     summary:
       "تضخم البروستاتا الحميد حالة شائعة مع التقدم في العمر، تضغط فيها البروستاتا على مجرى البول وتسبب أعراضاً بولية مزعجة. فهم الأعراض مبكراً يساعدك على اتخاذ قرارات صحية أفضل.",
     icon: "activity",
+    reviewedAt,
+    sources: [],
     symptoms: [
       "ضعف تدفق البول أو تقطعه",
       "كثرة التبول خاصة ليلاً",
@@ -175,6 +191,8 @@ export const topics: Topic[] = [
     summary:
       "التستوستيرون هرمون أساسي يؤثر على الطاقة والرغبة والحالة المزاجية وصحة العظام. نقصه قد يسبب أعراضاً متعددة، وفهمها يساعدك على معرفة متى يستحق الأمر فحصاً طبياً.",
     icon: "flask",
+    reviewedAt,
+    sources: [],
     symptoms: [
       "انخفاض الطاقة والإرهاق المستمر",
       "ضعف الرغبة الجنسية",
@@ -206,6 +224,8 @@ export const topics: Topic[] = [
     summary:
       "صحة المسالك البولية تشمل الوقاية من الالتهابات والحصوات والحفاظ على وظائف الكلى. عادات بسيطة مثل الترطيب الجيد تصنع فرقاً كبيراً في الوقاية من المشاكل الشائعة.",
     icon: "droplets",
+    reviewedAt,
+    sources: [],
     symptoms: [
       "حرقة أو ألم أثناء التبول",
       "كثرة التبول والإلحاح",
@@ -237,6 +257,8 @@ export const topics: Topic[] = [
     summary:
       "الصحة الزوجية تخص الاثنين معاً. التواصل المفتوح والفهم المشترك للمشكلة يخففان الضغط النفسي ويجعلان التعامل معها أسهل. هذا المحتوى موجّه للرجل وزوجته على حد سواء.",
     icon: "users",
+    reviewedAt,
+    sources: [],
     symptoms: [
       "توتر أو ضغط نفسي بين الشريكين",
       "تجنب الحديث عن المشكلة",
@@ -266,44 +288,60 @@ export type Guide = {
   title: string
   desc: string
   cover: string
+  file: string
   points: string[]
   highlighted?: boolean
 }
 
 export const guides: Guide[] = [
   {
-    slug: "control-guide",
-    title: "دليل التحكّم: ٥ أشياء لازم تعرفها",
-    desc: "دليل مبسّط يشرح أهم ما تحتاج فهمه للتعامل مع سرعة القذف بثقة ووضوح.",
-    cover: "/images/guide-ed.png",
+    slug: "erectile-dysfunction",
+    title: "دليل ضعف الانتصاب الشامل",
+    desc: "تعرّف على أسباب ضعف الانتصاب وخيارات التعامل معه ومتى تحتاج إلى تقييم طبي.",
+    cover: "/images/guide-ed.jpg",
+    file: "/guides/erectile_dysfunction_guide.pdf",
     highlighted: true,
-    points: [
-      "خمس حقائق أساسية عن التحكم",
-      "أخطاء شائعة يقع فيها الكثير",
-      "خطوات عملية تبدأ فيها اليوم",
-    ],
+    points: ["فهم الأسباب والعوامل المؤثرة", "دور نمط الحياة في صحة الانتصاب", "متى تستشير الطبيب"],
   },
   {
-    slug: "when-to-see-doctor",
-    title: "٣ علامات لا تؤجّل فيها زيارة الطبيب",
-    desc: "تعرّف على العلامات التحذيرية التي تستدعي مراجعة طبيب المسالك البولية دون تأخير.",
-    cover: "/images/guide-prostate.png",
-    points: [
-      "علامات لا يجب تجاهلها أبداً",
-      "لماذا التأخير قد يكون مكلفاً",
-      "كيف تستعد لزيارة الطبيب",
-    ],
+    slug: "prostate-health",
+    title: "دليل صحة البروستاتا للرجل فوق الأربعين",
+    desc: "دليل مبسّط لفهم صحة البروستاتا وأعراضها الشائعة ومناقشة الفحوصات المناسبة مع الطبيب.",
+    cover: "/images/guide-prostate.jpg",
+    file: "/guides/prostate_health_guide.pdf",
+    points: ["الأعراض البولية الشائعة", "فهم فحوصات البروستاتا", "علامات تستدعي مراجعة الطبيب"],
   },
   {
-    slug: "daily-habits",
-    title: "عادات يومية لصحة الرجل",
-    desc: "عادات بسيطة ومثبتة علمياً تحافظ على صحتك البولية والجنسية على المدى الطويل.",
-    cover: "/images/guide-stones.png",
-    points: [
-      "عادات الترطيب والتغذية",
-      "دور النوم والرياضة",
-      "ما تتجنبه للحفاظ على صحتك",
-    ],
+    slug: "kidney-stones",
+    title: "دليل حصوات الكلى: الوقاية والعلاج",
+    desc: "افهم كيف تتكوّن حصوات الكلى وطرق الوقاية منها وخيارات علاجها تحت إشراف الطبيب.",
+    cover: "/images/guide-kidney-stones.jpg",
+    file: "/guides/kidney_stones_guide.pdf",
+    points: ["أسباب الحصوات وأعراضها", "الترطيب والعادات الغذائية", "خيارات العلاج والتقييم الطبي"],
+  },
+  {
+    slug: "overactive-bladder",
+    title: "دليل فرط نشاط المثانة",
+    desc: "تعرّف على فرط نشاط المثانة وكيف تساعد العادات اليومية والتقييم الطبي في التعامل معه.",
+    cover: "/images/guide-bladder.jpg",
+    file: "/guides/overactive_bladder_guide.pdf",
+    points: ["فهم الإلحاح وكثرة التبول", "عادات تساعد على إدارة الأعراض", "متى تطلب تقييماً طبياً"],
+  },
+  {
+    slug: "uti-prevention",
+    title: "دليل الوقاية من التهابات المسالك البولية",
+    desc: "دليل عملي لفهم أعراض التهابات المسالك البولية وعادات الوقاية والعلامات التحذيرية.",
+    cover: "/images/guide-uti.jpg",
+    file: "/guides/uti_prevention_guide.pdf",
+    points: ["التعرّف على أعراض الالتهاب", "عادات يومية للوقاية", "علامات تستدعي الرعاية الط��ية"],
+  },
+  {
+    slug: "complete-bundle",
+    title: "الحزمة الكاملة: ٥ أدلة في ملف واحد",
+    desc: "اجمع الأدلة الخمسة عن صحة الرجل والبروستاتا والكلى والمثانة والوقاية من الالتهابات في ملف واحد.",
+    cover: "/images/guide-bundle.jpg",
+    file: "/guides/bundle_complete_5_guides.pdf",
+    points: ["صحة الانتصاب والبروستاتا", "حصوات الكلى وفرط نشاط المثانة", "الوقاية من التهابات المسالك البولية"],
   },
 ]
 
@@ -371,18 +409,21 @@ export const programFeatures = [
   "أسئلة فحص قبل الانضمام للتأكد من ملاءمة البرنامج",
 ]
 
+export const weeklyLive = { enabled: false, day: "", time: "", platform: "" }
+
 export type VideoItem = {
+  url: string
   title: string
   platform: "tiktok" | "instagram" | "youtube"
 }
 
 export const videoContent: VideoItem[] = [
-  { title: "٣ أسباب شائعة لضعف الانتصاب", platform: "tiktok" },
-  { title: "هل التستوستيرون يقل مع العمر؟", platform: "tiktok" },
-  { title: "متى تراجع طبيب المسالك؟", platform: "instagram" },
-  { title: "حقائق عن سرعة القذف", platform: "instagram" },
-  { title: "صحة البروستاتا بعد الأربعين", platform: "youtube" },
-  { title: "عادات يومية لصحة الرجل", platform: "youtube" },
+  { title: "٣ أسباب شائعة لضعف الانتصاب", url: "", platform: "tiktok" },
+  { title: "هل التستوستيرون يقل مع العمر؟", url: "", platform: "tiktok" },
+  { title: "متى تراجع طبيب المسالك؟", url: "", platform: "instagram" },
+  { title: "حقائق عن سرعة القذف", url: "", platform: "instagram" },
+  { title: "صحة البروستاتا بعد الأربعين", url: "", platform: "youtube" },
+  { title: "عادات يومية لصحة الرجل", url: "", platform: "youtube" },
 ]
 
 export const faqs = [
@@ -392,7 +433,7 @@ export const faqs = [
   },
   {
     q: "هل تقدّم تشخيصاً أو وصفات أدوية؟",
-    a: "لا. جميع المحتويات والبرامج تثقيفية فقط، ولا تشمل تشخيصاً أو وصف أدوية. إذا احتجت فحصاً طبياً، نوجّهك لطبيب مختص.",
+    a: "المحتوى المجاني والدورات تثقيفية فقط. أما الاستشارة الخاصة فهي تقييم طبي لحالتك مع خطة واضحة للفحوصات والخطوات التالية.",
   },
   {
     q: "هل البرنامج للرجل فقط أو للزوجين؟",
@@ -404,7 +445,13 @@ export const faqs = [
   },
   {
     q: "كيف أدفع؟",
-    a: "تقدر تدفع بالبطاقة أو Apple Pay، بالريال السعودي أو الدرهم الإماراتي.",
+    a: "للاستشارات: بعد تأكيد موعدك عبر واتساب نرسل لك رابط دفع آمن بالبطاقة. للدورات والبرامج: تتوفر خيارات الدفع عند الإطلاق.",
+  },
+  {
+    q: "كيف أحجز استشارة؟",
+    a: "يمكنك حجز استشارة خاصة من صفحة الحجز.",
+    href: "/book",
+    linkLabel: "احجز استشارة",
   },
   {
     q: "هل في استرجاع للمبلغ؟",
