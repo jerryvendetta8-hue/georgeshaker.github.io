@@ -31,6 +31,7 @@ export default function BookingPage() {
           <p className="text-sm font-semibold text-gold-soft">وقتك لصحتك، بخصوصية تامة</p>
           <h1 className="text-3xl font-bold md:text-5xl">احجز استشارتك</h1>
           <p className="text-xl font-semibold leading-9">الاستشارة: {arabicNumber(consultation.priceUsd)} دولار أمريكي <span className="inline-block text-base font-normal text-cream/80">(حوالي ٩٤٠ ريال / ٩٢٠ درهم)</span></p>
+            <p className="text-lg font-semibold leading-8">للمصريين: ١٬٠٠٠ جنيه مصري</p>
           <p className="text-cream/80">مدة الجلسة: {arabicNumber(consultation.durationMin)} دقيقة · عبر مكالمة فيديو أو صوت بخصوصية تامة</p>
         </div>
       </section>

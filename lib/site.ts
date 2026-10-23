@@ -10,7 +10,8 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/george-shaker-a856b01b9",
   social: {
     tiktok: "https://www.tiktok.com/@dr.george.shaker",
-    instagram: "https://www.instagram.com/dr.georgeshaker",
+    instagram: "https://www.instagram.com/georgeshaker26/",
+    facebook: "https://www.facebook.com/profile.php?id=61595358998627",
     youtube: "https://www.youtube.com/@dr.georgeshaker",
     whatsappChannel: "https://whatsapp.com/channel/",
   },
@@ -170,7 +171,7 @@ export const topics: Topic[] = [
     causes: [
       "التقدم في العمر والتغيرات الهرمونية",
       "العوامل الوراثية",
-      "بعض الحالات المزمنة",
+      "بعض الحالات ال��زمنة",
     ],
     treatments: [
       "المتابعة وتعديل نمط الحياة في الحالات البسيطة",
@@ -333,7 +334,7 @@ export const guides: Guide[] = [
     desc: "دليل عملي لفهم أعراض التهاب��ت المسالك البولية وعادات الوقاية والعلامات التحذيرية.",
     cover: "/images/guide-uti.jpg",
     file: "/guides/uti_prevention_guide.pdf",
-    points: ["التعرّف على أعراض الالتهاب", "عادات يومية للوقاية", "علامات تستدعي الرعاية الط��ية"],
+    points: ["التعرّف على أعراض الالتهاب", "عادات يومية للوقاية", "علامات تستدعي الرعاية الط����ة"],
   },
   {
     slug: "complete-bundle",
