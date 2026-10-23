@@ -12,7 +12,7 @@ export function PhysicianSchema() {
     email: site.email,
     medicalSpecialty: "https://schema.org/Urology",
     hasCredential: credentials.map((name) => ({ "@type": "EducationalOccupationalCredential", name })),
-    sameAs: [site.linkedin, ...Object.values(site.social).filter((url) => url && url !== "https://whatsapp.com/channel/")],
+    sameAs: [...Object.values(site.social).filter((url) => url && url !== "https://whatsapp.com/channel/")],
   }
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(physician).replace(/</g, "\\u003c") }} />
 }

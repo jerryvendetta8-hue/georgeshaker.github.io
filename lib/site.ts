@@ -7,7 +7,6 @@ export const site = {
   phoneDisplay: "+44 7414 951508",
   phoneTel: "+447414951508",
   whatsapp: "447414951508",
-  linkedin: "https://www.linkedin.com/in/george-shaker-a856b01b9",
   social: {
     tiktok: "https://www.tiktok.com/@dr.george.shaker",
     instagram: "https://www.instagram.com/georgeshaker26/",
@@ -334,7 +333,7 @@ export const guides: Guide[] = [
     desc: "دليل عملي لفهم أعراض التهاب��ت المسالك البولية وعادات الوقاية والعلامات التحذيرية.",
     cover: "/images/guide-uti.jpg",
     file: "/guides/uti_prevention_guide.pdf",
-    points: ["التعرّف على أعراض الالتهاب", "عادات يومية للوقاية", "علامات تستدعي الرعاية الط����ة"],
+    points: ["التعرّف على أعراض الالتهاب", "عادات يومية ل��وقاية", "علامات تستدعي الرعاية الط����ة"],
   },
   {
     slug: "complete-bundle",
