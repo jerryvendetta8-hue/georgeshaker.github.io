@@ -10,6 +10,24 @@ function Linkedin({ className }: { className?: string }) {
   )
 }
 
+function Instagram({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+    </svg>
+  )
+}
+
+function Facebook({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46h1.6V4.46A21 21 0 0014.3 4.3c-2.3 0-3.8 1.4-3.8 3.95v2.25H8v3h2.5V21z" />
+    </svg>
+  )
+}
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-line bg-navy text-cream">
@@ -86,6 +104,28 @@ export function SiteFooter() {
               >
                 <Linkedin className="size-4 text-gold-soft" />
                 LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-cream/70 transition-colors hover:text-cream"
+              >
+                <Instagram className="size-4 text-gold-soft" />
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-cream/70 transition-colors hover:text-cream"
+              >
+                <Facebook className="size-4 text-gold-soft" />
+                Facebook
               </a>
             </li>
           </ul>
